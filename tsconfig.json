@@ -1,0 +1,55 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "Actions": ["src/redux/actions/index.ts"],
+      "Actions/*": ["src/redux/actions/*"],
+      "Types/*": ["src/redux/types/*"],
+      "Bases": ["src/components/base/index.ts"],
+      "Templates": ["src/components/templates/index.ts"],
+      "Pages": ["pages"],
+      "Atoms": ["src/components/UI/atoms/index.ts"],
+      "Molecules": ["src/components/UI/molecules/index.ts"],
+      "Organisms": ["src/components/UI/organisms/index.ts"],
+      "Hoc": ["src/components/HOC/index.ts"],
+      "Utils": ["src/utils/index.ts"],
+      "StyleVars": ["styles/global_styles.tsx"],
+    },
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noUnusedLocals": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "noResolve": false,
+    "removeComments": false,
+    "sourceMap": true,
+    "keyofStringsOnly": true,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "next.config.js"
+  ],
+  "typeRoots": ["node_modules/@types", "src/@type", "src/types"]
+}
