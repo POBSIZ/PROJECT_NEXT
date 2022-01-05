@@ -15,9 +15,11 @@ const persistConfig = {
 };
 
 import test from './testReducer';
+import auth from './authReducer'
 
 const rootReducer = combineReducers({
   test,
+  auth,
 });
 
 export default persistReducer(persistConfig, rootReducer);

@@ -1,4 +1,10 @@
-const Bases = {};
+import Header from "./header";
+
+const Bases = {
+    Header,
+};
 
 export default Bases;
-export {};
+export {
+    Header,
+};

@@ -6,7 +6,7 @@ import {
   GetCheckSessionResponseType,
   GetTestParamType,
   GetTestResponseType,
-} from '../types/testTypes';
+} from 'Types/testTypes';
 
 // +/- NUM
 export const INCREMENT = 'test/INCREMENT' as const;

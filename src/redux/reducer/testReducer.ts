@@ -1,6 +1,6 @@
 import { createReducer } from 'typesafe-actions';
 
-import { testAction, testState } from '../types/testTypes';
+import { testAction, testState } from 'Types/testTypes';
 import Actions from 'Actions';
 import {
   INCREMENT,

@@ -4,7 +4,7 @@ import {
   GetCheckSessionResponseType,
   GetTestParamType,
   GetTestResponseType,
-} from '../../types/testTypes';
+} from 'Types/testTypes';
 
 // GET NAME API
 export async function apiGetCheckSession(info: GetCheckSessionPramType) {

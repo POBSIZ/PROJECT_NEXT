@@ -33,8 +33,15 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <PersistGate loading={null} persistor={persistor}>
           <ThemeProvider theme={GlobalStyle}>
             <Head>
+              <link rel="icon" href="/favicon.png" />
+              <meta property="og:image" content="/banner.jpg" />
+              <meta
+                property="og:title"
+                content="PROJECT - 부산 연합 IT 동아리"
+              />
+              <meta property="og:description" content="부산 연합 IT 동아리" />
               <link
-                href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+                href="https://fonts.googleapis.com/icon?family=Material+Icons"
                 rel="stylesheet"
               />
             </Head>

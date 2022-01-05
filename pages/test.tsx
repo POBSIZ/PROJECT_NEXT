@@ -11,6 +11,7 @@ import Molecules from 'Molecules';
 import Organisms from 'Organisms';
 
 import { getCheckSessionAsync, getTestAsync } from 'Actions/testAction';
+import { LoginAsync } from 'Actions/authAction';
 
 const Name: React.FC<any> = ({}) => {
   const storeTest = useSelector((state: RootStateOrAny) => state.test);
@@ -41,6 +42,14 @@ const Name: React.FC<any> = ({}) => {
     dispatch(getCheckSessionAsync.request(data));
   };
 
+  const setLogin = () => {
+    const data = {
+      username: 'project',
+      password: 'plan0531@',
+    };
+    dispatch(LoginAsync.request(data));
+  };
+
   useEffect(() => {
     return () => {};
   }, []);
@@ -57,6 +66,9 @@ const Name: React.FC<any> = ({}) => {
         <button onClick={getName}>GetName</button>
         <button onClick={generate}>Generate</button>
         <h3>{storeTest.test}</h3>
+        <h1>
+          <button onClick={setLogin}>LOGIN</button>
+        </h1>
       </div>
     </>
   );

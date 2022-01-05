@@ -1,3 +1,38 @@
+:root {
+  --color-base-black: rgb(30, 30, 30);
+  --color-line-black: rgba(0, 0, 0, 0.2);
+
+  --color-base-blue: #6070ff;
+  --color-base-red: #d62839;
+
+  --color-key-gradient: linear-gradient(to right, #6070ff 0%, #d62839 100%);
+
+  --color-border: #dadada;
+  --color-base-white: #fff;
+
+  --header-desktop-line-height: 60px;
+  --header-mobile-line-height: 50px;
+}
+
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-style: 500;
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-style: bold;
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'GmarketSans';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
+  font-style: lighter;
+  font-weight: lighter;
+}
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -6,8 +41,13 @@
 }
 
 *{
-  font-family: 'Roboto';
+  font-family: 'GmarketSans';
   box-sizing: border-box;
+  word-break: keep-all;
+}
+
+html{
+    font-size: 10px !important;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -23,50 +63,46 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-margin: 0;
-padding: 0;
-border: 0;
-/* font-size: 100%; */
-/* font: inherit; */
-vertical-align: baseline;
-  text-decoration: none;
-  font-family: 'Roboto';
-  list-style: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+    text-decoration: none;
+    font-family: 'GmarketSans';
+    list-style: none;
 }
-
-html{
-  font-size: 18px;
-}
-
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-display: block;
+	display: block;
 }
 body {
-/* line-height: 1; */
-  margin: 0 !important;
-  padding: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 ol, ul {
-list-style: none;
+	list-style: none;
 }
 blockquote, q {
-quotes: none;
+	quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-content: '';
-content: none;
+	content: '';
+	content: none;
 }
 table {
-border-collapse: collapse;
-border-spacing: 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 .line{
   position: relative;
   border: none;
+}
+
+input{
+    margin: 0;
 }
 
 .material-icons {
@@ -100,9 +136,4 @@ border-spacing: 0;
 
 input:disabled{
   cursor: not-allowed;
-}
-
-.container { padding-top: 60px; }
-@media screen and (max-width: 1000px) {
-  .container { padding-top: 50px; }
 }

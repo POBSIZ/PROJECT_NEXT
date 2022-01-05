@@ -1,7 +1,9 @@
-import { testSaga } from "./test"
+import { testSaga } from './test';
+import { authSaga } from './auth';
 
-const Sagas= [
-    testSaga(),
-]
+const Sagas = [
+	testSaga(), 
+	authSaga(),
+];
 
 export default Sagas;
