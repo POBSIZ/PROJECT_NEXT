@@ -2,7 +2,7 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import rootReducer from '../src/redux/reducer/index';
+import configureStore from '../src/redux/reducer/configureStore';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import StoryRouter from 'storybook-react-router';
 // import GlobalStyle from "../src/assets/GlobalStyles";
@@ -11,7 +11,12 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { Helmet } from 'react-helmet';
 import Head from 'next/head';
 
-import GlobalStyle from 'StyleVars';
+import GlobalStyle from '../styles/global_styles';
+
+import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
+import {} from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
+import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 
 import '../styles/globals.css';
 
@@ -25,7 +30,7 @@ export const parameters = {
   },
 };
 
-const store = createStore(rootReducer, composeWithDevTools());
+const store: any = configureStore();
 const persistor = persistStore(store);
 
 export const decorators = [

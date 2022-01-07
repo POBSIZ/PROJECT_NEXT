@@ -56,20 +56,25 @@ const Name: React.FC<any> = ({}) => {
 
   return (
     <>
-      <h3>{storeTest.name}</h3>
-      <h1>{storeTest.num}</h1>
-      <button onClick={add}>+1</button>
-      <button onClick={minus}>-1</button>
+      <div style={{
+        paddingTop: '100px',
+        textAlign: 'center',
+      }}>
+        <h3>{storeTest.name}</h3>
+        <h1>{storeTest.num}</h1>
+        <button onClick={add}>+1</button>
+        <button onClick={minus}>-1</button>
 
-      <div>
-        <h2>List</h2>
-        <button onClick={getName}>GetName</button>
-        <button onClick={generate}>Generate</button>
-        <h3>{storeTest.test}</h3>
-        <h1>
-          <button onClick={setLogin}>LOGIN</button>
-        </h1>
-      </div>
+        <div>
+          <h2>List</h2>
+          <button onClick={getName}>GetName</button>
+          <button onClick={generate}>Generate</button>
+          <h3>{storeTest.test}</h3>
+          <h1>
+            <button onClick={setLogin}>LOGIN</button>
+          </h1>
+        </div>
+      </div> 
     </>
   );
 };

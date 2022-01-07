@@ -1,0 +1,22 @@
+{
+    "Set Base React Form": {
+        "prefix": "ssc",
+        "body": [
+            "import React, { useEffect, useState, useRef } from 'react';",
+            "import { Meta, Story } from '@storybook/react';",
+            "",
+            "export default {",
+            "\ttitle: '$Name',",
+            "\tcomponent: $Name,",
+            "\tparameters: {},",
+            "} as Meta;",
+            "",
+            "const Template: Story<any> = (args) => <$Name {...args} />;",
+            "",
+            "export const Default = Template.bind({});",
+            "Default.parameters = {};",
+            "Default.args = {};",
+        ],
+        "description": "Set Base React Form"
+    }
+}

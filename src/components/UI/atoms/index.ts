@@ -1,11 +1,11 @@
-import Test from "./test";
+import Test from './test';
+import Logo from './logo';
 
-const Atoms  = {
-    Test,
-}
+const Atoms = {
+  Test,
+  Logo,
+};
 
 export default Atoms;
 
-export {
-    Test,
-}
+export { Test, Logo };

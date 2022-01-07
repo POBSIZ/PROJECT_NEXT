@@ -17,9 +17,20 @@ const Header: React.FC<any> = (props) => {
     <HeaderComponent
       logout={setLogout}
       isAuthenticated={auth.isAuthenticated}
+      profile={auth.userData}
       {...props}
     />
   );
 };
 
 export default Header;
+
+class Test {
+  constructor(testMethod) {
+    this.testMethod = testMethod;
+  }
+
+  testMethod = (num) => {
+    return num * 10;
+  };
+}

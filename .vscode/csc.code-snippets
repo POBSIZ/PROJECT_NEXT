@@ -1,0 +1,18 @@
+{
+	"Set Base React Form": {
+		"prefix": "csc",
+		"body": [
+			"import styled, { css } from 'styled-components';",
+			"",
+			"const Styled$Name = styled.header.attrs((props) => {})`",
+			"\t${(props) => {",
+			"\t\treturn css`",
+			"\t\t`",
+			"\t}};",
+			"`;",
+			"",
+			"export default Styled$Name;",
+		],
+		"description": "Set Base React Form"
+	}
+}

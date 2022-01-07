@@ -1,0 +1,19 @@
+{
+	"Set Base React Form": {
+		"prefix": "crd",
+		"body": [
+			"import React, { useEffect, useState, useRef } from 'react';",
+			"import styled, { css } from 'styled-components';",
+			"",
+			"const $Name: React.FC<any> = ({}) => {",
+			"\treturn(",
+			"\t\t<>",
+			"\t\t</>",
+			"\t);",
+			"};",
+			"",
+			"export default $Name;",
+		],
+		"description": "Set Base React Form"
+	}
+}

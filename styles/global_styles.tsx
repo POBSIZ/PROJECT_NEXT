@@ -2,6 +2,11 @@ import styled, { createGlobalStyle, ThemeProvider, css } from "styled-components
 
 const GlobalStyle = {
     palette: {
+        // 키 컬러
+        $color_key_blue: '#6070ff',
+        $color_key_red: '#d62839',
+        $color_key_gradient: 'linear-gradient(to right, #6070ff 0%, #d62839 100%)',
+
         // 기본 팔레트
         $color_d5_blue: 'rgb(47, 90, 157,100%)',
         $color_d4_blue: 'rgb(59, 105, 190, 100%)',
@@ -9,9 +14,11 @@ const GlobalStyle = {
         $color_d2_blue: 'rgb(106, 158, 255, 100%)',
         $color_d1_blue: 'rgb(180, 206, 255, 100%)',
 
+        // 검정색 팔레트
+        $color_line_black: 'rgba(0, 0, 0, 0.2)',
+        $color_base_black: 'rgb(41, 47, 54, 100%)',
+
         // 회색조 팔레트
-        $line_black: 'rgba(0, 0, 0, 0.2)',
-        $base_black: 'rgb(41, 47, 54, 100%)',
         $color_d4_gray: 'rgb(129, 129, 129, 100%)',
         $color_d3_gray: 'rgb(208, 208, 208, 100%)',
         $color_d2_gray: 'rgb(235, 235, 235, 100%)',

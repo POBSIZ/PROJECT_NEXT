@@ -10,7 +10,7 @@ module.exports = {
   webpackFinal: async (config) => {
     
     config.resolve.alias.Bases = __dirname + "/../src/components/base/index.ts";
-    config.resolve.alias.Actions = __dirname + "/../src/redux/actions/index.ts";
+    config.resolve.alias.Actions = __dirname + "/../src/redux/actions/";
     config.resolve.alias.Vars = __dirname + "/../src/assets/vars.scss";
     config.resolve.alias.Templates = __dirname + "/../src/components/templates/index.ts";
     config.resolve.alias.Pages = __dirname + "/../src/components/pages/";

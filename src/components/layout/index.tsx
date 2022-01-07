@@ -5,7 +5,8 @@ import axios from 'axios';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import { useCookies } from 'react-cookie';
 
-import Bases, { Header } from 'Bases';
+import StyledMain from './main_styled';
+import Bases, { Header, Footer } from 'Bases';
 
 const Layout: React.FC<any> = ({ children }) => {
   const cookies = useCookies();
@@ -19,7 +20,8 @@ const Layout: React.FC<any> = ({ children }) => {
   return (
     <>
       <Header />
-      {children}
+      <StyledMain>{children}</StyledMain>
+      <Footer />
     </>
   );
 };

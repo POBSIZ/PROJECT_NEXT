@@ -5,65 +5,68 @@ import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import Actions from 'Actions';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
-import Atoms from 'Atoms';
+import Atoms, { Logo } from 'Atoms';
 import Molecules from 'Molecules';
 import Organisms from 'Organisms';
 import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
-import {} from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
+import { faBars } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
-
 import Link from 'next/link';
 
-function NavTab({ logout, isAuthenticated }) {
+import StyledHeader from './header_styled';
+
+function NavTab({ logout, isAuthenticated, profile }) {
   const [navTabStyle, setNavTabStyle] = useState<any>();
   const [navBgStyle, setNavBgStyle] = useState<any>();
   const [navStyle, setNavStyle] = useState<any>();
 
   const navOpen = () => {
-    // setNavTabStyle({
-    //   transform: 'translateX(-50%)',
-    //   opacity: '100%',
-    // });
-    // setNavStyle({
-    //   transform: 'translateX(0%)',
-    //   opacity: '100%',
-    // });
-    // setNavBgStyle({
-    //   transform: 'translateX(0%)',
-    //   opacity: '100%',
-    // });
+    setNavTabStyle({
+      transform: 'translateX(-50%)',
+      opacity: '100%',
+    });
+    setNavStyle({
+      transform: 'translateX(0%)',
+      opacity: '100%',
+    });
+    setNavBgStyle({
+      transform: 'translateX(0%)',
+      opacity: '100%',
+    });
   };
 
   const navClose = () => {
-    // setNavStyle({
-    //   transform: `translateX(100%)`,
-    //   opacity: '0',
-    // });
-    // setNavBgStyle({
-    //   transform: `translateX(-100%)`,
-    //   opacity: '100%',
-    // });
-    // setTimeout(() => {
-    //   setNavTabStyle({
-    //     transform: `translateX(-300%)`,
-    //     opacity: '0',
-    //   });
-    // }, 400);
+    setNavStyle({
+      transform: `translateX(100%)`,
+      opacity: '0',
+    });
+    setNavBgStyle({
+      transform: `translateX(-100%)`,
+      opacity: '100%',
+    });
+    setTimeout(() => {
+      setNavTabStyle({
+        transform: `translateX(-300%)`,
+        opacity: '0',
+      });
+    }, 400);
   };
 
   return (
     <nav className="nav">
-      <button className="nav-menuBar material-icons" onClick={navOpen}>
-        menu
-      </button>
+      <FontAwesomeIcon
+        icon={faBars}
+        className="nav-menuBar"
+        onClick={navOpen}
+      />
 
       <div className="navTab" style={navTabStyle}>
         <div className="navTab-container" style={navStyle}>
           <div className="navTab-user">
             {isAuthenticated == false ? (
               <>
-                <Link href="/login">
+                <Link href="/auth/login">
                   <a className="user-login" onClick={navClose}>
                     로그인
                   </a>
@@ -85,7 +88,7 @@ function NavTab({ logout, isAuthenticated }) {
                       <a className="profile-img" onClick={navClose}></a>
                     </Link>
                     <span>
-                      <strong>USER</strong> 님
+                      <strong>{profile.username || 'USER'}</strong> 님
                     </span>
                   </div>
                   <button
@@ -108,6 +111,9 @@ function NavTab({ logout, isAuthenticated }) {
             <Link href="/survey/applier/detail/">
               <a onClick={navClose}>📨지원하기</a>
             </Link>
+            <Link href="/test/">
+              <a onClick={navClose}>TEST</a>
+            </Link>
           </ul>
         </div>
         <div className="navTab-bg" onClick={navClose} style={navBgStyle}></div>
@@ -116,14 +122,22 @@ function NavTab({ logout, isAuthenticated }) {
   );
 }
 
-const HeaderComponent: React.FC<any> = ({ logout, isAuthenticated }) => {
+const HeaderComponent: React.FC<any> = ({
+  logout,
+  isAuthenticated,
+  profile,
+}) => {
   return (
-    <header className="header">
+    <StyledHeader className="header">
       <div className="logo">
-        <Link href="/">PROJECT</Link>
+        <Logo href={'/'}>PROJECT</Logo>
       </div>
-      <NavTab logout={logout} isAuthenticated={isAuthenticated} />
-    </header>
+      <NavTab
+        logout={logout}
+        isAuthenticated={isAuthenticated}
+        profile={profile}
+      />
+    </StyledHeader>
   );
 };
 

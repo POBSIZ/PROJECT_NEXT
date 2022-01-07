@@ -1,10 +1,10 @@
-import Header from "./header";
+import Header from './header';
+import Footer from './footer';
 
 const Bases = {
-    Header,
+  Header,
+  Footer,
 };
 
 export default Bases;
-export {
-    Header,
-};
+export { Header, Footer };
