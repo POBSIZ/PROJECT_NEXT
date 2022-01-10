@@ -8,7 +8,7 @@ const AuthLogin: React.FC<any> = ({}) => {
   return (
     <>
       <AuthForm>
-        <LoginForm/>
+        <LoginForm />
       </AuthForm>
     </>
   );
