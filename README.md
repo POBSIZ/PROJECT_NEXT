@@ -10,3 +10,7 @@
   <li>Redux-Saga</li>
   <li>Jest</li>
 </ol>
+
+<h3>구조</h3>
+
+<h3>코드 규칙</h3>
