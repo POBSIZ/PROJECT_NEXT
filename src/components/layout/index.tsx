@@ -12,7 +12,7 @@ const Layout: React.FC<any> = ({ children }) => {
   const cookies = useCookies();
   const auth = useSelector((store: RootStateOrAny) => store.auth);
 
-  axios.defaults.baseURL = 'https://buscp.org/api/';
+  axios.defaults.baseURL = 'http://buscp.org/api/';
   axios.defaults.withCredentials = true;
   axios.defaults.headers.common['Authorization'] = `JWT ${auth.accessToken}`;
   axios.defaults.headers.common['X-CSRFToken'] = cookies[0].csrftoken;

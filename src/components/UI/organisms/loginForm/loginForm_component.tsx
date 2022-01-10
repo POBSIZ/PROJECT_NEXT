@@ -31,7 +31,7 @@ const LoginFormComponent: React.FC<any> = (props) => {
         />
         <Input
           placeholder="비밀번호"
-          type="current-password"
+          type="password"
           name="password"
           required={true}
         />
