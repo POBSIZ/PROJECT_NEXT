@@ -1,12 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
+import Atoms, { Input, Button } from 'Atoms';
+import Organisms, { AuthForm, LoginForm } from 'Organisms';
+
 const AuthLogin: React.FC<any> = ({}) => {
-    return(
-        <>
-            <h1>LOGIN</h1>
-        </>
-    );
+  return (
+    <>
+      <AuthForm>
+        <LoginForm />
+      </AuthForm>
+    </>
+  );
 };
 
 export default AuthLogin;

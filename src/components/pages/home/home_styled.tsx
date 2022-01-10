@@ -106,19 +106,10 @@ const StyledHome = styled.section.attrs((props) => {})`
       height: 95vh;
       position: relative;
 
-      .expend_more {
-        position: absolute;
-        font-size: 30px;
-        left: 50%;
-        transform: translateX(-50%) translateY(79vh);
-        -webkit-animation: 0.8s ease-in-out 0s infinite alternate move_logo;
-        animation: 0.8s ease-in-out 0s infinite alternate move_logo;
-      }
-
       .about_main {
         position: absolute;
         width: 100%;
-        height: 100%;
+        height: 100vh;
         display: flex;
         align-items: center;
 
@@ -126,7 +117,7 @@ const StyledHome = styled.section.attrs((props) => {})`
           position: relative;
           width: fit-content;
           margin: auto;
-          top: -130px;
+          top: -90px;
 
           display: flex;
           flex-wrap: wrap;
@@ -234,23 +225,6 @@ const StyledHome = styled.section.attrs((props) => {})`
               animation: 1.5s ease-in-out infinite alternate mc5;
             }
           }
-        }
-      }
-
-      @-webkit-keyframes move_logo {
-        from {
-          transform: translateY(79vh);
-        }
-        to {
-          transform: translateY(80vh);
-        }
-      }
-      @keyframes move_logo {
-        from {
-          transform: translateY(79vh);
-        }
-        to {
-          transform: translateY(80vh);
         }
       }
 

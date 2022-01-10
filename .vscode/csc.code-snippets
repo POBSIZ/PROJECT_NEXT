@@ -4,7 +4,7 @@
 		"body": [
 			"import styled, { css } from 'styled-components';",
 			"",
-			"const Styled$Name = styled.header.attrs((props) => {})`",
+			"const Styled$Name = styled.header.attrs((props) => ({}))`",
 			"\t${(props) => {",
 			"\t\treturn css`",
 			"\t\t`",

@@ -1,5 +1,5 @@
 {
-  "name": "tov",
+  "name": "project",
   "private": true,
   "scripts": {
     "dev": "next dev",

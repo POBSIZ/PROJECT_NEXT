@@ -50,7 +50,7 @@ const StyledHeader = styled.header.attrs((props) => {})`
           cursor: pointer;
           color: ${headerBaseBlack};
           border: none;
-          font-size: 30px;
+          font-size: 25px;
           line-height: ${headerDesktopHeight};
           padding: 0;
           background-color: transparent;
@@ -236,7 +236,6 @@ const StyledHeader = styled.header.attrs((props) => {})`
           line-height: ${headerMobileHeight};
           .nav-menuBar {
             line-height: ${headerMobileHeight};
-            font-size: 30px;
           }
 
           .navTab {
