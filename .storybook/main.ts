@@ -11,7 +11,6 @@ module.exports = {
     
     config.resolve.alias.Bases = __dirname + "/../src/components/base/";
     config.resolve.alias.Actions = __dirname + "/../src/redux/actions/";
-    config.resolve.alias.Vars = __dirname + "/../src/assets/vars.scss";
     config.resolve.alias.Templates = __dirname + "/../src/components/templates/";
     config.resolve.alias.UIpages = __dirname + "/../src/components/pages/";
     config.resolve.alias.Atoms = __dirname + "/../src/components/UI/atoms/";
