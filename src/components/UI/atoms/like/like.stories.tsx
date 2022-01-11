@@ -28,4 +28,5 @@ Default.args = {
   width: '50px',
   heigth: '50px',
   backColor: 'primary',
+  isLike: true,
 };

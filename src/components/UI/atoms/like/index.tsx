@@ -8,9 +8,12 @@ import { useCookies } from 'react-cookie';
 import LikeComponent from './like_component';
 
 const Like: React.FC<any> = (props, {}) => {
+  const dispatch = useDispatch();
+  const like = useSelector((store: RootStateOrAny) => store.like);
+
   return (
     <>
-      <LikeComponent {...props}></LikeComponent>
+      <LikeComponent isLike={like.islike} {...props}></LikeComponent>
     </>
   );
 };
