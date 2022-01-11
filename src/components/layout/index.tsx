@@ -7,7 +7,7 @@ import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import { useCookies } from 'react-cookie';
 
 import StyledMain from './main_styled';
-import Bases, { Header, Footer } from 'Bases';
+import Bases, { Header, Footer } from 'Bases/index';
 
 const Layout: React.FC<any> = ({ children }) => {
   const router = useRouter();

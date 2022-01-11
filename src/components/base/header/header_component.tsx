@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
-import Atoms, { Logo } from 'Atoms';
+import Atoms, { Logo } from 'Atoms/index';
 import Molecules from 'Molecules';
 import Organisms from 'Organisms';
 import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
