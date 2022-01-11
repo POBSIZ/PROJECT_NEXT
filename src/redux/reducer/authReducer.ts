@@ -2,7 +2,12 @@ import { createReducer } from 'typesafe-actions';
 
 import Actions from 'Actions';
 import { AuthReducerType, authAction } from 'Types/authTypes';
-import { LOGIN_SUCCESS, LOGOUT, GET_PROFILE_SUCCESS } from 'Actions/authAction';
+import {
+  LOGIN_SUCCESS,
+  LOGOUT,
+  GET_PROFILE_SUCCESS,
+  INIT_PROFILE,
+} from 'Actions/authAction';
 
 const initialState: AuthReducerType = {
   isAuthenticated: false,
@@ -30,6 +35,12 @@ const reducer = createReducer<AuthReducerType, authAction>(initialState, {
     Object.assign({}, state, {
       ...state,
       userData: action.payload,
+    }),
+
+  [INIT_PROFILE]: (state, action) =>
+    Object.assign({}, state, {
+      ...state,
+      userData: null,
     }),
 });
 

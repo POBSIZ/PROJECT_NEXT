@@ -18,7 +18,7 @@ import Link from 'next/link';
 const MoveComponent: React.FC<any> = (props) => {
   return (
     <>
-      <Link href={props.url}>
+      <Link href={props.href}>
         <StyledMove {...props}>{props.children}</StyledMove>
       </Link>
     </>

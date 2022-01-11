@@ -19,6 +19,6 @@ const Template: Story<any> = (args) => (
 export const Default = Template.bind({});
 Default.parameters = {};
 Default.args = {
-  url: 'test',
+  href: 'test',
   children: 'test',
 };

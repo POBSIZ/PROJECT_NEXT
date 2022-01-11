@@ -88,7 +88,7 @@ function NavTab({ logout, isAuthenticated, profile }) {
                       <a className="profile-img" onClick={navClose}></a>
                     </Link>
                     <span>
-                      <strong>{profile.username || 'USER'}</strong> 님
+                      <strong>{profile?.username || 'USER'}</strong> 님
                     </span>
                   </div>
                   <button

@@ -20,7 +20,7 @@ export const LoginAsync = createAsyncAction(LOGIN, LOGIN_SUCCESS, LOGIN_ERROR)<
 
 // LOGOUT Action
 export const LOGOUT = 'auth/LOGOUT' as const;
-export const logout = createAction(LOGOUT)();
+export const Logout = createAction(LOGOUT)();
 
 // GET_PROFILE Async Action
 export const GET_PROFILE = 'auth/GET_PROFILE' as const;
@@ -32,7 +32,11 @@ export const GetProfileAsync = createAsyncAction(
   GET_PROFILE_ERROR,
 )<GetProfileParamType, GetProfileResponseType, AxiosError>();
 
-const constants = {
+// INIT_PROFILE Action
+export const INIT_PROFILE = 'auth/INIT_PROFILE' as const;
+export const InitProfile = createAction(INIT_PROFILE)();
+
+export const constants = {
   LOGIN,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
@@ -40,11 +44,14 @@ const constants = {
   GET_PROFILE,
   GET_PROFILE_SUCCESS,
   GET_PROFILE_ERROR,
+  INIT_PROFILE,
 };
+
 const authAction = {
   LoginAsync,
-  logout,
+  Logout,
   GetProfileAsync,
+  InitProfile,
 };
 
 export default authAction;

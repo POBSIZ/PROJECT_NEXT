@@ -9,10 +9,10 @@ import { useCookies } from 'react-cookie';
 import MoveComponent from './move_component';
 
 export interface MoveParamsType {
-  url: string;
+  href: string;
 }
 
-const Move: React.FC<MoveParamsType> = (props, { url }: MoveParamsType) => {
+const Move: React.FC<MoveParamsType> = (props, { href }: MoveParamsType) => {
   return (
     <>
       <MoveComponent {...props} />

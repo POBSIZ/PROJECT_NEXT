@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 import StyledLoginForm from './loginForm_styled';
 import { LoginFormParamsType } from '.';
 
-import Atoms, { Input, Button } from 'Atoms';
+import Atoms, { Input, Button, Move } from 'Atoms';
 
 const LoginFormComponent: React.FC<any> = (props) => {
   return (
@@ -36,6 +36,7 @@ const LoginFormComponent: React.FC<any> = (props) => {
           required={true}
         />
         <Button backColor="gradient">로그인</Button>
+        <Move href="/test">fhhgj</Move>
       </StyledLoginForm>
     </>
   );

@@ -117,7 +117,7 @@ const StyledHome = styled.section.attrs((props) => {})`
           position: relative;
           width: fit-content;
           margin: auto;
-          top: -90px;
+          top: -10%;
 
           display: flex;
           flex-wrap: wrap;

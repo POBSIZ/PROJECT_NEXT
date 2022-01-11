@@ -1,16 +1,19 @@
 import React from 'react';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
+import { useRouter } from 'next/router';
 
 import HeaderComponent from './header_component';
 
-import { logout, LOGOUT } from 'Actions/authAction';
+import { Logout, LOGOUT } from 'Actions/authAction';
 
 const Header: React.FC<any> = (props) => {
+  const router = useRouter();
   const dispatch = useDispatch();
   const auth = useSelector((store: RootStateOrAny) => store.auth);
 
   const setLogout = () => {
-    dispatch(logout.call(LOGOUT));
+    dispatch(Logout.call(LOGOUT));
+    router.push('/');
   };
 
   return (
@@ -24,13 +27,3 @@ const Header: React.FC<any> = (props) => {
 };
 
 export default Header;
-
-class Test {
-  constructor(testMethod) {
-    this.testMethod = testMethod;
-  }
-
-  testMethod = (num) => {
-    return num * 10;
-  };
-}
