@@ -12,6 +12,9 @@ import Pages, { Home } from 'src/components/pages';
 const HomePage: NextPage = () => {
   return (
     <>
+      <Head>
+        <title>PROJECT</title>
+      </Head>
       <Home />
     </>
   );

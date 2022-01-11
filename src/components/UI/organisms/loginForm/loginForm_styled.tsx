@@ -14,6 +14,14 @@ const StyledLoginForm = styled.form.attrs((props) => ({}))`
         }
       }
 
+      input {
+        margin: 5px 0;
+      }
+
+      button {
+        margin: 5px 0;
+      }
+
       @media screen and (max-width: 1000px) {
         .info {
           span {

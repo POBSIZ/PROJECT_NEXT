@@ -35,6 +35,7 @@ const GlobalStyle = {
         $color_failure: 'rgb(231, 76, 60, 100%)',
         $color_success: 'rgb(46, 204, 113, 100%)',
         $color_warning: 'rgb(241, 196, 15, 100%)',
+        $color_disabled: 'rgb(218, 218, 218, 60%)',
     },
     size: {
         // Header 높이

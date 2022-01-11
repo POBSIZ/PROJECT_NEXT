@@ -21,7 +21,6 @@ const StyledButton = styled.button.attrs((props) => ({}))<ButtonParamsType>`
       background-repeat: no-repeat;
       /* color: ${colorBaseBlack}; */
       color: #fff;
-      margin: 5px 0;
       width: 100%;
       height: 45px;
       border: none;

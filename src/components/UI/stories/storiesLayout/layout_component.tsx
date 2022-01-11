@@ -6,30 +6,22 @@ import Actions from 'Actions';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
-import { faHeart } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
+import {} from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 
-import StyleLike from './like_styled';
+import StyledStoriesLayout from './layout_styled';
 
-const LikeComponent: React.FC<any> = (props) => {
-  const [LikeState, setLikeState] = useState(false);
-
-  const handleLikeState = () => {
-    LikeState ? setLikeState(false) : setLikeState(true);
-  };
-
+const StoiesLayoutComponent: React.FC<any> = (props) => {
   return (
     <>
-      <StyleLike isLike={LikeState} {...props}>
-        <FontAwesomeIcon
-          className="Icon"
-          onClick={handleLikeState}
-          icon={faHeart}
-        />
-      </StyleLike>
+      <StyledStoriesLayout>
+        <h1>{props.title}</h1>
+        <hr />
+        <div className="component">{props.children}</div>
+      </StyledStoriesLayout>
     </>
   );
 };
 
-export default LikeComponent;
+export default StoiesLayoutComponent;

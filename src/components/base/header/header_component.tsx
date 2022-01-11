@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
-import Actions from 'Actions';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import Atoms, { Logo } from 'Atoms';
@@ -72,13 +71,7 @@ function NavTab({ logout, isAuthenticated, profile }) {
                   </a>
                 </Link>
 
-                <p className="user-more">
-                  회원가입을 하실려면{' '}
-                  <Link href="/register">
-                    <a onClick={navClose}>여기</a>
-                  </Link>
-                  를 클릭해주세요
-                </p>
+                <p className="user-more">안녕하세요!</p>
               </>
             ) : (
               <>

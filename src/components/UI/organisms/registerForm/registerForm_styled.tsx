@@ -1,15 +1,10 @@
-// csc
-
 import styled, { css } from 'styled-components';
 
-const StyledMove = styled.a.attrs((props) => ({
-
-}))`
+const StyledRegisterForm = styled.form.attrs((props) => ({}))`
     ${(props) => {
         return css`
-
         `
     }};
 `;
 
-export default StyledMove;
+export default StyledRegisterForm;

@@ -5,16 +5,12 @@ import Actions from 'Actions';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
-import LikeComponent from './like_component';
+import Home from 'Pages';
 
-export interface LikeParamsType {}
+const CheckAuth: React.FC<any> = (props, { children }) => {
+  const authState = useSelector((state: RootStateOrAny) => state.auth);
 
-const Like: React.FC<LikeParamsType> = (props: LikeParamsType) => {
-  return (
-    <>
-      <LikeComponent {...props}></LikeComponent>
-    </>
-  );
+  return <>{authState.isAuthenticated ? { children } : <Home />}</>;
 };
 
-export default Like;
+export default CheckAuth;
