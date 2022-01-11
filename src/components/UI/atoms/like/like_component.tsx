@@ -6,21 +6,25 @@ import Actions from 'Actions';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
-import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
-import { faThumbsUp as outfaThumbs } from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
+import { faHeart } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
+import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 
 import StyleLike from './like_styled';
 
 const LikeComponent: React.FC<any> = (props) => {
-  console.log(props.isLike);
+  const Redheart = '#d62839';
   return (
     <>
       <StyleLike onClick={props.onClick} {...props}>
         {props.isLike == true ? (
-          <FontAwesomeIcon className="Icon" icon={faThumbsUp} />
+          <FontAwesomeIcon
+            style={{ color: Redheart }}
+            className="Icon"
+            icon={faHeart}
+          />
         ) : (
-          <FontAwesomeIcon className="Icon" icon={outfaThumbs} />
+          <FontAwesomeIcon className="Icon" icon={faHeart} />
         )}
       </StyleLike>
     </>
