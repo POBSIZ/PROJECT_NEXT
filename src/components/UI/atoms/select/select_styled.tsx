@@ -4,12 +4,11 @@ import { SelectParamsType } from '.';
 
 const StyledSelect = styled.header.attrs((props) => ({}))<SelectParamsType>`
   ${(props) => {
-    const propsWidth = props.width;
-    const propsHeight = props.height;
     return css`
       .selectbox {
-        width: ${propsWidth};
-        height: ${propsHeight};
+        width: 100%;
+        height: 45px;
+        padding: 15px 0px;
       }
     `;
   }};

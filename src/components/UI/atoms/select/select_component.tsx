@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 
 import StyledSelect from './select_styled';
 
-const Select: React.FC<any> = (props) => {
+const SelectComponent: React.FC<any> = (props) => {
   return (
     <>
       <StyledSelect {...props}>
@@ -30,4 +30,4 @@ const Select: React.FC<any> = (props) => {
   );
 };
 
-export default Select;
+export default SelectComponent;

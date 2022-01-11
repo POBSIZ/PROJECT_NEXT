@@ -12,8 +12,14 @@ export default {
 
 const Template: Story<any> = (args) => (
   <>
-    <StoriesLayout>
-      <Select {...args} />
+    <StoriesLayout title="Atoms/Select">
+      <div
+        style={{
+          width: args.width,
+        }}
+      >
+        <Select {...args} />
+      </div>
     </StoriesLayout>
   </>
 );
@@ -22,6 +28,5 @@ export const Default = Template.bind({});
 Default.parameters = {};
 Default.args = {
   item: ['성별', '남자', '여자'],
-  width: '100px',
-  height: '50px',
+  width: '300px',
 };

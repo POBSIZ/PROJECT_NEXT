@@ -4,16 +4,21 @@ import Actions from 'Actions/index';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
-import Select from './select_component';
+import SelectComponent from './select_component';
 
-export interface SelectParamsType {}
+export interface SelectParamsType {
+  item: string[];
+}
 
-const Name: React.FC<SelectParamsType> = (props, {}) => {
+const Select: React.FC<SelectParamsType> = (
+  props,
+  { item }: SelectParamsType,
+) => {
   return (
     <>
-      <Select {...props} />
+      <SelectComponent {...props} />
     </>
   );
 };
 
-export default Name;
+export default Select;
