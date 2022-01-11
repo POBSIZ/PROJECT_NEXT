@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Meta, Story } from '@storybook/react';
+import StoriesLayout from 'StoriesLayout';
 
 import InputComponent from './input_component';
 
@@ -11,7 +12,14 @@ export default {
     type: {
       control: {
         type: 'select',
-        options: ['text', 'password', 'email']
+        options: [
+          'text',
+          'username',
+          'password',
+          'current-password',
+          'new-password',
+          'email',
+        ],
       },
     },
   },
@@ -19,21 +27,44 @@ export default {
 
 const Template: Story<any> = (args) => (
   <>
-    <div
-      style={{
-        width: args.width,
-      }}
-    >
-      <InputComponent
-        placeholder={args.placeholder}
-        type={args.type}
-        name={args.name}
-        required={args.required}
-        disabled={args.disabled}
-        isFail={args.isFail}
-        {...args}
-      />
-    </div>
+    <StoriesLayout title="Atoms/Input">
+      <div
+        style={{
+          width: args.width,
+        }}
+      >
+        <span className="info">Default</span>
+        <InputComponent
+          placeholder={args.placeholder}
+          type={args.type}
+          name={args.name}
+          required={args.required}
+          disabled={args.disabled}
+          isFail={args.isFail}
+          {...args}
+        />
+
+        <span className="info">Disabled</span>
+        <InputComponent
+          placeholder={args.placeholder}
+          type={args.type}
+          name={args.name}
+          required={args.required}
+          disabled={true}
+          isFail={args.isFail}
+        />
+
+        <span className="info">Failed</span>
+        <InputComponent
+          placeholder={args.placeholder}
+          type={args.type}
+          name={args.name}
+          required={args.required}
+          disabled={args.disabled}
+          isFail={true}
+        />
+      </div>
+    </StoriesLayout>
   </>
 );
 

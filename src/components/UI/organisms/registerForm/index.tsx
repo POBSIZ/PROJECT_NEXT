@@ -1,20 +1,18 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
-import Actions from 'Actions';
+import Actions from 'Actions/index';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
-import LikeComponent from './like_component';
+import RegsterFormComponent from './registerForm_component';
 
-export interface LikeParamsType {}
-
-const Like: React.FC<LikeParamsType> = (props: LikeParamsType) => {
+const RegisterForm: React.FC<any> = (props, {}) => {
   return (
     <>
-      <LikeComponent {...props}></LikeComponent>
+      <RegsterFormComponent {...props} />
     </>
   );
 };
 
-export default Like;
+export default RegisterForm;

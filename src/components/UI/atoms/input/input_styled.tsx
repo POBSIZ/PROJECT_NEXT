@@ -9,6 +9,7 @@ const StyledInput = styled.input.attrs((props) => ({
   disabled: props.disabled || false,
 }))<InputParamsType>`
   ${(props) => {
+    const colorDisabled = props.theme.palette.$color_disabled;
     const colorD3Blue = props.theme.palette.$color_d3_blue;
     const colorBaseBlack = props.theme.palette.$color_base_black;
     const colorLineBlack = props.theme.palette.$color_line_black;
@@ -20,7 +21,6 @@ const StyledInput = styled.input.attrs((props) => ({
     return css`
       background-color: ${bgColor};
       color: ${colorBaseBlack};
-      margin: 5px 0;
       width: 100%;
       height: 45px;
       padding: 5px 10px;
@@ -33,6 +33,10 @@ const StyledInput = styled.input.attrs((props) => ({
 
       &:focus {
         border: 1px solid ${colorD3Blue};
+      }
+
+      &:disabled {
+        background-color: ${colorDisabled};
       }
     `;
   }};

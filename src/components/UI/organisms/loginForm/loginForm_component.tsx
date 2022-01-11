@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
-import Actions from 'Actions';
+import Actions from 'Actions/index';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 import StyledLoginForm from './loginForm_styled';
 import { LoginFormParamsType } from '.';
 
-import Atoms, { Input, Button, Move } from 'Atoms';
+import Atoms, { Input, Button, MoveButton } from 'Atoms/index';
 
 const LoginFormComponent: React.FC<any> = (props) => {
   return (
@@ -36,7 +36,9 @@ const LoginFormComponent: React.FC<any> = (props) => {
           required={true}
         />
         <Button backColor="gradient">로그인</Button>
-        <Move href="/test">fhhgj</Move>
+        <MoveButton href="/auth/register" radius="none" height="45px" width="100%">
+          회원가입
+        </MoveButton>
       </StyledLoginForm>
     </>
   );

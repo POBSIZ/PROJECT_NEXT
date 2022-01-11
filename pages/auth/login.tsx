@@ -1,17 +1,18 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
+import Head from 'next/head';
 
-import Atoms, { Input, Button } from 'Atoms';
-import Organisms, { AuthForm, LoginForm } from 'Organisms';
+import { LoginPageComponent } from 'UIpages/index';
 
-const AuthLogin: React.FC<any> = ({}) => {
+const LoginPage: React.FC<any> = ({}) => {
   return (
     <>
-      <AuthForm>
-        <LoginForm />
-      </AuthForm>
+      <Head>
+        <title>PROJECT | 로그인</title>
+      </Head>
+      <LoginPageComponent />
     </>
   );
 };
 
-export default AuthLogin;
+export default LoginPage;

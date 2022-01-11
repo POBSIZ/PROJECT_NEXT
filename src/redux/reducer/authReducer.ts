@@ -1,6 +1,6 @@
 import { createReducer } from 'typesafe-actions';
 
-import Actions from 'Actions';
+import Actions from 'Actions/index';
 import { AuthReducerType, authAction } from 'Types/authTypes';
 import {
   LOGIN_SUCCESS,

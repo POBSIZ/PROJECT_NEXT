@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Meta, Story } from '@storybook/react';
+import StoriesLayout from 'StoriesLayout';
 
 import LikeComponent from './like_component';
 
@@ -11,14 +12,22 @@ export default {
 
 const Template: Story<any> = (args) => (
   <>
-    <div
-      style={{
-        width: args.width,
-        height: args.height,
-      }}
-    >
-      <LikeComponent onClick={args.onClick} {...args} />
-    </div>
+    <StoriesLayout title="Atoms/Like">
+      <div
+        style={{
+          width: args.width,
+          height: args.height,
+        }}
+      >
+        
+        <span className='info'>Default</span>
+        <LikeComponent {...args} />
+
+        <span className='info'>Liked</span>
+        <LikeComponent isLike={true} {...args} />
+
+      </div>
+    </StoriesLayout>
   </>
 );
 
@@ -27,6 +36,4 @@ Default.parameters = {};
 Default.args = {
   width: '50px',
   heigth: '50px',
-  backColor: 'primary',
-  isLike: true,
 };
