@@ -11,9 +11,11 @@ export default {
 } as Meta;
 
 const Template: Story<any> = (args) => (
-  <AuthForm>
-    <RegisterFormComponent {...args} />
-  </AuthForm>
+  <>
+    <AuthForm>
+      <RegisterFormComponent {...args} />
+    </AuthForm>
+  </>
 );
 
 export const Default = Template.bind({});
