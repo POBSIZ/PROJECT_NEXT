@@ -7,7 +7,8 @@ import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import { useCookies } from 'react-cookie';
 
 import StyledMain from './main_styled';
-import Bases, { Header, Footer, Toast } from 'Bases/index';
+import Bases, { Header, Footer } from 'Bases/index';
+import Molecules, { ToastList } from 'Molecules/index';
 
 const Layout: React.FC<any> = ({ children }) => {
   const router = useRouter();
@@ -32,7 +33,7 @@ const Layout: React.FC<any> = ({ children }) => {
       <Header />
       <StyledMain>{children}</StyledMain>
       <Footer />
-      <Toast />
+      <ToastList />
     </>
   );
 };

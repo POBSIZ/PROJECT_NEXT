@@ -7,8 +7,15 @@ import Actions from 'Actions/index';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
 
-import { getCheckSessionAsync, getTestAsync } from 'Actions/testAction';
+import {
+  getCheckSessionAsync,
+  getTestAsync,
+  increment,
+} from 'Actions/testAction';
 import { LoginAsync } from 'Actions/authAction';
+import { pushToast } from 'Actions/toastAction';
+import { randomInt } from 'crypto';
+import { PushToastActionParamType } from 'Types/toastTypes';
 
 const Name: React.FC<any> = ({}) => {
   const storeTest = useSelector((state: RootStateOrAny) => state.test);
@@ -32,16 +39,25 @@ const Name: React.FC<any> = ({}) => {
     dispatch(LoginAsync.request(data));
   };
 
+  const popToast = () => {
+    const radNum = Math.floor(Math.random() * 100);
+    dispatch(
+      pushToast({ is_pop: false, status: 'default', message: String(radNum) }),
+    );
+  };
+
   useEffect(() => {
     return () => {};
   }, []);
 
   return (
     <>
-      <div style={{
-        paddingTop: '100px',
-        textAlign: 'center',
-      }}>
+      <div
+        style={{
+          paddingTop: '100px',
+          textAlign: 'center',
+        }}
+      >
         <div>
           <h2>List</h2>
           <button onClick={getName}>GetName</button>
@@ -50,8 +66,11 @@ const Name: React.FC<any> = ({}) => {
           <h1>
             <button onClick={setLogin}>LOGIN</button>
           </h1>
+          <h1>
+            <button onClick={popToast}>TOAST</button>
+          </h1>
         </div>
-      </div> 
+      </div>
     </>
   );
 };

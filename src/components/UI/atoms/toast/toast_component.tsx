@@ -15,7 +15,10 @@ import StyledToast from './toast_styled';
 const ToastComponent: React.FC<any> = (props) => {
   return (
     <>
-      <StyledToast {...props} />
+      <StyledToast {...props}>
+        <div className='type'></div>
+        <h2>{props.message}</h2>
+      </StyledToast>
     </>
   );
 };
