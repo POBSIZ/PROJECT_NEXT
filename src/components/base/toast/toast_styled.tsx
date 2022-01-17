@@ -5,6 +5,7 @@ const StyledToast = styled.div.attrs((props) => ({}))`
     return css`
       position: fixed;
       bottom: 0;
+      margin-bottom: 2%;
     `;
   }};
 `;
