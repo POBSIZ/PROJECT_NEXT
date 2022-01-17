@@ -7,7 +7,7 @@ import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import { useCookies } from 'react-cookie';
 
 import StyledMain from './main_styled';
-import Bases, { Header, Footer } from 'Bases';
+import Bases, { Header, Footer, Toast } from 'Bases/index';
 
 const Layout: React.FC<any> = ({ children }) => {
   const router = useRouter();
@@ -16,7 +16,7 @@ const Layout: React.FC<any> = ({ children }) => {
 
   axios.defaults.baseURL = 'http://buscp.org/api/';
   axios.defaults.withCredentials = true;
-  axios.defaults.headers.common['Authorization'] = `JWT ${auth.accessToken}`;
+  axios.defaults.headers.common['Authorization'] = `JWT ${auth?.accessToken}`;
   axios.defaults.headers.common['X-CSRFToken'] = cookies[0].csrftoken;
 
   useEffect(() => {
@@ -32,6 +32,7 @@ const Layout: React.FC<any> = ({ children }) => {
       <Header />
       <StyledMain>{children}</StyledMain>
       <Footer />
+      <Toast />
     </>
   );
 };

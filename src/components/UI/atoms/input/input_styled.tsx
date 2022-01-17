@@ -24,7 +24,7 @@ const StyledInput = styled.input.attrs((props) => ({
       width: 100%;
       height: 45px;
       padding: 5px 10px;
-      font-size: 1.4em;
+      font-size: 1em;
       font-weight: 500;
       outline: none;
       border: 1px solid ${borderColor};

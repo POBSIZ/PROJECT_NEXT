@@ -4,6 +4,7 @@ import styled, { css } from 'styled-components';
 import InputComponent from './input_component';
 
 export interface InputParamsType {
+  className?: string;
   placeholder: string;
   type:
     | 'text'
@@ -11,7 +12,8 @@ export interface InputParamsType {
     | 'password'
     | 'current-password'
     | 'new-password'
-    | 'email';
+    | 'email'
+    | string;
   name: string;
   required?: boolean;
   disabled?: boolean;
@@ -20,7 +22,7 @@ export interface InputParamsType {
 
 const Input: React.FC<InputParamsType> = (
   props,
-  { placeholder, type, name, required, disabled, isFail }: InputParamsType,
+  { className, placeholder, type, name, required, disabled, isFail }: InputParamsType,
 ) => {
   return (
     <>

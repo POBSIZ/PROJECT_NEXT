@@ -19,8 +19,8 @@ const Header: React.FC<any> = (props) => {
   return (
     <HeaderComponent
       logout={setLogout}
-      isAuthenticated={auth.isAuthenticated}
-      profile={auth.userData}
+      isAuthenticated={auth?.isAuthenticated}
+      profile={auth?.userData}
       {...props}
     />
   );

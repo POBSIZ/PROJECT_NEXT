@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 
 export interface ButtonParamsType {
   children: string;
-  backColor: 'primary' | 'gradient';
+  backColor: 'primary' | 'gradient' | 'black';
 }
 
 const Button: React.FC<ButtonParamsType> = (props, {}: ButtonParamsType) => {

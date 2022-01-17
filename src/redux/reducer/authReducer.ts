@@ -1,7 +1,7 @@
 import { createReducer } from 'typesafe-actions';
 
 import Actions from 'Actions/index';
-import { AuthReducerType, authAction } from 'Types/authTypes';
+import { AuthReducerType, authActionType } from 'Types/authTypes';
 import {
   LOGIN_SUCCESS,
   LOGOUT,
@@ -16,32 +16,35 @@ const initialState: AuthReducerType = {
   userResult: null,
 };
 
-const reducer = createReducer<AuthReducerType, authAction>(initialState, {
-  [LOGIN_SUCCESS]: (state, action) =>
-    Object.assign({}, state, {
-      ...state,
-      isAuthenticated: true,
-      accessToken: action.payload,
-    }),
+const authReducer = createReducer<AuthReducerType, authActionType>(
+  initialState,
+  {
+    [LOGIN_SUCCESS]: (state, action) =>
+      Object.assign({}, state, {
+        ...state,
+        isAuthenticated: true,
+        accessToken: action.payload,
+      }),
 
-  [LOGOUT]: (state, action) =>
-    Object.assign({}, state, {
-      ...state,
-      isAuthenticated: false,
-      accessToken: '',
-    }),
+    [LOGOUT]: (state, action) =>
+      Object.assign({}, state, {
+        ...state,
+        isAuthenticated: false,
+        accessToken: '',
+      }),
 
-  [GET_PROFILE_SUCCESS]: (state, action) =>
-    Object.assign({}, state, {
-      ...state,
-      userData: action.payload,
-    }),
+    [GET_PROFILE_SUCCESS]: (state, action) =>
+      Object.assign({}, state, {
+        ...state,
+        userData: action.payload,
+      }),
 
-  [INIT_PROFILE]: (state, action) =>
-    Object.assign({}, state, {
-      ...state,
-      userData: null,
-    }),
-});
+    [INIT_PROFILE]: (state, action) =>
+      Object.assign({}, state, {
+        ...state,
+        userData: null,
+      }),
+  },
+);
 
-export default reducer;
+export default authReducer;

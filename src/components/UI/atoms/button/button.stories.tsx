@@ -12,7 +12,7 @@ export default {
     backColor: {
       control: {
         type: 'select',
-        options: ['primary', 'gradient'],
+        options: ['primary', 'gradient', 'black'],
       },
     },
     type: {
@@ -47,6 +47,14 @@ const Template: Story<any> = (args) => (
           onClick={args.onClick}
           type={args.type}
           backColor="gradient"
+        />
+
+        <span className='info'>Black</span>
+        <ButtonComponent
+          children={args.children}
+          onClick={args.onClick}
+          type={args.type}
+          backColor="black"
         />
       </div>
     </StoriesLayout>

@@ -36,7 +36,7 @@ export const GetProfileAsync = createAsyncAction(
 export const INIT_PROFILE = 'auth/INIT_PROFILE' as const;
 export const InitProfile = createAction(INIT_PROFILE)();
 
-export const constants = {
+export const authConstants = {
   LOGIN,
   LOGIN_SUCCESS,
   LOGIN_ERROR,

@@ -14,12 +14,14 @@ const persistConfig = {
   // blacklist: [],
 };
 
-import test from './testReducer';
-import auth from './authReducer'
+import testReducer from './testReducer';
+import authReducer from './authReducer';
+import toastReducer from './toastReducer';
 
 const rootReducer = combineReducers({
-  test,
-  auth,
+  testReducer,
+  authReducer,
+  toastReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

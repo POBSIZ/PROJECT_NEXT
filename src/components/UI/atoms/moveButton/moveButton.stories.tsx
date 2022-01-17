@@ -16,6 +16,12 @@ export default {
         options: ['none', '4', '8', '16', '32', '64'],
       },
     },
+    backColor: {
+      control: {
+        type: 'select',
+        options: ['none', 'primary', 'gradient'],
+      },
+    },
   },
 } as Meta;
 
@@ -51,4 +57,5 @@ Default.args = {
   radius: 'none',
   width: 'auto',
   height: 'auto',
+  backColor: 'primary',
 };

@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
-import Atoms, { Logo } from 'Atoms';
-import Molecules from 'Molecules';
-import Organisms from 'Organisms';
+import Atoms, { Logo } from 'Atoms/index';
+import Molecules from 'Molecules/index';
+import Organisms from 'Organisms/index';
 import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
 import { faBars } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
@@ -63,7 +63,7 @@ function NavTab({ logout, isAuthenticated, profile }) {
       <div className="navTab" style={navTabStyle}>
         <div className="navTab-container" style={navStyle}>
           <div className="navTab-user">
-            {isAuthenticated == false ? (
+            {isAuthenticated == false || isAuthenticated == undefined ? (
               <>
                 <Link href="/auth/login">
                   <a className="user-login" onClick={navClose}>
