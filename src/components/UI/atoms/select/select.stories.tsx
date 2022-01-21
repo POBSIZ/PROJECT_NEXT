@@ -27,6 +27,7 @@ const Template: Story<any> = (args) => (
 export const Default = Template.bind({});
 Default.parameters = {};
 Default.args = {
-  item: ['성별', '남자', '여자'],
+  item: ['남자', '여자'],
+  placeholder: 'default',
   width: '300px',
 };

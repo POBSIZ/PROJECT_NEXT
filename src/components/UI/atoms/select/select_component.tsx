@@ -17,6 +17,9 @@ const SelectComponent: React.FC<any> = (props) => {
     <>
       <StyledSelect {...props}>
         <select className="selectbox">
+          <option value="none" selected hidden style={{}}>
+            {props.placeholder}
+          </option>
           {props.item.map((item: string) => {
             return (
               <option key={item} value={item}>

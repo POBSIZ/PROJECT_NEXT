@@ -8,18 +8,42 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "Actions/*": ["src/redux/actions/*"],
-      "Types/*": ["src/redux/types/*"],
-      "Bases/*": ["src/components/base/*"],
-      "Templates/*": ["src/components/templates/*"],
-      "UIpages/*": ["src/components/pages/*"],
-      "Atoms/*": ["src/components/UI/atoms/*"],
-      "Molecules/*": ["src/components/UI/molecules/*"],
-      "Organisms/*": ["src/components/UI/organisms/*"],
-      "Hoc/*": ["src/components/HOC/*"],
-      "Utils/*": ["src/utils/*"],
-      "StyleVars": ["styles/global_styles.tsx"],
-      "StoriesLayout": ["src/components/UI/stories/storiesLayout/index.tsx"],
+      "Actions/*": [
+        "src/redux/actions/*"
+      ],
+      "Types/*": [
+        "src/redux/types/*"
+      ],
+      "Bases/*": [
+        "src/components/base/*"
+      ],
+      "Templates/*": [
+        "src/components/templates/*"
+      ],
+      "UIpages/*": [
+        "src/components/pages/*"
+      ],
+      "Atoms/*": [
+        "src/components/UI/atoms/*"
+      ],
+      "Molecules/*": [
+        "src/components/UI/molecules/*"
+      ],
+      "Organisms/*": [
+        "src/components/UI/organisms/*"
+      ],
+      "Hoc/*": [
+        "src/components/HOC/*"
+      ],
+      "Utils/*": [
+        "src/utils/*"
+      ],
+      "StyleVars": [
+        "styles/global_styles.tsx"
+      ],
+      "StoriesLayout": [
+        "src/components/UI/stories/storiesLayout/index.tsx"
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -51,5 +75,9 @@
     "node_modules",
     "next.config.js"
   ],
-  "typeRoots": ["node_modules/@types", "src/@type", "src/types"]
+  "typeRoots": [
+    "node_modules/@types",
+    "src/@type",
+    "src/types"
+  ]
 }
