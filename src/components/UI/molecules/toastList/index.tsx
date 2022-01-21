@@ -17,9 +17,9 @@ const ToastList: React.FC<any> = (props, {}) => {
   const toast_state = useSelector(
     (state: RootStateOrAny) => state.toastReducer,
   );
+  const toast_list = toast_state.toJS('toast_stack').toast_stack;
 
   const setToastList = () => {
-    const toast_list = Object.assign([], toast_state.toast_stack);
     const toast = toast_list.map((item) => {
       item.is_pop = true;
       return item;
@@ -30,13 +30,11 @@ const ToastList: React.FC<any> = (props, {}) => {
   useEffect(() => {
     setToastList();
     return () => {};
-  }, []);
-
-  console.log(toast_state.toast_stack);
+  }, [toast_state]);
 
   return (
     <>
-      <ToastListComponent {...props} toast_list={toast_state.toast_stack} />
+      <ToastListComponent {...props} toast_list={toast_list} />
     </>
   );
 };

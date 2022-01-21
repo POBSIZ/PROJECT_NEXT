@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux-immutablejs';
 import { persistReducer } from 'redux-persist';
 // import storage from "redux-persist/lib/storage";
 import storage from 'redux-persist/lib/storage/session';

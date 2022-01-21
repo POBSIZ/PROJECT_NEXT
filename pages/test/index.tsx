@@ -14,8 +14,6 @@ import {
 } from 'Actions/testAction';
 import { LoginAsync } from 'Actions/authAction';
 import { pushToast } from 'Actions/toastAction';
-import { randomInt } from 'crypto';
-import { PushToastActionParamType } from 'Types/toastTypes';
 
 const Name: React.FC<any> = ({}) => {
   const storeTest = useSelector((state: RootStateOrAny) => state.test);
