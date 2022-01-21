@@ -15,10 +15,11 @@ import StyledRegisterForm from './registerForm_styled';
 import Atoms, { Input, Select, Button } from 'Atoms/index';
 
 const RegsterFormComponent: React.FC<any> = (props) => {
-  const item = ['성별', '남자', '여자'];
+  const item = ['남자', '여자'];
+  const select_default = '선택해주세요';
   return (
     <>
-      <StyledRegisterForm {...props}>
+      <StyledRegisterForm onSubmit={props.onSubmit} {...props}>
         <div className="header">
           <h1>회원가입</h1>
         </div>
@@ -26,10 +27,10 @@ const RegsterFormComponent: React.FC<any> = (props) => {
         <label className="line">
           <span>이름</span>
           <div className="line_container">
-            <div style={{ width: '100%', marginRight: '10px' }}>
+            <div style={{ width: '100%' }}>
               <Input placeholder="성" type="text" name="text" />
             </div>
-            <div style={{ width: '100%', marginLeft: '20px' }}>
+            <div style={{ width: '100%' }}>
               <Input placeholder="이름" type="text" name="text" />
             </div>
           </div>
@@ -38,7 +39,7 @@ const RegsterFormComponent: React.FC<any> = (props) => {
         <label className="line">
           <span>성별</span>
           <div className="line_container">
-            <Select item={item} />
+            <Select placeholder={select_default} item={item} />
           </div>
         </label>
 

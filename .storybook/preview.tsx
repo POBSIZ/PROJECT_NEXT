@@ -53,7 +53,7 @@ export const decorators = [
               type="text/css"
               href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
             />
-            <link rel="stylesheet" href="../styles/init.css" />
+            <link rel="stylesheet" href="../styles/global.css" />
           </Head>
           <Story />
         </ThemeProvider>

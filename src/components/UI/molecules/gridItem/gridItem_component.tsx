@@ -9,28 +9,28 @@ import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
 import {} from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
+import Banner from './banner.jpg';
+import StyledGridList from './gridItem_styled';
 
-import StyledSelect from './select_styled';
+import Atoms, { Badge } from 'Atoms/index';
+import Image from 'next/image';
 
-const SelectComponent: React.FC<any> = (props) => {
+const GridItemComponent: React.FC<any> = ({}) => {
   return (
     <>
-      <StyledSelect {...props}>
-        <select className="selectbox" disabled={props.disabled}>
-          <option value="none" selected hidden style={{}}>
-            {props.placeholder}
-          </option>
-          {props.item.map((item: string) => {
-            return (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            );
-          })}
-        </select>
-      </StyledSelect>
+      <StyledGridList>
+        <div className="Image-div">
+          <Image
+            layout="responsive"
+            width="100px"
+            height="100px"
+            src={Banner}
+          ></Image>
+        </div>
+        <Badge backColor="gradient">test</Badge>
+      </StyledGridList>
     </>
   );
 };
 
-export default SelectComponent;
+export default GridItemComponent;

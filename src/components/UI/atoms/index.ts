@@ -5,6 +5,7 @@ import Button from './button';
 import MoveButton from './moveButton';
 import Select from './select';
 import Toast from './toast';
+import Badge from './badge'
 
 const Atoms = {
   Test,
@@ -14,8 +15,9 @@ const Atoms = {
   MoveButton,
   Select,
   Toast,
+  Badge
 };
 
 export default Atoms;
 
-export { Test, Logo, Input, Button, MoveButton, Select, Toast };
+export { Test, Logo, Input, Button, MoveButton, Select, Toast ,Badge};
