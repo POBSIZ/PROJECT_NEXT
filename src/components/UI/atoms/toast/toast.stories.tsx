@@ -7,13 +7,31 @@ export default {
   title: 'Atoms/Toast',
   component: ToastComponent,
   parameters: {},
+  argTypes: {
+    status: {
+      control: {
+        type: 'select',
+        options: ['default', 'error', 'success', 'warning'],
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story<any> = (args) => (
   <>
     <StoriesLayout title="Atoms/Toast">
       <div style={{ width: '300px' }}>
+        <span className='info'>Default</span>
         <ToastComponent {...args} />
+
+        <span className='info'>Success</span>
+        <ToastComponent {...args} status='success' />
+
+        <span className='info'>Warning</span>
+        <ToastComponent {...args} status='warning' />
+
+        <span className='info'>Error</span>
+        <ToastComponent {...args} status='error' />
       </div>
     </StoriesLayout>
   </>

@@ -32,6 +32,7 @@ const LoginFormComponent: React.FC<any> = (props) => {
           radius="none"
           height="45px"
           width="100%"
+          backColor='none'
         >
           회원가입
         </MoveButton>
