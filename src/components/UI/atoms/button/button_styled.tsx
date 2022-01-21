@@ -6,13 +6,17 @@ const StyledButton = styled.button.attrs((props) => ({}))<ButtonParamsType>`
   ${(props) => {
     const colorBaseBlack = props.theme.palette.$color_base_black;
     const colorKeyGradient = props.theme.palette.$color_key_gradient;
+    const colorKeyBlue = props.theme.palette.$color_key_blue;
+    const colorKeyRed = props.theme.palette.$color_key_red;
 
     const bgColor =
       props.backColor === 'primary'
-        ? `background-color: ${colorBaseBlack};`
+        ? `background-color: ${colorKeyBlue};`
         : props.backColor === 'gradient'
         ? `background-image: ${colorKeyGradient};`
-        : colorBaseBlack;
+        : props.backColor === 'black'
+        ? `background-color: ${colorBaseBlack};`
+        : `background-color: ${colorBaseBlack}`;
 
     return css`
       background: ${colorBaseBlack};
@@ -25,7 +29,7 @@ const StyledButton = styled.button.attrs((props) => ({}))<ButtonParamsType>`
       height: 45px;
       border: none;
       padding: 5px 10px;
-      font-size: 1.4em;
+      font-size: 1em;
       font-weight: 500;
       outline: none;
       cursor: pointer;

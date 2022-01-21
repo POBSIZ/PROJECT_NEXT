@@ -35,7 +35,7 @@ export const getTestAsync = createAsyncAction(
   GET_TEST_ERROR,
 )<GetTestParamType, GetTestResponseType, AxiosError>();
 
-const constants = {
+const testConstants = {
   INCREMENT,
   DECREMENT,
   GET_CHECK_SESSION,
@@ -45,7 +45,6 @@ const constants = {
 };
 
 const testAction = {
-  constants,
   increment,
   decrement,
   getCheckSessionAsync,

@@ -11,6 +11,7 @@ const StyledLoginForm = styled.form.attrs((props) => ({}))`
         }
         span {
           font-size: 16px;
+          font-weight: lighter;
         }
       }
 

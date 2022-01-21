@@ -14,6 +14,7 @@ import StyledLoginForm from './loginForm_styled';
 import { LoginFormParamsType } from '.';
 
 import Atoms, { Input, Button, MoveButton } from 'Atoms/index';
+import Molecules, { IconInput } from 'Molecules/index';
 
 const LoginFormComponent: React.FC<any> = (props) => {
   return (
@@ -23,20 +24,15 @@ const LoginFormComponent: React.FC<any> = (props) => {
           <h1>안녕하세요!</h1>
           <span>계정 정보를 입력하고 로그인 해주세요.</span>
         </div>
-        <Input
-          placeholder="아이디"
-          type="username"
-          name="username"
-          required={true}
-        />
-        <Input
-          placeholder="비밀번호"
-          type="password"
-          name="password"
-          required={true}
-        />
+        <IconInput type="username" />
+        <IconInput type="password" />
         <Button backColor="gradient">로그인</Button>
-        <MoveButton href="/auth/register" radius="none" height="45px" width="100%">
+        <MoveButton
+          href="/auth/register"
+          radius="none"
+          height="45px"
+          width="100%"
+        >
           회원가입
         </MoveButton>
       </StyledLoginForm>

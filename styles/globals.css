@@ -1,20 +1,4 @@
-:root {
-  --color-base-black: rgb(30, 30, 30);
-  --color-line-black: rgba(0, 0, 0, 0.2);
-
-  --color-base-blue: #6070ff;
-  --color-base-red: #d62839;
-
-  --color-key-gradient: linear-gradient(to right, #6070ff 0%, #d62839 100%);
-
-  --color-border: #dadada;
-  --color-base-white: #fff;
-
-  --header-desktop-line-height: 60px;
-  --header-mobile-line-height: 50px;
-}
-
-@font-face {
+/* @font-face {
   font-family: 'GmarketSans';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
   font-style: 500;
@@ -31,23 +15,17 @@
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff') format('woff');
   font-style: lighter;
   font-weight: lighter;
-}
-
-@font-face {
-  font-family: 'Material Icons';
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://example.com/MaterialIcons-Regular.eot);
-}
+} */
 
 *{
-  font-family: 'GmarketSans';
+  /* font-family: 'GmarketSans'; */
+  font-family: 'Pretendard';
   box-sizing: border-box;
   word-break: keep-all;
 }
 
 html{
-    font-size: 10px !important;
+  font-size: 16px !important;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -67,19 +45,21 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	vertical-align: baseline;
-    text-decoration: none;
-    font-family: 'GmarketSans';
-    list-style: none;
+  text-decoration: none;
+  list-style: none;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
 body {
     margin: 0 !important;
     padding: 0 !important;
 }
+
 ol, ul {
 	list-style: none;
 }
@@ -102,36 +82,7 @@ table {
 }
 
 input{
-    margin: 0;
-}
-
-.material-icons {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
-  display: inline-block;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  /* Support for all WebKit browsers. */
-  -webkit-font-smoothing: antialiased;
-  /* Support for Safari and Chrome. */
-  text-rendering: optimizeLegibility;
-
-  /* Support for Firefox. */
-  -moz-osx-font-smoothing: grayscale;
-
-  /* Support for IE. */
-  font-feature-settings: 'liga';
-}
-
-.emoji{
-  font-weight: 500 !important;
+  margin: 0;
 }
 
 input:disabled{

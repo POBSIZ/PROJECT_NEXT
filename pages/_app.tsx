@@ -16,8 +16,9 @@ const App = ({ Component, pageProps }: AppProps) => {
           <meta property="og:title" content="PROJECT - 부산 연합 IT 동아리" />
           <meta property="og:description" content="부산 연합 IT 동아리" />
           <link
-            href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
           />
         </Head>
         <Layout>

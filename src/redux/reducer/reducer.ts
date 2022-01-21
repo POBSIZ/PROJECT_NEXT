@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux-immutablejs';
 import { persistReducer } from 'redux-persist';
 // import storage from "redux-persist/lib/storage";
 import storage from 'redux-persist/lib/storage/session';
@@ -14,12 +15,14 @@ const persistConfig = {
   // blacklist: [],
 };
 
-import test from './testReducer';
-import auth from './authReducer'
+import testReducer from './testReducer';
+import authReducer from './authReducer';
+import toastReducer from './toastReducer';
 
 const rootReducer = combineReducers({
-  test,
-  auth,
+  testReducer,
+  authReducer,
+  toastReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

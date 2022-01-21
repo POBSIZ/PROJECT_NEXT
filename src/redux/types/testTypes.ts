@@ -1,5 +1,11 @@
 import { ActionType } from 'typesafe-actions';
-import Actions from 'Actions';
+import testAction from 'Actions/testAction';
+
+export interface TestReducerType {
+  num: number;
+  name: string;
+  test: any;
+}
 
 // +/- NUM TYPE
 export type testState = {
@@ -24,4 +30,4 @@ export interface GetTestResponseType {
   test: any;
 }
 
-export type testAction = ActionType<typeof Actions.test>;
+export type testActionType = ActionType<typeof testAction>;

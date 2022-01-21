@@ -109,7 +109,7 @@ const StyledHeader = styled.header.attrs((props) => {})`
 
                 &:hover {
                   &::after {
-                    transform: scaleX(100%);
+                    /* transform: scaleX(100%); */
                   }
                 }
               }

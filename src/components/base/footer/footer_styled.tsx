@@ -18,8 +18,8 @@ const StyledFooter = styled.footer.attrs((props) => {})`
       flex-wrap: wrap;
 
       .footer-logo {
-        font-weight: bold;
-        font-size: 35px;
+        font-weight: black;
+        font-size: 2.2em;
         line-height: 150px;
       }
 
@@ -29,7 +29,7 @@ const StyledFooter = styled.footer.attrs((props) => {})`
         text-align: center;
         align-items: center;
         justify-content: center;
-        font-size: 1.2rem;
+        font-size: 0.8rem;
 
         .footer-copyright {
         }

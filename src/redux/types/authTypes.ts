@@ -1,5 +1,5 @@
 import { ActionType } from 'typesafe-actions';
-import Actions from 'Actions';
+import authAction, { authConstants } from 'Actions/authAction';
 
 // Auth Reducer Type
 export interface AuthReducerType {
@@ -30,4 +30,4 @@ export interface GetProfileResponseType {
   date_joined: string;
 }
 
-export type authAction = ActionType<typeof Actions.auth>;
+export type authActionType = ActionType<typeof authAction>;
