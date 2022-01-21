@@ -40,8 +40,9 @@ export const decorators = [
         <ThemeProvider theme={GlobalStyle}>
           <Head>
             <link
-              href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
               rel="stylesheet"
+              type="text/css"
+              href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
             />
             <link rel="stylesheet" href="../styles/init.css" />
           </Head>

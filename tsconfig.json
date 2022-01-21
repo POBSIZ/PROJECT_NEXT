@@ -73,7 +73,8 @@
   ],
   "exclude": [
     "node_modules",
-    "next.config.js"
+    "next.config.js",
+    "main.ts"
   ],
   "typeRoots": [
     "node_modules/@types",
