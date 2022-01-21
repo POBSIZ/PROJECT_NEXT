@@ -19,7 +19,7 @@
 
 *{
   /* font-family: 'GmarketSans'; */
-  font-family: 'Pretendard';
+  font-family: 'Pretendard' !important;
   box-sizing: border-box;
   word-break: keep-all;
 }
