@@ -41,7 +41,7 @@ function* GetProfileSaga(action: ReturnType<typeof GetProfileAsync.request>) {
 }
 
 export function* authSaga() {
-  yield takeLatest(LOGIN, LoginSaga); // 기존 작업을 모두 취소하고 실행 시킬때는 takeLatests
+  yield takeLatest(LOGIN, LoginSaga); // 여러번 요청이 들어올 시 가장 마지막에 들어온 요청만 실행
   yield takeLatest(GET_PROFILE, GetProfileSaga);
 }
 
