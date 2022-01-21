@@ -19,7 +19,7 @@ const RegsterFormComponent: React.FC<any> = (props) => {
   const select_default = '선택해주세요';
   return (
     <>
-      <StyledRegisterForm {...props}>
+      <StyledRegisterForm onSubmit={props.onSubmit} {...props}>
         <div className="header">
           <h1>회원가입</h1>
         </div>
@@ -27,10 +27,10 @@ const RegsterFormComponent: React.FC<any> = (props) => {
         <label className="line">
           <span>이름</span>
           <div className="line_container">
-            <div style={{ width: '100%', marginRight: '10px' }}>
+            <div style={{ width: '100%' }}>
               <Input placeholder="성" type="text" name="text" />
             </div>
-            <div style={{ width: '100%', marginLeft: '20px' }}>
+            <div style={{ width: '100%' }}>
               <Input placeholder="이름" type="text" name="text" />
             </div>
           </div>

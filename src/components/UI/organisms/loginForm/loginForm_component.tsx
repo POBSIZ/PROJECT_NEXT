@@ -28,6 +28,7 @@ const LoginFormComponent: React.FC<any> = (props) => {
         <IconInput type="password" />
         <Button backColor="gradient">로그인</Button>
         <MoveButton
+          backColor="none"
           href="/auth/register"
           radius="none"
           height="45px"

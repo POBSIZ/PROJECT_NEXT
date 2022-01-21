@@ -8,9 +8,17 @@ import { useCookies } from 'react-cookie';
 import RegsterFormComponent from './registerForm_component';
 
 const RegisterForm: React.FC<any> = (props, {}) => {
+  const setRegister = (e) => {
+    e.preventDefalt();
+    e.persist();
+
+    const data = {
+      username: e.target.username.value,
+    };
+  };
   return (
     <>
-      <RegsterFormComponent {...props} />
+      <RegsterFormComponent onSubmit={setRegister} {...props} />
     </>
   );
 };

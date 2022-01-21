@@ -8,7 +8,10 @@ const StyledSelect = styled.header.attrs((props) => ({}))<SelectParamsType>`
     const colorD3Blue = props.theme.palette.$color_d3_blue;
     const colorBaseBlack = props.theme.palette.$color_base_black;
     const colorLineBlack = props.theme.palette.$color_line_black;
-
+    const borderColor =
+      props.isFail === true
+        ? props.theme.palette.$color_failure
+        : colorLineBlack;
     return css`
       width: 100%;
       height: 45px;
@@ -21,9 +24,17 @@ const StyledSelect = styled.header.attrs((props) => ({}))<SelectParamsType>`
         outline: none;
         will-change: border;
         text-indent: 6px;
-        border: 1px solid ${colorLineBlack};
+        border: 1px solid ${borderColor};
         appearance: none;
         border-radius: 0px;
+
+        &:focus {
+          border: 1px solid ${colorD3Blue};
+        }
+
+        &:disabled {
+          background-color: ${colorDisabled};
+        }
       }
     `;
   }};

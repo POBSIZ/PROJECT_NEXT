@@ -1,6 +1,6 @@
 import Home from './home';
 import LoginPageComponent from './auth/login';
-import RegisterComponent from './register'
+import RegisterComponent from './auth/register';
 
 const Pages = {
   Home,

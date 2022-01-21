@@ -18,7 +18,14 @@ const Template: Story<any> = (args) => (
           width: args.width,
         }}
       >
-        <Select {...args} />
+        <span className="info">Default</span>
+        <Select {...args} isFail={args.isFail} />
+
+        <span className="info">Disabled</span>
+        <Select {...args} disabled={true} isFail={args.isFail} />
+
+        <span className="info">Failed</span>
+        <Select {...args} isFail={true} />
       </div>
     </StoriesLayout>
   </>
@@ -30,4 +37,6 @@ Default.args = {
   item: ['남자', '여자'],
   placeholder: 'default',
   width: '300px',
+  isFail: false,
+  disabled: false,
 };
