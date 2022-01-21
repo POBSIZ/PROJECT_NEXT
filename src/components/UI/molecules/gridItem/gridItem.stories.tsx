@@ -1,17 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Meta, Story } from '@storybook/react';
 
-import GridListComponent from './grid_component';
+import GridItemComponent from './gridItem_component';
 
 export default {
   title: 'Organisms/GridList',
-  component: GridListComponent,
+  component: GridItemComponent,
   parameters: {},
 } as Meta;
 
 const Template: Story<any> = (args) => (
   <>
-    <GridListComponent {...args} />
+    <GridItemComponent {...args} />
   </>
 );
 

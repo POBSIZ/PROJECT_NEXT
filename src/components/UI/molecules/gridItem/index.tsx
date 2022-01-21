@@ -4,16 +4,16 @@ import Actions from 'Actions/index';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
-import GridListComponent from './grid_component';
+import GridItemComponent from './gridItem_component';
 
 export interface GridListParamsType {}
 
-const GridList: React.FC<any> = ({}) => {
+const GridItem: React.FC<any> = ({}) => {
   return (
     <>
-      <GridListComponent />
+      <GridItemComponent />
     </>
   );
 };
 
-export default GridList;
+export default GridItem;
