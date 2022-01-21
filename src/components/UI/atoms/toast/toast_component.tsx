@@ -18,7 +18,7 @@ import StyledToast from './toast_styled';
 
 const ToastComponent: React.FC<any> = (props) => {
   const typeIconSet = {
-    default: faExclamationCircle,
+    default: null,
     error: faExclamationCircle,
     warning: faExclamationTriangle,
     success: faCheckCircle,
