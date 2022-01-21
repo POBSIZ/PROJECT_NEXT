@@ -23,13 +23,19 @@ const StyledInput = styled.input.attrs((props) => ({
       color: ${colorBaseBlack};
       width: 100%;
       height: 45px;
-      padding: 5px 10px;
+      padding: 0px 10px;
       font-size: 1em;
       font-weight: 500;
       outline: none;
       border: 1px solid ${borderColor};
+      border-radius: 0;
+      appearance: none;
 
       will-change: border;
+
+      &::placeholder {
+        color: ${colorLineBlack};
+      }
 
       &:focus {
         border: 1px solid ${colorD3Blue};
