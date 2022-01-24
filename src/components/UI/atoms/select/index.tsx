@@ -9,12 +9,13 @@ import SelectComponent from './select_component';
 export interface SelectParamsType {
   item: string[];
   placeholder: string;
+  name?: string;
   isFail?: boolean;
 }
 
 const Select: React.FC<SelectParamsType> = (
   props,
-  { item, placeholder, isFail }: SelectParamsType,
+  { item, placeholder, isFail, name }: SelectParamsType,
 ) => {
   return (
     <>

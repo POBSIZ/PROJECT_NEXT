@@ -28,10 +28,10 @@ const RegsterFormComponent: React.FC<any> = (props) => {
           <span>이름</span>
           <div className="line_container">
             <div style={{ width: '100%' }}>
-              <Input placeholder="성" type="text" name="text" />
+              <Input placeholder="성" type="text" name="first_name" />
             </div>
             <div style={{ width: '100%' }}>
-              <Input placeholder="이름" type="text" name="text" />
+              <Input placeholder="이름" type="text" name="last_name" />
             </div>
           </div>
         </label>
@@ -39,7 +39,7 @@ const RegsterFormComponent: React.FC<any> = (props) => {
         <label className="line">
           <span>성별</span>
           <div className="line_container">
-            <Select placeholder={select_default} item={item} />
+            <Select name="gender" placeholder={select_default} item={item} />
           </div>
         </label>
 
@@ -63,7 +63,7 @@ const RegsterFormComponent: React.FC<any> = (props) => {
             <Input
               placeholder="비밀번호 확인"
               type="password"
-              name="password"
+              name="password_check"
             />
           </div>
         </label>

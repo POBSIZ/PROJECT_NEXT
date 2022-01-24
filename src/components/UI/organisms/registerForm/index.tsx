@@ -9,12 +9,19 @@ import RegsterFormComponent from './registerForm_component';
 
 const RegisterForm: React.FC<any> = (props, {}) => {
   const setRegister = (e) => {
-    e.preventDefalt();
+    e.preventDefault();
     e.persist();
 
     const data = {
-      username: e.target.username.value,
+      first_name: e.target.first_name.value, // 성
+      last_name: e.target.last_name.value, // 이름
+      gender: e.target.gender.value, // 성
+      username: e.target.username.value, // 아이디
+      password: e.target.password.value, // 비밀번호
+      password_check: e.target.password_check.value, // 비밀번호 확인
+      email: e.target.email.value, // 이메일
     };
+    console.log(data);
   };
   return (
     <>

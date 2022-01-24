@@ -16,18 +16,16 @@ const SelectComponent: React.FC<any> = (props) => {
   return (
     <>
       <StyledSelect {...props}>
-        <select className="selectbox" disabled={props.disabled}>
-          <option value="none" selected hidden style={{}}>
-            {props.placeholder}
-          </option>
-          {props.item.map((item: string) => {
-            return (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            );
-          })}
-        </select>
+        <option value="none" selected hidden style={{}}>
+          {props.placeholder}
+        </option>
+        {props.item.map((item: string) => {
+          return (
+            <option key={item} value={item}>
+              {item}
+            </option>
+          );
+        })}
       </StyledSelect>
     </>
   );
