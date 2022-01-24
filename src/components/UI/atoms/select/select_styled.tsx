@@ -3,8 +3,10 @@ import styled, { css } from 'styled-components';
 import { SelectParamsType } from '.';
 
 const StyledSelect = styled.select.attrs((props) => ({
+  defaultValue: 'none',
   name: props.name || '',
   disabled: props.disabled,
+  required: props.required || false,
 }))<SelectParamsType>`
   ${(props) => {
     const colorDisabled = props.theme.palette.$color_disabled;

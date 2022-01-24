@@ -23,7 +23,7 @@ const GridItemComponent: React.FC<any> = ({}) => {
           .fill(0)
           .map((data, index) => {
             return (
-              <div className="thumbnails">
+              <div className="thumbnails" key={index}>
                 <div className="Image-div">
                   <Image
                     layout="responsive"
