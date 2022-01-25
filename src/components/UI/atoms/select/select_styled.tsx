@@ -2,7 +2,12 @@ import styled, { css } from 'styled-components';
 
 import { SelectParamsType } from '.';
 
-const StyledSelect = styled.header.attrs((props) => ({}))<SelectParamsType>`
+const StyledSelect = styled.select.attrs((props) => ({
+  defaultValue: 'none',
+  name: props.name || '',
+  disabled: props.disabled,
+  required: props.required || false,
+}))<SelectParamsType>`
   ${(props) => {
     const colorDisabled = props.theme.palette.$color_disabled;
     const colorD3Blue = props.theme.palette.$color_d3_blue;
@@ -13,28 +18,24 @@ const StyledSelect = styled.header.attrs((props) => ({}))<SelectParamsType>`
         ? props.theme.palette.$color_failure
         : colorLineBlack;
     return css`
+      color: ${colorBaseBlack};
       width: 100%;
       height: 45px;
-      .selectbox {
-        color: ${colorBaseBlack};
-        width: 100%;
-        height: 45px;
-        font-size: 1em;
-        font-weight: 500;
-        outline: none;
-        will-change: border;
-        text-indent: 6px;
-        border: 1px solid ${borderColor};
-        appearance: none;
-        border-radius: 0px;
+      font-size: 1em;
+      font-weight: 500;
+      outline: none;
+      will-change: border;
+      text-indent: 6px;
+      border: 1px solid ${borderColor};
+      appearance: none;
+      border-radius: 0px;
 
-        &:focus {
-          border: 1px solid ${colorD3Blue};
-        }
+      &:focus {
+        border: 1px solid ${colorD3Blue};
+      }
 
-        &:disabled {
-          background-color: ${colorDisabled};
-        }
+      &:disabled {
+        background-color: ${colorDisabled};
       }
     `;
   }};

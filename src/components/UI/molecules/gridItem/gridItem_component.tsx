@@ -19,15 +19,23 @@ const GridItemComponent: React.FC<any> = ({}) => {
   return (
     <>
       <StyledGridList>
-        <div className="Image-div">
-          <Image
-            layout="responsive"
-            width="100px"
-            height="100px"
-            src={Banner}
-          ></Image>
-        </div>
-        <Badge backColor="gradient">test</Badge>
+        {Array(7)
+          .fill(0)
+          .map((data, index) => {
+            return (
+              <div className="thumbnails" key={index}>
+                <div className="Image-div">
+                  <Image
+                    layout="responsive"
+                    width="100px"
+                    height="100px"
+                    src={Banner}
+                  ></Image>
+                </div>
+                <Badge backColor="primary">뱃지</Badge>
+              </div>
+            );
+          })}
       </StyledGridList>
     </>
   );
