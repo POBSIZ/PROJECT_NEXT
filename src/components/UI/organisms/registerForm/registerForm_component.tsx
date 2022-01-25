@@ -58,30 +58,28 @@ const RegsterFormComponent: React.FC<any> = (props, { vaild }) => {
           </div>
         </label>
 
-        <div className="section">
-          <label className="line">
-            <span className="username">아이디</span>
-            <div className="line_container">
-              <Input
-                isFail={props.vaild.username}
-                placeholder="id"
-                type="username"
-                name="username"
-              />
-            </div>
-          </label>
-          {props.vaild.username == true ? (
-            <div className="warnning">
-              <FontAwesomeIcon
-                icon={faExclamationCircle}
-                style={{ marginRight: '5px' }}
-              />
-              영문 및 숫자를 포함한 8자 이상이어야 합니다.
-            </div>
-          ) : (
-            ''
-          )}
-        </div>
+        <label className="line">
+          <span className="username">아이디</span>
+          <div className="line_container">
+            <Input
+              isFail={props.vaild.username}
+              placeholder="id"
+              type="username"
+              name="username"
+            />
+          </div>
+        </label>
+        {props.vaild.username == true ? (
+          <div className="warnning">
+            <FontAwesomeIcon
+              icon={faExclamationCircle}
+              style={{ marginRight: '5px' }}
+            />
+            영문 및 숫자를 포함한 8자 이상이어야 합니다.
+          </div>
+        ) : (
+          ''
+        )}
 
         <label className="line">
           <span className="password">비밀번호</span>

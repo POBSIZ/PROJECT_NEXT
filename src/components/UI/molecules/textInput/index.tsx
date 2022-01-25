@@ -6,10 +6,15 @@ import { useCookies } from 'react-cookie';
 
 import TextInputComponent from './textInput_component';
 
-const TextInput: React.FC<any> = ({}) => {
+export interface TextInputParamsType {
+  isFail: boolean;
+  warnning?: boolean;
+  type: string;
+}
+const TextInput: React.FC<any> = (props, {}) => {
   return (
     <>
-      <TextInputComponent></TextInputComponent>
+      <TextInputComponent {...props}></TextInputComponent>
     </>
   );
 };
