@@ -10,6 +10,8 @@ export interface TextInputParamsType {
   isFail: boolean;
   warnning?: boolean;
   type: string;
+  first_name?: boolean;
+  last_name?: boolean;
 }
 const TextInput: React.FC<any> = (props, {}) => {
   return (

@@ -22,6 +22,7 @@ const TextInputComponent: React.FC<any> = (props) => {
     type: 'username',
     name: 'userName',
     placeholder: '아이디',
+    warnning: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
   });
   const setType = (value: string) => {
     switch (value) {
@@ -31,6 +32,7 @@ const TextInputComponent: React.FC<any> = (props) => {
           type: 'username',
           name: 'username',
           placeholder: '아이디',
+          warnning: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
         });
         break;
 
@@ -40,14 +42,16 @@ const TextInputComponent: React.FC<any> = (props) => {
           type: 'password',
           name: 'password',
           placeholder: '비밀번호',
+          warnning: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
         });
         break;
       case 'password_check':
         set_TextInputType({
           text: '비밀번호 확인',
           type: 'password',
-          name: 'password',
+          name: 'password_check',
           placeholder: '비밀번호 확인',
+          warnning: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
         });
         break;
       case 'email':
@@ -56,6 +60,7 @@ const TextInputComponent: React.FC<any> = (props) => {
           type: 'email',
           name: 'email',
           placeholder: 'e-mail',
+          warnning: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
         });
         break;
       default:
@@ -88,7 +93,7 @@ const TextInputComponent: React.FC<any> = (props) => {
             <div className="line_container">
               <div style={{ width: '100%' }}>
                 <Input
-                  isFail={props.isFail}
+                  isFail={props.first_name}
                   placeholder="성"
                   type="text"
                   name="first_name"
@@ -96,7 +101,7 @@ const TextInputComponent: React.FC<any> = (props) => {
               </div>
               <div style={{ width: '100%' }}>
                 <Input
-                  isFail={props.isFail}
+                  isFail={props.last_name}
                   placeholder="이름"
                   type="text"
                   name="last_name"
@@ -124,7 +129,7 @@ const TextInputComponent: React.FC<any> = (props) => {
               icon={faExclamationCircle}
               style={{ marginRight: '5px' }}
             />
-            영문 및 숫자를 포함한 8자 이상이어야 합니다.
+            {TextInputType.warnning}
           </div>
         ) : (
           ''
