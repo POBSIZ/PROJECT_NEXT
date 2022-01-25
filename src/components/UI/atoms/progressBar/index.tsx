@@ -6,8 +6,21 @@ import { useCookies } from 'react-cookie';
 
 import ProgressBarComponent from './progressBar_component';
 
-const ProgressBar: React.FC<any> = ({}) => {
-  return <></>;
+export interface ProgressBarParamsType {
+  prwidth: string;
+  bgcolor: 'black' | 'gradient' | 'blue';
+  height: string;
+}
+
+const ProgressBar: React.FC<ProgressBarParamsType> = (
+  props,
+  {}: ProgressBarParamsType,
+) => {
+  return (
+    <>
+      <ProgressBarComponent {...props} />
+    </>
+  );
 };
 
 export default ProgressBar;

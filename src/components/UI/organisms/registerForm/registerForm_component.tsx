@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 
 import StyledRegisterForm from './registerForm_styled';
 
-import Atoms, { Input, Select, Button } from 'Atoms/index';
+import Atoms, { Input, Select, Button, ProgressBar } from 'Atoms/index';
 
 const RegsterFormComponent: React.FC<any> = (props) => {
   const item = ['남자', '여자'];

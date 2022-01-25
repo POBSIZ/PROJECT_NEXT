@@ -6,6 +6,7 @@ import MoveButton from './moveButton';
 import Select from './select';
 import Toast from './toast';
 import Badge from './badge'
+import ProgressBar from './progressBar'
 
 const Atoms = {
   Test,
@@ -15,9 +16,10 @@ const Atoms = {
   MoveButton,
   Select,
   Toast,
-  Badge
+  Badge,
+  ProgressBar
 };
 
 export default Atoms;
 
-export { Test, Logo, Input, Button, MoveButton, Select, Toast ,Badge};
+export { Test, Logo, Input, Button, MoveButton, Select, Toast ,Badge,ProgressBar};

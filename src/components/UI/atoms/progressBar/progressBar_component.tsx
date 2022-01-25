@@ -10,8 +10,16 @@ import {} from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 
-const ProgressBarComponent: React.FC<any> = ({}) => {
-  return <></>;
+import StyledProgressBar from './progressBar_styled';
+
+const ProgressBarComponent: React.FC<any> = (props) => {
+  return (
+    <>
+      <StyledProgressBar {...props}>
+        <div className="progress"></div>
+      </StyledProgressBar>
+    </>
+  );
 };
 
 export default ProgressBarComponent;
