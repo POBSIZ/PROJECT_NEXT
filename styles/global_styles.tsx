@@ -52,6 +52,10 @@ const GlobalStyle = {
     $font_title_regular: 'font-size: 1.5em; font-weight: 700',
     $font_subtitle: 'font-size: 1.125em; font-weight: 400',
   },
+  media: {
+    $tablet_max_width: '1000px',
+    $mobile_max_width: '800px',
+  },
 };
 
 export default GlobalStyle;
