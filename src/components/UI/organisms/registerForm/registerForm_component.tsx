@@ -6,7 +6,7 @@ import Actions from 'Actions/index';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
-import {} from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
+import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 
@@ -14,66 +14,48 @@ import StyledRegisterForm from './registerForm_styled';
 
 import Atoms, { Input, Select, Button, ProgressBar } from 'Atoms/index';
 
-const RegsterFormComponent: React.FC<any> = (props) => {
-  const item = ['남자', '여자'];
-  const select_default = '선택해주세요';
+import Molecules, { TextInput } from 'Molecules/index';
+const RegsterFormComponent: React.FC<any> = (props, { vaild }) => {
   return (
     <>
-      <StyledRegisterForm onSubmit={props.onSubmit} {...props}>
+      <StyledRegisterForm vaild={vaild} onSubmit={props.onSubmit} {...props}>
         <div className="header">
           <h1>회원가입</h1>
         </div>
+        <TextInput
+          first_name={props.vaild.first_name}
+          last_name={props.vaild.last_name}
+          isFail={
+            props.vaild.first_name == true
+              ? true
+              : props.vaild.last_name == true
+              ? true
+              : false
+          }
+          type="name"
+        />
+        <TextInput isFail={props.vaild.gender} type="gender" />
 
-        <label className="line">
-          <span>이름</span>
-          <div className="line_container">
-            <div style={{ width: '100%' }}>
-              <Input placeholder="성" type="text" name="first_name" />
-            </div>
-            <div style={{ width: '100%' }}>
-              <Input placeholder="이름" type="text" name="last_name" />
-            </div>
-          </div>
-        </label>
+        <TextInput
+          warnning={props.vaild.username}
+          isFail={props.vaild.username}
+          type="username"
+        />
 
-        <label className="line">
-          <span>성별</span>
-          <div className="line_container">
-            <Select name="gender" placeholder={select_default} item={item} />
-          </div>
-        </label>
+        <TextInput
+          warnning={props.vaild.password}
+          isFail={props.vaild.password}
+          type="password"
+        />
 
-        <label className="line">
-          <span>아이디</span>
-          <div className="line_container">
-            <Input placeholder="id" type="username" name="username" />
-          </div>
-        </label>
+        <TextInput
+          warnning={props.vaild.password_check}
+          isFail={props.vaild.password_check}
+          type="password_check"
+        />
 
-        <label className="line">
-          <span>비밀번호</span>
-          <div className="line_container">
-            <Input placeholder="비밀번호" type="password" name="password" />
-          </div>
-        </label>
+        <TextInput isFail={props.vaild.email} type="email" />
 
-        <label className="line">
-          <span>비밀번호 확인</span>
-          <div className="line_container">
-            <Input
-              placeholder="비밀번호 확인"
-              type="password"
-              name="password_check"
-            />
-          </div>
-        </label>
-
-        <label className="line">
-          <span>이메일</span>
-          <div className="line_container">
-            <Input placeholder="e-mail" type="email" name="email" />
-          </div>
-        </label>
         <div className="register-button">
           <Button backColor="gradient">회원가입</Button>
         </div>

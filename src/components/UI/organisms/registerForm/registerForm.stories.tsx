@@ -20,4 +20,14 @@ const Template: Story<any> = (args) => (
 
 export const Default = Template.bind({});
 Default.parameters = {};
-Default.args = {};
+Default.args = {
+  vaild: {
+    first_name: false,
+    last_name: false,
+    gender: false,
+    username: false,
+    password: false,
+    password_check: false,
+    email: false,
+  },
+};

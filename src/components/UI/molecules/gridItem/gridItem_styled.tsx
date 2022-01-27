@@ -21,6 +21,7 @@ const StyledGridItem = styled.article.attrs((props) => ({}))`
       }
 
       @media screen and (max-width: 800px) {
+        padding: 20px;
         .thumbnails {
           padding: 5px;
           margin-bottom: 30px;
@@ -37,3 +38,4 @@ const StyledGridItem = styled.article.attrs((props) => ({}))`
 `;
 
 export default StyledGridItem;
+``;
