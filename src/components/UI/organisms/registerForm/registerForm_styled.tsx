@@ -32,7 +32,7 @@ const StyledRegisterForm = styled.form.attrs((props) => ({}))`
 
       button {
         margin-top: 40px;
-        border-radius: 5px;
+        /* border-radius: 5px; */
         margin-bottom: 20px;
       }
 

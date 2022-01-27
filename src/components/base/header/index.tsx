@@ -4,15 +4,15 @@ import { useRouter } from 'next/router';
 
 import HeaderComponent from './header_component';
 
-import { Logout, LOGOUT } from 'Actions/authAction';
+import { LogoutAsync, LOGOUT } from 'Actions/authAction';
 
 const Header: React.FC<any> = (props) => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const auth = useSelector((store: RootStateOrAny) => store.auth);
+  const auth = useSelector((store: RootStateOrAny) => store.authReducer);
 
   const setLogout = () => {
-    dispatch(Logout.call(LOGOUT));
+    dispatch(LogoutAsync.request());
     router.push('/');
   };
 

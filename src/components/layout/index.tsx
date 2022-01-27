@@ -8,12 +8,12 @@ import { useCookies } from 'react-cookie';
 
 import StyledMain from './main_styled';
 import Bases, { Header, Footer } from 'Bases/index';
-import Molecules, { ToastList } from 'Molecules/index';
+import Atoms, { Toast } from 'Atoms/index';
 
 const Layout: React.FC<any> = ({ children }) => {
   const router = useRouter();
   const cookies = useCookies();
-  const auth = useSelector((store: RootStateOrAny) => store.auth);
+  const auth = useSelector((store: RootStateOrAny) => store.authReducer);
 
   axios.defaults.baseURL = 'https://buscp.org/api/';
   axios.defaults.withCredentials = true;
@@ -33,7 +33,7 @@ const Layout: React.FC<any> = ({ children }) => {
       <Header />
       <StyledMain>{children}</StyledMain>
       <Footer />
-      <ToastList />
+      <Toast />
     </>
   );
 };
