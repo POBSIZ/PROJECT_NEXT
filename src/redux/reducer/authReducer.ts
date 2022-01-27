@@ -19,31 +19,35 @@ const initialState: AuthReducerType = {
 const authReducer = createReducer<AuthReducerType, authActionType>(
   initialState,
   {
-    [LOGIN_SUCCESS]: (state, action) =>
-      Object.assign({}, state, {
+    [LOGIN_SUCCESS]: (state, action) => {
+      return Object.assign({}, state, {
         ...state,
         isAuthenticated: true,
         accessToken: action.payload,
-      }),
+      });
+    },
 
-    [LOGOUT]: (state, action) =>
-      Object.assign({}, state, {
+    [LOGOUT]: (state, action) => {
+      return Object.assign({}, state, {
         ...state,
         isAuthenticated: false,
         accessToken: '',
-      }),
+      });
+    },
 
-    [GET_PROFILE_SUCCESS]: (state, action) =>
-      Object.assign({}, state, {
+    [GET_PROFILE_SUCCESS]: (state, action) => {
+      return Object.assign({}, state, {
         ...state,
         userData: action.payload,
-      }),
+      });
+    },
 
-    [INIT_PROFILE]: (state, action) =>
-      Object.assign({}, state, {
+    [INIT_PROFILE]: (state, action) => {
+      return Object.assign({}, state, {
         ...state,
         userData: null,
-      }),
+      });
+    },
   },
 );
 

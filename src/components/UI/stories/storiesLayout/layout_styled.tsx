@@ -37,6 +37,10 @@ const StyledStoriesLayout = styled.section.attrs((props) => ({}))`
         margin-top: 20px;
         font-weight: 500;
       }
+
+      * {
+        position: relative !important;
+      }
     `;
   }};
 `;

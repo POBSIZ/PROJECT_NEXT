@@ -20,7 +20,13 @@ export const LoginAsync = createAsyncAction(LOGIN, LOGIN_SUCCESS, LOGIN_ERROR)<
 
 // LOGOUT Action
 export const LOGOUT = 'auth/LOGOUT' as const;
-export const Logout = createAction(LOGOUT)();
+export const LOGOUT_SUCCESS = 'auth/LOGOUT_SUCCESS' as const;
+export const LOGOUT_ERROR = 'auth/LOGOUT_ERROR' as const;
+export const LogoutAsync = createAsyncAction(
+  LOGOUT,
+  LOGOUT_SUCCESS,
+  LOGOUT_ERROR,
+)<undefined, undefined, any>();
 
 // GET_PROFILE Async Action
 export const GET_PROFILE = 'auth/GET_PROFILE' as const;
@@ -49,7 +55,7 @@ export const authConstants = {
 
 const authAction = {
   LoginAsync,
-  Logout,
+  LogoutAsync,
   GetProfileAsync,
   InitProfile,
 };

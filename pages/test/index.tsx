@@ -13,7 +13,7 @@ import {
   increment,
 } from 'Actions/testAction';
 import { LoginAsync } from 'Actions/authAction';
-import { pushToast } from 'Actions/toastAction';
+import { pushToastAsync } from 'Actions/toastAction';
 
 const Name: React.FC<any> = ({}) => {
   const storeTest = useSelector((state: RootStateOrAny) => state.test);
@@ -40,7 +40,10 @@ const Name: React.FC<any> = ({}) => {
   const popToast = () => {
     const radNum = Math.floor(Math.random() * 100);
     dispatch(
-      pushToast({ is_pop: false, status: 'default', message: String(radNum) }),
+      pushToastAsync.request({
+        status: 'success',
+        message: String(radNum),
+      }),
     );
   };
 
