@@ -16,8 +16,6 @@ import Atoms, { Input, Select, Button, ProgressBar } from 'Atoms/index';
 
 import Molecules, { TextInput } from 'Molecules/index';
 const RegsterFormComponent: React.FC<any> = (props, { vaild }) => {
-  const item = ['남자', '여자'];
-  const select_default = '선택해주세요';
   return (
     <>
       <StyledRegisterForm vaild={vaild} onSubmit={props.onSubmit} {...props}>

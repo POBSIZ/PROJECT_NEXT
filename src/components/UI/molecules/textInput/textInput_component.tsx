@@ -16,62 +16,45 @@ import Atoms, { Input, Select } from 'Atoms/index';
 
 const TextInputComponent: React.FC<any> = (props) => {
   const item = ['남자', '여자'];
-  const select_default = '선택해주세요';
-  const [TextInputType, set_TextInputType] = useState({
+  const TextInputType = {
     text: '아이디',
     type: 'username',
-    name: 'userName',
+    name: ' username',
     placeholder: '아이디',
     warnning: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
-  });
-  const setType = (value: string) => {
-    switch (value) {
-      case 'username':
-        set_TextInputType({
-          text: '아이디',
-          type: 'username',
-          name: 'username',
-          placeholder: '아이디',
-          warnning: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
-        });
-        break;
-
-      case 'password':
-        set_TextInputType({
-          text: '비밀번호',
-          type: 'password',
-          name: 'password',
-          placeholder: '비밀번호',
-          warnning: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
-        });
-        break;
-      case 'password_check':
-        set_TextInputType({
-          text: '비밀번호 확인',
-          type: 'password',
-          name: 'password_check',
-          placeholder: '비밀번호 확인',
-          warnning: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
-        });
-        break;
-      case 'email':
-        set_TextInputType({
-          text: '이메일',
-          type: 'email',
-          name: 'email',
-          placeholder: 'e-mail',
-          warnning: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
-        });
-        break;
-      default:
-        break;
-    }
   };
+  const text = {
+    username: '아이디',
+    password: '비밀번호',
+    password_check: '비밀번호 확인',
+    email: '이메일',
+  };
+  const type = {
+    username: 'username',
+    password: 'password',
+    password_check: 'password',
+    email: 'email',
+  };
+  const placeholder = {
+    username: '아이디',
+    password: '비밀번호',
+    password_check: '비밀번호 확인',
+    email: 'e-mail',
+  };
+  const warnning = {
+    username: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
+    password: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
+    password_check: '영문 및 숫자를 포함한 8자 이상이어야 합니다.',
+    email: '이메일',
+  };
+  const select_default = '선택해주세요';
 
-  useEffect(() => {
-    setType(props.type);
-    return () => {};
-  }, [props.type]);
+  TextInputType.text = text[props.type];
+  TextInputType.type = type[props.type];
+  TextInputType.name = props.type;
+  TextInputType.placeholder = placeholder[props.type];
+  TextInputType.warnning = warnning[props.type];
+
   return (
     <>
       <StyledTextInput {...props}>
