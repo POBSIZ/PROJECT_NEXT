@@ -21,17 +21,32 @@ const Template: Story<any> = (args) => (
   <>
     <StoriesLayout title="Atoms/Toast">
       <div style={{ width: '300px' }}>
-        <span className='info'>Default</span>
-        <ToastComponent {...args} />
+        <span className="info">Default</span>
+        <ToastComponent
+          {...args}
+          style={{ transform: 'translate(0)', left: '0' }}
+        />
 
-        <span className='info'>Success</span>
-        <ToastComponent {...args} status='success' />
+        <span className="info">Success</span>
+        <ToastComponent
+          {...args}
+          style={{ transform: 'translate(0)', left: '0' }}
+          status="success"
+        />
 
-        <span className='info'>Warning</span>
-        <ToastComponent {...args} status='warning' />
+        <span className="info">Warning</span>
+        <ToastComponent
+          {...args}
+          style={{ transform: 'translate(0)', left: '0' }}
+          status="warning"
+        />
 
-        <span className='info'>Error</span>
-        <ToastComponent {...args} status='error' />
+        <span className="info">Error</span>
+        <ToastComponent
+          {...args}
+          style={{ transform: 'translate(0)', left: '0' }}
+          status="error"
+        />
       </div>
     </StoriesLayout>
   </>

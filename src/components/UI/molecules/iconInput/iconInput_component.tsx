@@ -15,42 +15,21 @@ import StyledIconInput from './iconInput_styled';
 import Atoms, { Input } from 'Atoms/index';
 
 const IconInputComponent: React.FC<any> = (props) => {
-  const [inputType, setInputType] = useState({
-    type: 'username',
-    name: 'username',
-    icon: faUser,
-    placeholder: '아이디',
-  });
-
-  const setType = (value: string) => {
-    switch (value) {
-      case 'username':
-        setInputType({
-          type: 'username',
-          name: 'username',
-          icon: faUser,
-          placeholder: '아이디',
-        });
-        break;
-
-      case 'password':
-        setInputType({
-          type: 'password',
-          name: 'password',
-          icon: faLock,
-          placeholder: '비밀번호',
-        });
-        break;
-
-      default:
-        break;
-    }
+  const typeSet = {
+    username: {
+      type: 'username',
+      name: 'username',
+      icon: faUser,
+      placeholder: '아이디',
+    },
+    password: {
+      type: 'password',
+      name: 'password',
+      icon: faLock,
+      placeholder: '비밀번호',
+    },
   };
-
-  useEffect(() => {
-    setType(props.type);
-    return () => {};
-  }, [props.type]);
+  const inputType = typeSet[props.type];
 
   return (
     <>

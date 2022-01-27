@@ -11,7 +11,7 @@ import Sagas from '../sagas';
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: [],
+  whitelist: ['authReducer'],
   // blacklist: [],
 };
 
