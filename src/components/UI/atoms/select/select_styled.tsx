@@ -17,6 +17,8 @@ const StyledSelect = styled.select.attrs((props) => ({
       props.isFail === true
         ? props.theme.palette.$color_failure
         : colorLineBlack;
+    const Success = '#2ECC71';
+    const Warning = '#F1C40F';
     return css`
       color: ${colorBaseBlack};
       width: 100%;
