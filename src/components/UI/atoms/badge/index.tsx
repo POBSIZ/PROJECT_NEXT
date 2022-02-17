@@ -8,11 +8,16 @@ import BadgeComponent from './badge_component';
 
 export interface BadgeParamsType {
   children: string;
-  backColor: 'primary' | 'gradient' | 'black' | 'none';
+  backColor: string;
   textColor?: string;
+  radius: string;
+  size: string;
 }
 
-const Badge: React.FC<BadgeParamsType> = (props, {}: BadgeParamsType) => {
+const Badge: React.FC<BadgeParamsType> = (
+  props,
+  { children, backColor, textColor, radius, size }: BadgeParamsType,
+) => {
   return (
     <>
       <BadgeComponent {...props} />

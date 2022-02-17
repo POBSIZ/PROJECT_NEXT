@@ -12,23 +12,71 @@ export default {
     backColor: {
       control: {
         type: 'select',
-        options: ['none', 'primary', 'gradient', 'black'],
+        options: [
+          'primary',
+          'secondary',
+          'success',
+          'warning',
+          'error',
+          'diabled',
+        ],
+      },
+    },
+    radius: {
+      control: {
+        type: 'select',
+        options: ['0px', '4px', '8px', '16px', '32px', '64px'],
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+        options: ['small', 'medium'],
       },
     },
   },
 } as Meta;
 
+const color = [
+  'primary',
+  'secondary',
+  'success',
+  'warning',
+  'error',
+  'disabled',
+];
 const Template: Story<any> = (args) => (
   <>
     <StoriesLayout title="Atoms/Badge">
-      <span className="info">none</span>
-      <BadgeComponent {...args} backColor={args.backColor} />
-      <span className="info">primary</span>
-      <BadgeComponent {...args} backColor="primary" />
-      <span className="info">gradient</span>
-      <BadgeComponent {...args} backColor="gradient" />
-      <span className="info">black</span>
-      <BadgeComponent {...args} backColor="black" />
+      <div style={{ display: 'flex' }}>
+        <div>
+          <h1>Small</h1>
+          {color.map((data) => {
+            return (
+              <>
+                <span className="info">{data}</span>
+                <div style={{ width: args.width }}>
+                  <BadgeComponent {...args} backColor={data} />
+                </div>
+              </>
+            );
+          })}
+        </div>
+
+        <div style={{ marginLeft: '150px' }}>
+          <h1>Medium</h1>
+          {color.map((data) => {
+            return (
+              <>
+                <span className="info">{data}</span>
+                <div style={{ width: args.width }}>
+                  <BadgeComponent {...args} size={'medium'} backColor={data} />
+                </div>
+              </>
+            );
+          })}
+        </div>
+      </div>
     </StoriesLayout>
   </>
 );
@@ -36,7 +84,10 @@ const Template: Story<any> = (args) => (
 export const Default = Template.bind({});
 Default.parameters = {};
 Default.args = {
+  width: '40px',
   children: 'TEST',
-  backColor: 'none',
+  backColor: 'primary',
   textColor: 'black',
+  radius: '4px',
+  size: 'small',
 };
