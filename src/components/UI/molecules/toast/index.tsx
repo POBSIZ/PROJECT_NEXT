@@ -27,7 +27,7 @@ const Toast: React.FC<any> = (props, {}) => {
       setTimeout(() => {
         dispatch(initToast());
         setInitState(false);
-      }, 3000);
+      }, 2000);
     }
     return () => {};
   }, [toastProps]);

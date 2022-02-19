@@ -11,18 +11,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 
 import StyleLike from './like_styled';
 
-const LikeComponent: React.FC<any> = (props) => {
-  const [LikeState, setLikeState] = useState(false);
+import { LikeParamsType } from '.';
 
-  const handleLikeState = () => {
+const LikeComponent: React.FC<LikeParamsType> = (props) => {
+  const [LikeState, setLikeState] = useState(
+    props.isLike ? props.isLike : false,
+  );
+
+  const handleLikeState = async () => {
     LikeState ? setLikeState(false) : setLikeState(true);
+    props.onClick ? null : props.onClick;
+    // console.log(`Like:${LikeState ? false : true}`);
   };
 
   return (
     <>
       <StyleLike isLike={LikeState} {...props}>
         <FontAwesomeIcon
-          className="Icon"
+          className={`Icon ${props.className}`}
           onClick={handleLikeState}
           icon={faHeart}
         />

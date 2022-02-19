@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
-import styled, { css } from 'styled-components';
+import { NextPage } from 'next';
 import Head from 'next/head';
 
 import { LoginPageComponent } from 'UIpages/index';
 
-const LoginPage: React.FC<any> = ({}) => {
+const LoginPage: NextPage<any> = ({}) => {
   return (
     <>
       <Head>

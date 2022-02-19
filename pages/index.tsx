@@ -1,15 +1,10 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 import Pages, { Home } from 'src/components/pages';
 
-const HomePage: NextPage = () => {
+const HomePage: NextPage<any> = ({ data }) => {
   return (
     <>
       <Head>
@@ -18,6 +13,11 @@ const HomePage: NextPage = () => {
       <Home />
     </>
   );
+};
+
+HomePage.getInitialProps = async () => {
+  const data = undefined;
+  return { data };
 };
 
 export default HomePage;
