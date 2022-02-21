@@ -98,12 +98,9 @@ function NavTab({ logout, isAuthenticated, profile }) {
             )}
           </div>
           <ul className="navTab-link">
-            <Link href="/mbti">
+            {/* <Link href="/mbti">
               <a onClick={navClose}>📝DETI</a>
-            </Link>
-            <Link href="/survey/applier/detail/">
-              <a onClick={navClose}>📨지원하기</a>
-            </Link>
+            </Link> */}
             <Link href="/test/">
               <a onClick={navClose}>TEST</a>
             </Link>

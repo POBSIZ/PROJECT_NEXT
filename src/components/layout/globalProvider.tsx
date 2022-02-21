@@ -9,10 +9,11 @@ import { PersistGate } from 'redux-persist/integration/react';
 import configureStore from 'src/redux/reducer/configureStore';
 
 import { ThemeProvider } from 'styled-components';
-import GlobalStyle from 'StyleVars';
+import GlobalStyle, { GlobalStyleType } from 'StyleVars';
 
 const store: any = configureStore();
 const persistor = persistStore(store);
+const globalStyle: GlobalStyleType = GlobalStyle;
 
 const GlobalProvider: React.FC<any> = ({ children }) => {
   return (
@@ -20,9 +21,7 @@ const GlobalProvider: React.FC<any> = ({ children }) => {
       <CookiesProvider>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <ThemeProvider theme={GlobalStyle}>
-              {children}
-            </ThemeProvider>
+            <ThemeProvider theme={globalStyle}>{children}</ThemeProvider>
           </PersistGate>
         </Provider>
       </CookiesProvider>

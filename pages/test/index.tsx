@@ -15,7 +15,10 @@ import {
 import { LoginAsync } from 'Actions/authAction';
 import { pushToastAsync } from 'Actions/toastAction';
 
-const Name: React.FC<any> = ({}) => {
+import { NextPage } from 'next';
+import Link from 'next/link';
+
+const Name: NextPage<any> = ({}) => {
   const storeTest = useSelector((state: RootStateOrAny) => state.test);
   const dispatch = useDispatch();
 
@@ -38,11 +41,11 @@ const Name: React.FC<any> = ({}) => {
   };
 
   const popToast = () => {
-    const radNum = Math.floor(Math.random() * 100);
+    const randNum = Math.floor(Math.random() * 100);
     dispatch(
       pushToastAsync.request({
         status: 'success',
-        message: String(radNum),
+        message: String(randNum),
       }),
     );
   };

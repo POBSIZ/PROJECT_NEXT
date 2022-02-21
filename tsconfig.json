@@ -73,7 +73,7 @@
       ],
       "Hooks": [
         "src/hooks/index.ts"
-      ],
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,

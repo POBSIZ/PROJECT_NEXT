@@ -6,26 +6,11 @@ import { useCookies } from 'react-cookie';
 
 import ListViewComponent from './listView_component';
 
-export interface ListViewPropsType {}
+import { ListViewPropsType } from "./listView_types";
 
-export interface ItemListType {
-  title: string;
-  username: string;
-  create_date: string;
-  short_text: string;
-  tags: string[];
-  is_favorite: boolean;
-  favorite_count: number;
-}
-
-export interface ListViewParamsType {
-  item_list: ItemListType[];
-  with_imgs: boolean;
-}
-
-const ListView: React.FC<ListViewParamsType> = (
+const ListView: React.FC<ListViewPropsType> = (
   props,
-  { item_list, with_imgs }: ListViewParamsType,
+  { item_list, with_imgs }: ListViewPropsType,
 ) => {
   return (
     <>
