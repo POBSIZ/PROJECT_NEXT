@@ -19,13 +19,18 @@ const StyledSelect = styled.select.attrs((props) => ({
     const borderColor =
       props.isFail === true
         ? props.theme.palette.$color_failure
-        : colorLineBlack;
+        : props.isSuccess === true
+        ? '#2ECC71'
+        : props.isWarning === true
+        ? '#F1C40F'
+        : '';
+
     return css`
       color: ${colorLineBlack};
       width: 100%;
       height: 45px;
-      font-size: 1em;
-      font-weight: 500;
+      font-size: 16px;
+      font-weight: 400;
       outline: none;
       will-change: border;
       text-indent: 6px;
@@ -39,7 +44,8 @@ const StyledSelect = styled.select.attrs((props) => ({
       }
 
       &:disabled {
-        background-color: ${colorDisabled};
+        border: 1px solid rgb(30, 30, 30, 50%);
+        background-color: rgb(30, 30, 30, 5%);
       }
     `;
   }};
