@@ -4,18 +4,72 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "baseUrl": ".",
     "paths": {
-      "Actions/*": ["src/redux/actions/*"],
-      "Types/*": ["src/redux/types/*"],
-      "Bases/*": ["src/components/base/*"],
-      "Templates/*": ["src/components/templates/*"],
-      "UIpages/*": ["src/components/pages/*"],
-      "Atoms/*": ["src/components/UI/atoms/*"],
-      "Molecules/*": ["src/components/UI/molecules/*"],
-      "Organisms/*": ["src/components/UI/organisms/*"],
-      "Hoc/*": ["src/components/HOC/*"],
-      "Utils/*": ["src/utils/*"],
-      "StyleVars": ["styles/global_styles.tsx"],
-      "StoriesLayout": ["src/components/UI/stories/storiesLayout/index.tsx"]
+      "Actions": [
+        "src/redux/actions/index.ts"
+      ],
+      "Actions/*": [
+        "src/redux/actions/*"
+      ],
+      "Types/*": [
+        "src/redux/types/*"
+      ],
+      "Bases": [
+        "src/components/base/index.ts"
+      ],
+      "Bases/*": [
+        "src/components/base/*"
+      ],
+      "Templates": [
+        "src/components/templates/index.tsx"
+      ],
+      "Templates/*": [
+        "src/components/templates/*"
+      ],
+      "UIpages": [
+        "src/components/pages/index.ts"
+      ],
+      "UIpages/*": [
+        "src/components/pages/*"
+      ],
+      "Atoms": [
+        "src/components/UI/atoms/index.ts"
+      ],
+      "Atoms/*": [
+        "src/components/UI/atoms/*"
+      ],
+      "Molecules": [
+        "src/components/UI/molecules/index.ts"
+      ],
+      "Molecules/*": [
+        "src/components/UI/molecules/*"
+      ],
+      "Organisms": [
+        "src/components/UI/organisms/index.ts"
+      ],
+      "Organisms/*": [
+        "src/components/UI/organisms/*"
+      ],
+      "Hoc": [
+        "src/components/HOC/index.tsx"
+      ],
+      "Hoc/*": [
+        "src/components/HOC/*"
+      ],
+      "Utils": [
+        "src/utils/index.ts"
+      ],
+      "Utils/*": [
+        "src/utils/*"
+      ],
+      "StyleVars": [
+        "styles/global_styles.tsx"
+      ],
+      "StoriesLayout": [
+        "src/components/UI/stories/storiesLayout/index.tsx"
+      ],
+      "Hooks": [
+        "src/hooks/index.ts"
+      ],
     },
     "allowJs": true,
     "skipLibCheck": true,

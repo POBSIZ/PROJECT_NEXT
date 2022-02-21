@@ -1,0 +1,25 @@
+{
+	"Set Base React Form": {
+		"prefix": "npc",
+		"body": [
+			"import React from 'react';",
+			"import { NextPage } from 'next';",
+			"import Head from 'next/head';",
+			"",
+			"const $Name : NextPage<any> = (props, {}) => {",
+			"\treturn(",
+			"\t\t<>",
+			"\t\t\t<Head></Head>",
+			"\t\t</>",
+			"\t);",
+			"};",
+			"",
+			"$Name .getInitialProps = async () => {",
+			"\treturn {};",
+			"};",
+			"",
+			"export default $Name ;",
+		],
+		"description": "Set Next Page"
+	}
+}

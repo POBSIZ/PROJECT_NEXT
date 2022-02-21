@@ -6,9 +6,16 @@ import { useCookies } from 'react-cookie';
 
 import LikeComponent from './like_component';
 
-export interface LikeParamsType {}
+export interface LikeParamsType {
+  className: string;
+  isLike?: boolean;
+  onClick?: () => {};
+}
 
-const Like: React.FC<LikeParamsType> = (props: LikeParamsType) => {
+const Like: React.FC<LikeParamsType> = (
+  props,
+  { className, isLike }: LikeParamsType,
+) => {
   return (
     <>
       <LikeComponent {...props}></LikeComponent>
