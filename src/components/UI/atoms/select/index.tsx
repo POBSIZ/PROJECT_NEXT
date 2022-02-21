@@ -12,11 +12,21 @@ export interface SelectParamsType {
   name?: string;
   isFail?: boolean;
   required?: boolean;
+  isSuccess?: boolean;
+  isWarning?: boolean;
 }
 
 const Select: React.FC<SelectParamsType> = (
   props,
-  { item, placeholder, isFail, name, required }: SelectParamsType,
+  {
+    item,
+    placeholder,
+    isFail,
+    name,
+    required,
+    isSuccess,
+    isWarning,
+  }: SelectParamsType,
 ) => {
   return (
     <>

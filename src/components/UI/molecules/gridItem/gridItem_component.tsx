@@ -32,7 +32,11 @@ const GridItemComponent: React.FC<any> = ({}) => {
                     src={Banner}
                   ></Image>
                 </div>
-                <Badge backColor="primary">뱃지</Badge>
+                <div style={{ width: '30px' }}>
+                  <Badge size="small" radius="8px" backColor="primary">
+                    뱃지
+                  </Badge>
+                </div>
               </div>
             );
           })}

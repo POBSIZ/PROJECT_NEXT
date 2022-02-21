@@ -21,6 +21,12 @@ const Template: Story<any> = (args) => (
         <span className="info">Default</span>
         <Select {...args} isFail={args.isFail} />
 
+        <span className="info">Success</span>
+        <Select {...args} isSuccess={true} />
+
+        <span className="info">Warning</span>
+        <Select {...args} isWarning={true} />
+
         <span className="info">Disabled</span>
         <Select {...args} disabled={true} isFail={args.isFail} />
 
