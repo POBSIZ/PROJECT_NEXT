@@ -15,4 +15,6 @@ const LoginPage: NextPage<any> = ({}) => {
   );
 };
 
+LoginPage.getInitialProps = () => {};
+
 export default LoginPage;

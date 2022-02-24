@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 interface Data {
+  id: string;
   title: string;
   username: string;
   create_date: string;
@@ -14,13 +15,14 @@ const dummyData = (): Data[] => {
   let _list: Data[] = [];
   for (let index = 0; index < 100; index++) {
     _list.push({
+      id: '1',
       title: `Dummy ${index}`,
       username: `John Doe ${index}`,
       create_date: `2${index}.${index}.${index}`,
       short_text:
         'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni repudiandae cum voluptates ad facere, ab consequuntur possimus pariatur aut aliquid ipsum, nemo commodi facilis architecto! Nostrum in corrupti sint cumque?',
       tags: [...Array(index).fill(String(index))],
-      is_favorite: false,
+      is_favorite: true,
       favorite_count: index,
     });
   }

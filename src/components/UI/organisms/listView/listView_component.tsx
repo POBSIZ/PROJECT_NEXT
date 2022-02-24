@@ -12,16 +12,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 
 import StyledListView from './listView_styled';
 
-import { ListViewPropsType, ListViewParamsType, ItemListType } from '.';
+import { ListViewPropsType, ItemListType } from './listView_types';
 
 import Atoms, { Like } from 'Atoms';
 
-const ListViewComponent: React.FC<ListViewParamsType> = (
+const ListViewComponent: React.FC<ListViewPropsType> = (
   props,
-  { item_list }: ListViewParamsType,
+  { item_list }: ListViewPropsType,
 ) => {
-  console.log(props);
-
   return (
     <>
       <StyledListView {...props}>

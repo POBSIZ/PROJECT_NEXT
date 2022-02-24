@@ -1,5 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, Suspense } from 'react';
 import styled, { css } from 'styled-components';
+
+import { NextPage } from 'next';
+import Link from 'next/link';
 
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
@@ -15,9 +18,14 @@ import {
 import { LoginAsync } from 'Actions/authAction';
 import { pushToastAsync } from 'Actions/toastAction';
 
-const Name: React.FC<any> = ({}) => {
+import Bases, { Loader } from 'Bases';
+import Organisms, { ListView } from 'Organisms';
+
+const Name: NextPage<any> = ({}) => {
   const storeTest = useSelector((state: RootStateOrAny) => state.test);
   const dispatch = useDispatch();
+
+  const [data, setData] = useState([]);
 
   const generate = (e: React.MouseEvent<HTMLButtonElement>) => {
     const data: any = 1;
@@ -38,28 +46,34 @@ const Name: React.FC<any> = ({}) => {
   };
 
   const popToast = () => {
-    const radNum = Math.floor(Math.random() * 100);
+    const randNum = Math.floor(Math.random() * 100);
     dispatch(
       pushToastAsync.request({
         status: 'success',
-        message: String(radNum),
+        message: String(randNum),
       }),
     );
   };
 
   useEffect(() => {
+    const getData = async () => {
+      const { data } = await axios.get('http://localhost:3000/api/list');
+      setData(data);
+    };
+    getData();
     return () => {};
   }, []);
 
   return (
     <>
-      <div
-        style={{
-          paddingTop: '100px',
-          textAlign: 'center',
-        }}
-      >
-        <div>
+      <Suspense fallback={<Loader />}>
+        <div
+          style={{
+            paddingTop: '100px',
+            // textAlign: 'center',
+          }}
+        >
+          {/* <div>
           <h2>List</h2>
           <button onClick={getName}>GetName</button>
           <button onClick={generate}>Generate</button>
@@ -70,10 +84,19 @@ const Name: React.FC<any> = ({}) => {
           <h1>
             <button onClick={popToast}>TOAST</button>
           </h1>
+        </div> */}
+          <ListView item_list={data} with_imgs={false} />
         </div>
-      </div>
+      </Suspense>
     </>
   );
 };
+
+// Name.getInitialProps = async () => {
+//   const { data } = await axios.get('http://localhost:3000/api/list');
+//   return {
+//     data,
+//   };
+// };
 
 export default Name;

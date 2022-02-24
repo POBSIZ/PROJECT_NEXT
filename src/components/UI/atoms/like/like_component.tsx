@@ -26,7 +26,7 @@ const LikeComponent: React.FC<LikeParamsType> = (props) => {
 
   return (
     <>
-      <StyleLike isLike={LikeState} {...props}>
+      <StyleLike {...props} isLike={LikeState}>
         <FontAwesomeIcon
           className={`Icon ${props.className}`}
           onClick={handleLikeState}

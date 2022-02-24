@@ -1,15 +1,18 @@
 import styled, { css } from 'styled-components';
+import { GlobalStyleType } from 'StyleVars';
 
 const StyledStoriesLayout = styled.section.attrs((props) => ({}))`
   ${(props) => {
-    const colorBaseBlack = props.theme.palette.$color_base_black;
-    const colorLineBlack = props.theme.palette.$color_line_black;
+    const Theme: GlobalStyleType = props.theme;
+    const colorBaseBlack = Theme.palette.$color_base_black;
+    const colorLineBlack = Theme.palette.$color_base_line;
     return css`
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-flow: column;
+      padding-bottom: 5%;
 
       h1 {
         font-size: 20px;
@@ -36,6 +39,10 @@ const StyledStoriesLayout = styled.section.attrs((props) => ({}))`
         font-size: 14px;
         margin-top: 20px;
         font-weight: 500;
+      }
+
+      div.mb-50 {
+        margin-bottom: 50px;
       }
 
       * {

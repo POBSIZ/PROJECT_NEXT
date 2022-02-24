@@ -1,8 +1,10 @@
+import { type } from 'os';
 import styled, {
   createGlobalStyle,
   ThemeProvider,
   css,
 } from 'styled-components';
+import { Type } from 'typescript';
 
 const GlobalStyle = {
   palette: {
@@ -72,5 +74,7 @@ const GlobalStyle = {
     $min_max_width: '400px',
   },
 };
+
+export type GlobalStyleType = typeof GlobalStyle;
 
 export default GlobalStyle;

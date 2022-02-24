@@ -17,4 +17,6 @@ const RegisterPage: NextPage<any> = ({}) => {
   );
 };
 
+RegisterPage.getInitialProps = () => {};
+
 export default RegisterPage;

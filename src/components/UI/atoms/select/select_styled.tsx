@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { GlobalStyleType } from 'StyleVars';
 
 import { SelectParamsType } from '.';
 
@@ -9,10 +10,12 @@ const StyledSelect = styled.select.attrs((props) => ({
   required: props.required || false,
 }))<SelectParamsType>`
   ${(props) => {
-    const colorDisabled = props.theme.palette.$color_disabled;
-    const colorD3Blue = props.theme.palette.$color_d3_blue;
-    const colorBaseBlack = props.theme.palette.$color_base_black;
-    const colorLineBlack = props.theme.palette.$color_line_black;
+    const Theme: GlobalStyleType = props.theme;
+
+    const colorDisabled = Theme.palette.$color_disabled;
+    const colorD3Blue = Theme.palette.$color_d3_blue;
+    const colorBaseBlack = Theme.palette.$color_base_black;
+    const colorLineBlack = Theme.palette.$color_base_line;
     const borderColor =
       props.isFail === true
         ? props.theme.palette.$color_failure
@@ -23,7 +26,7 @@ const StyledSelect = styled.select.attrs((props) => ({
         : '';
 
     return css`
-      color: ${colorBaseBlack};
+      color: ${colorLineBlack};
       width: 100%;
       height: 45px;
       font-size: 16px;
@@ -37,6 +40,7 @@ const StyledSelect = styled.select.attrs((props) => ({
 
       &:focus {
         border: 1px solid ${colorD3Blue};
+        color: ${colorBaseBlack};
       }
 
       &:disabled {

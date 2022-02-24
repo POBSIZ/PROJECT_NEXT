@@ -3,9 +3,11 @@
 		"prefix": "csc",
 		"body": [
 			"import styled, { css } from 'styled-components';",
+			"import { GlobalStyleType } from 'StyleVars';",
 			"",
-			"const Styled$Name = styled.header.attrs((props) => ({}))`",
+			"const Styled$Name = styled.div.attrs((props) => ({}))`",
 			"\t${(props) => {",
+			"\t\tconst Theme: GlobalStyleType = props.theme;",
 			"\t\treturn css`",
 			"\t\t`",
 			"\t}};",

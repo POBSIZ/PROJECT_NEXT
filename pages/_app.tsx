@@ -1,10 +1,10 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Layout from 'src/components/layout';
+import Layout from 'src/components/provider';
 import '../styles/globals.css';
 
-import GlobalProvider from 'src/components/layout/globalProvider';
+import GlobalProvider from 'src/components/provider/globalProvider';
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (

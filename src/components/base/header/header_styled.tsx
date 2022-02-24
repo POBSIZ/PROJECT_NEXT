@@ -1,12 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
+import { GlobalStyleType } from 'StyleVars';
 
 const StyledHeader = styled.header.attrs((props) => {})`
   ${(props) => {
-    const headerKeyBlue = props.theme.palette.$color_key_blue;
-    const headerKeyRed = props.theme.palette.$color_key_red;
-    const headerLineBlack = props.theme.palette.$color_line_black;
-    const headerBaseBlack = props.theme.palette.$color_base_black;
+    const Theme: GlobalStyleType = props.theme;
+    const headerKeyBlue = Theme.palette.$color_key_blue;
+    const headerLineBlack = Theme.palette.$color_base_line;
+    const headerBaseBlack = Theme.palette.$color_base_black;
     const headerDesktopHeight = props.theme.size.$header_desktop_line_height;
     const headerMobileHeight = props.theme.size.$header_mobile_line_height;
     return css`

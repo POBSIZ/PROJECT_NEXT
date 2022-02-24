@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { GlobalStyleType } from 'StyleVars';
 import { InputParamsType } from '.';
 
 const StyledInput = styled.input.attrs((props) => ({
@@ -9,10 +10,11 @@ const StyledInput = styled.input.attrs((props) => ({
   disabled: props.disabled || false,
 }))<InputParamsType>`
   ${(props) => {
-    const colorDisabled = props.theme.palette.$color_disabled;
-    const colorD3Blue = props.theme.palette.$color_d3_blue;
-    const colorBaseBlack = props.theme.palette.$color_base_black;
-    const colorLineBlack = props.theme.palette.$color_line_black;
+    const Theme: GlobalStyleType = props.theme;
+    const colorDisabled = Theme.palette.$color_disabled;
+    const colorD3Blue = Theme.palette.$color_d3_blue;
+    const colorBaseBlack = Theme.palette.$color_base_black;
+    const colorLineBlack = Theme.palette.$color_base_line;
     const bgColor = props.disabled === true ? colorLineBlack : 'transparent';
     const borderColor =
       props.isFail === true
