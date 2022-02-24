@@ -20,8 +20,6 @@ const ListViewComponent: React.FC<ListViewPropsType> = (
   props,
   { item_list }: ListViewPropsType,
 ) => {
-  console.log(props);
-
   return (
     <>
       <StyledListView {...props}>
