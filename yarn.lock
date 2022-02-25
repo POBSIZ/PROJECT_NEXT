@@ -12177,6 +12177,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nanoid@npm:^3.3.1":
+  version: 3.3.1
+  resolution: "nanoid@npm:3.3.1"
+  bin:
+    nanoid: bin/nanoid.cjs
+  checksum: 4ef0969e1bbe866fc223eb32276cbccb0961900bfe79104fa5abe34361979dead8d0e061410a5c03bc3d47455685adf32c09d6f27790f4a6898fb51f7df7ec86
+  languageName: node
+  linkType: hard
+
 "nanomatch@npm:^1.2.9":
   version: 1.2.13
   resolution: "nanomatch@npm:1.2.13"
@@ -13725,6 +13734,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.3.0
     immutable: ^4.0.0
     jest: ^27.4.5
+    nanoid: ^3.3.1
     next: 12.0.7
     next-images: ^1.8.4
     next-redux-wrapper: ^7.0.5

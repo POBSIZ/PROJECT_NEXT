@@ -32,7 +32,7 @@ const StyledChannelBox = styled.div.attrs((props) => ({}))<ChannelBoxPropsType>`
       height: 115px;
       padding: 10px 13px;
       box-shadow: 0 4px 10px ${colorBaseLightGray};
-      border-radius: ${borderRadius}px;
+      border-radius: ${borderRadius || 16}px;
       display: flex;
       justify-content: center;
       align-items: start;
