@@ -5,8 +5,8 @@ import RegisterComponent from './auth/register';
 const Pages = {
   Home,
   LoginPageComponent,
-  RegisterComponent
+  RegisterComponent,
 };
 
 export default Pages;
-export { Home, LoginPageComponent,RegisterComponent };
+export { Home, LoginPageComponent, RegisterComponent };

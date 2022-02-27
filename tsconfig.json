@@ -86,7 +86,7 @@
     "moduleResolution": "node",
     "noUnusedLocals": false,
     "resolveJsonModule": true,
-    "isolatedModules": false,
+    "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
     "noResolve": false,
