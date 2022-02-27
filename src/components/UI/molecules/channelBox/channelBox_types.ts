@@ -8,5 +8,5 @@ export interface ChannelBoxPropsType {
   creator: string;
   is_private: boolean;
   on_click?: () => {};
-  radius: 0 | 4 | 8 | 16 | 32;
+  radius?: 0 | 4 | 8 | 16 | 32;
 }

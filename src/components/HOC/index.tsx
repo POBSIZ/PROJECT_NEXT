@@ -1,4 +1,6 @@
-const Hoc = {};
+import CustomSuspense from './customSuspense';
+
+const Hoc = { CustomSuspense };
 
 export default Hoc;
-export {};
+export { CustomSuspense };
