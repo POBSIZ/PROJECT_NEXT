@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, Suspense } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { NextPage } from 'next';
@@ -62,7 +62,7 @@ const Name: NextPage<any> = ({}) => {
       const { data } = await axios.get(
         'http://localhost:3000/api/list/channel',
       );
-      console.log(data)
+      console.log(data);
       setData(data);
     };
     getData();
@@ -71,14 +71,13 @@ const Name: NextPage<any> = ({}) => {
 
   return (
     <>
-      <Suspense fallback={<Loader />}>
-        <div
-          style={{
-            paddingTop: '100px',
-            // textAlign: 'center',
-          }}
-        >
-          {/* <div>
+      <div
+        style={{
+          paddingTop: '100px',
+          // textAlign: 'center',
+        }}
+      >
+        {/* <div>
             <h2>List</h2>
             <button onClick={getName}>GetName</button>
             <button onClick={generate}>Generate</button>
@@ -90,8 +89,8 @@ const Name: NextPage<any> = ({}) => {
               <button onClick={popToast}>TOAST</button>
             </h1>
           </div> */}
-          {/* <ListView item_list={data} with_imgs={false} /> */}
-          {/* <div style={{ width: '300px', margin: 'auto' }}>
+        {/* <ListView item_list={data} with_imgs={false} /> */}
+        {/* <div style={{ width: '300px', margin: 'auto' }}>
             <ChannelBox
               is_private={true}
               title="Title"
@@ -103,9 +102,8 @@ const Name: NextPage<any> = ({}) => {
               creator="John Doe"
             />
           </div> */}
-          <ChannelList channel_list={data} />
-        </div>
-      </Suspense>
+        <ChannelList channel_list={data} />
+      </div>
     </>
   );
 };
