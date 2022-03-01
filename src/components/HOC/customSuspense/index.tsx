@@ -7,20 +7,18 @@ import toastAction, { pushToastAsync } from 'Actions/toastAction';
 
 interface CustomSuspensePropsType {
   children: ReactNode;
-  fn: () => {};
   fallback: ReactNode;
 }
 
 const CustomSuspense: React.FC<CustomSuspensePropsType> = (
   props,
-  { children, fn, fallback }: CustomSuspensePropsType,
+  { children, fallback }: CustomSuspensePropsType,
 ) => {
   const dispatch = useDispatch();
-  const [isLoad, setIsLoad] = useState(false);  
+  const [isLoad, setIsLoad] = useState(false);
 
-  const getLoadStatus = async () => {
+  useEffect(() => {
     try {
-      await props.fn();
       setIsLoad(true);
     } catch (error) {
       setIsLoad(false);
@@ -32,10 +30,6 @@ const CustomSuspense: React.FC<CustomSuspensePropsType> = (
       );
       console.log(error);
     }
-  };
-
-  useEffect(() => {
-    getLoadStatus();
     return () => {};
   }, []);
 

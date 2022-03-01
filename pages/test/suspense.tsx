@@ -1,27 +1,23 @@
-import React from 'react';
+import React, { useState, Suspense } from 'react';
 import { NextPage } from 'next';
 import Head from 'next/head';
 import axios from 'axios';
 
-import { CustomSuspense } from 'Hoc';
+import Pages, { Test } from 'UIpages';
 import { Loader } from 'Bases';
 
-const Suspense: NextPage<any> = (props, {}) => {
-  const getData = async () => {
-    const { data } = await axios.get('http://localhost:3000/api/list/channel');
-    console.log(data);
-  };
-
+const SuspensePage: NextPage<any> = (props, {}) => {
+  const TestPage = React.lazy(() => import('UIpages/test'));
   return (
     <>
       <Head>
         <title>Suspense</title>
       </Head>
-      <CustomSuspense fallback={Loader} fn={getData}>
-        Test
-      </CustomSuspense>
+      <Suspense fallback={<Loader />}>
+        <TestPage />
+      </Suspense>
     </>
   );
 };
 
-export default Suspense;
+export default SuspensePage;

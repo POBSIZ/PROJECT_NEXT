@@ -24,6 +24,7 @@
     "axios": "^0.24.0",
     "env-cmd": "^10.1.0",
     "immutable": "^4.0.0",
+    "nanoid": "^3.3.1",
     "next": "12.0.7",
     "next-redux-wrapper": "^7.0.5",
     "react": "17.0.2",
