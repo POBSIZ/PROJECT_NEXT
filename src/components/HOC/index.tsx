@@ -1,6 +1,8 @@
 import CustomSuspense from './customSuspense';
+import ApiClient from './client/api';
+import AosWrapper from './Aos';
 
-const Hoc = { CustomSuspense };
+const Hoc = { CustomSuspense, ApiClient, AosWrapper };
 
 export default Hoc;
-export { CustomSuspense };
+export { CustomSuspense, ApiClient, AosWrapper };

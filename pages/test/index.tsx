@@ -60,7 +60,7 @@ const Name: NextPage<any> = ({}) => {
     const getData = async () => {
       // const { data } = await axios.get('http://localhost:3000/api/list');
       const { data } = await axios.get(
-        'http://localhost:3000/api/list/channel',
+        'http://localhost:8888/api/list/channel',
       );
       console.log(data);
       setData(data);

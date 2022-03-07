@@ -8,18 +8,22 @@ import toastAction, { pushToastAsync } from 'Actions/toastAction';
 interface CustomSuspensePropsType {
   children: ReactNode;
   fallback: ReactNode;
+  get_data_func: () => {};
 }
 
 const CustomSuspense: React.FC<CustomSuspensePropsType> = (
   props,
-  { children, fallback }: CustomSuspensePropsType,
+  { children, fallback, get_data_func }: CustomSuspensePropsType,
 ) => {
   const dispatch = useDispatch();
   const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {
     try {
-      setIsLoad(true);
+      (async () => {
+        await props.get_data_func();
+        setIsLoad(true);
+      })();
     } catch (error) {
       setIsLoad(false);
       dispatch(
@@ -28,7 +32,6 @@ const CustomSuspense: React.FC<CustomSuspensePropsType> = (
           message: '로딩에 실패하였습니다.',
         }),
       );
-      console.log(error);
     }
     return () => {};
   }, []);
