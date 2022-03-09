@@ -5,9 +5,10 @@ import { ChannelBoxPropsType } from './channelBox_types';
 
 const StyledChannelBox = styled.div.attrs((props) => ({}))<ChannelBoxPropsType>`
   ${(props) => {
-    const isLock = props.is_private
-      ? 'display: inline-block;'
-      : 'display: none;';
+    // const isLock = props.is_private
+    //   ? 'display: inline-block;'
+    //   : 'display: none;';
+    const isLock = 'display: none;';
 
     const borderRadius = props.radius;
 
