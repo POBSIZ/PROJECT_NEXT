@@ -23,28 +23,28 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
 ) => {
   return (
     <>
-      <Layout.Container>
-        <StyledChannelPage>
-          <h1>📃 게임 목록</h1>
-          <ul>
-            {props?.channelList?.map((item: ChannelBoxPropsType) => (
-              <StyledChannelPageItem key={nanoid()}>
-                <ChannelBox
-                  is_private={item.is_private}
-                  title={item.title}
-                  time={item.time}
-                  point={item.point}
-                  curr_user={item.curr_user}
-                  max_user={item.max_user}
-                  info={item.info}
-                  creator={item.creator}
-                  link={item.link}
-                />
-              </StyledChannelPageItem>
-            ))}
-          </ul>
-        </StyledChannelPage>
-      </Layout.Container>
+      {/* <Layout.Container> */}
+      <StyledChannelPage>
+        <h1>📃 게임 목록</h1>
+        <ul>
+          {props?.channelList?.map((item: ChannelBoxPropsType) => (
+            <StyledChannelPageItem key={nanoid()}>
+              <ChannelBox
+                is_private={item.is_private}
+                title={item.title}
+                time={item.time}
+                point={item.point}
+                curr_user={item.curr_user}
+                max_user={item.max_user}
+                info={item.info}
+                creator={item.creator}
+                link={item.link}
+              />
+            </StyledChannelPageItem>
+          ))}
+        </ul>
+      </StyledChannelPage>
+      {/* </Layout.Container> */}
     </>
   );
 };

@@ -49,7 +49,7 @@ const PlayingFormComponent: React.FC<any> = ({}) => {
           <Select name="gender" placeholder="종목" item={item} />
           <Select name="gender" placeholder="차트 종류" item={item} />
         </div>
-        <
+
         <input type="number" placeholder={0}></input>
       </StyledPlayingForm>
     </>
