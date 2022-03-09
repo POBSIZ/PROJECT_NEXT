@@ -23,15 +23,24 @@ const GameReadyPage: NextPage<any> = (props) => {
     client.current.subscribe(`/sub/game/channel/${props.id}`, (res) => {
       console.log(res);
     });
-    axios
-      .post(
-        `http://172.30.1.36:8000/api/v1/investment/channel/start/${props.id}`,
-        {},
-        { withCredentials: true },
-      )
-      .then((res) => {
-        console.log(res.data);
-      });
+    client.current.publish({
+      destination: '/pub/game/message',
+      body: JSON.stringify({
+        type: 'ENTER',
+        channelId: props.id,
+        senderId: 2,
+        senderName: 'Test',
+      }),
+    });
+    // client.current.publish({
+    //   destination: '/pub/game/message',
+    //   body: JSON.stringify({
+    //     type: 'START',
+    //     channelId: props.id,
+    //     senderId: 2,
+    //     senderName: 'Test',
+    //   }),
+    // });
   };
   const connect = () => {
     client.current = new StompJs.Client({
@@ -41,7 +50,7 @@ const GameReadyPage: NextPage<any> = (props) => {
         'auth-token': 'spring-chat-auth-token',
       },
       debug: function (str) {
-        console.log(str);
+        // console.log(str);
       },
       reconnectDelay: 5000,
       heartbeatIncoming: 4000,
@@ -50,7 +59,7 @@ const GameReadyPage: NextPage<any> = (props) => {
         subscribe();
       },
       onStompError: (frame) => {
-        console.error(frame);
+        // console.error(frame);
       },
     });
 
