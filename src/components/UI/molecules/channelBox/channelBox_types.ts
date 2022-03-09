@@ -9,4 +9,5 @@ export interface ChannelBoxPropsType {
   is_private: boolean;
   on_click?: () => {};
   radius?: 0 | 4 | 8 | 16 | 32;
+  link: string;
 }

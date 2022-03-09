@@ -1,3 +1,5 @@
-const Layout = {};
+import Container from './container';
+
+const Layout = { Container };
 export default Layout;
-export {};
+export { Container };

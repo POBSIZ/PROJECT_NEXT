@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { NextPage } from 'next';
-import { SocketClient } from 'Hoc';
+import { SocketClient } from 'Utils';
 
 const GameReadyPage: NextPage<any> = () => {
-  const socketClient = SocketClient({ heartbeatIncoming: 1000 * 1 });
+  const socketClient = SocketClient({
+    heartbeatIncoming: 1000 * 1,
+    onConnectFunc: () => {},
+    onErrorFunc: () => {},
+  });
 
   useEffect(() => {
     socketClient.activate();

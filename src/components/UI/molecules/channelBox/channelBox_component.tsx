@@ -13,7 +13,12 @@ import {
   faLock,
 } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
+import {
+  FontAwesomeIcon,
+  FontAwesomeIconProps,
+} from '@fortawesome/react-fontawesome'; // HOC
+
+import Link from 'next/link';
 
 import StyledChannelBox from './channelBox_styled';
 

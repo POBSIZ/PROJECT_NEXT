@@ -14,6 +14,7 @@ const dummyData = (): ChannelBoxPropsType[] => {
       max_user: index * 2,
       info: `Nasdaq-${index} Random`,
       creator: 'John Doe',
+      link: `${index}`,
     });
   }
   return _list;
