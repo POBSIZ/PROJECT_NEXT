@@ -5,6 +5,7 @@ import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import Actions from 'Actions/index';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
 import { faExclamationCircle } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
@@ -109,7 +110,7 @@ const TextInputComponent: React.FC<any> = (props) => {
         {props.warnning == true ? (
           <div className="warnning">
             <FontAwesomeIcon
-              icon={faExclamationCircle}
+              icon={faExclamationCircle as IconProp}
               style={{ marginRight: '5px' }}
             />
             {TextInputType.warnning}
