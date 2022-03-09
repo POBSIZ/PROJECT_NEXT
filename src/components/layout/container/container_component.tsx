@@ -12,10 +12,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 
 import StyledContainer from './container_styled';
 
-const ContainerComponent: React.FC<any> = ({}) => {
+const ContainerComponent: React.FC<any> = (props, {}) => {
   return (
     <>
-      <StyledContainer></StyledContainer>
+      <StyledContainer>{props.children}</StyledContainer>
     </>
   );
 };

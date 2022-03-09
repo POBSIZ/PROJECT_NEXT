@@ -10,6 +10,7 @@ const Header: React.FC<any> = (props) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const auth = useSelector((store: RootStateOrAny) => store.authReducer);
+  const nav_list = [{ url: '/test/', text: 'TEST' }];
 
   const setLogout = () => {
     dispatch(LogoutAsync.request());
@@ -21,6 +22,7 @@ const Header: React.FC<any> = (props) => {
       logout={setLogout}
       isAuthenticated={auth?.isAuthenticated}
       profile={auth?.userData}
+      navList={nav_list}
       {...props}
     />
   );

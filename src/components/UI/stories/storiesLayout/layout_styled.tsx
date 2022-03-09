@@ -48,6 +48,8 @@ const StyledStoriesLayout = styled.section.attrs((props) => ({}))`
       * {
         position: relative !important;
       }
+
+      /* 나녕이는 바닐라라떼 안먹고 싶대~ */
     `;
   }};
 `;

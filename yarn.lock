@@ -9569,6 +9569,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"highcharts-react-official@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "highcharts-react-official@npm:3.1.0"
+  peerDependencies:
+    highcharts: ">=6.0.0"
+    react: ">=16.8.0"
+  checksum: 13ea12e8f778d4b7dac735082b6f36ed3c852b7c31823812ba42ea78e72ce21b90e62daf0a2bc35bb6db07705a9f19cf7b21c03455c6f3fb14e7cab8d35b0ecf
+  languageName: node
+  linkType: hard
+
+"highcharts@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "highcharts@npm:10.0.0"
+  checksum: 1824e9b096fcdccd23a4533c9f7ff8bf46d48536a798c613e6564b5bb88dcdc5e0d2ccc0a9f6f20635219956d62d3b7339e8330fe2a31579f438fcabb3bd8d47
+  languageName: node
+  linkType: hard
+
 "highlight.js@npm:^10.1.1, highlight.js@npm:~10.7.0":
   version: 10.7.3
   resolution: "highlight.js@npm:10.7.3"
@@ -13981,6 +13998,8 @@ __metadata:
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-react: ^7.28.0
     eslint-plugin-react-hooks: ^4.3.0
+    highcharts: ^10.0.0
+    highcharts-react-official: ^3.1.0
     immutable: ^4.0.0
     jest: ^27.4.5
     nanoid: ^3.3.1

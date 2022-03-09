@@ -21,6 +21,7 @@ const ChannelBox: React.FC<ChannelBoxPropsType> = (
     is_private,
     on_click,
     radius,
+    link,
   }: ChannelBoxPropsType,
 ) => {
   return (

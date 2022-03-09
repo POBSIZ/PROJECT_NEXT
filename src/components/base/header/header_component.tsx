@@ -12,10 +12,11 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아�
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 import Link from 'next/link';
+import { nanoid } from 'nanoid';
 
 import StyledHeader from './header_styled';
 
-function NavTab({ logout, isAuthenticated, profile }) {
+function NavTab({ logout, isAuthenticated, profile, navList }) {
   const [navTabStyle, setNavTabStyle] = useState<any>();
   const [navBgStyle, setNavBgStyle] = useState<any>();
   const [navStyle, setNavStyle] = useState<any>();
@@ -98,12 +99,11 @@ function NavTab({ logout, isAuthenticated, profile }) {
             )}
           </div>
           <ul className="navTab-link">
-            {/* <Link href="/mbti">
-              <a onClick={navClose}>📝DETI</a>
-            </Link> */}
-            <Link href="/test/">
-              <a onClick={navClose}>TEST</a>
-            </Link>
+            {navList?.map((item) => (
+              <Link href={item.url} key={nanoid()}>
+                <a onClick={navClose}>{item.text}</a>
+              </Link>
+            ))}
           </ul>
         </div>
         <div className="navTab-bg" onClick={navClose} style={navBgStyle}></div>
@@ -116,6 +116,7 @@ const HeaderComponent: React.FC<any> = ({
   logout,
   isAuthenticated,
   profile,
+  navList,
 }) => {
   return (
     <StyledHeader className="header">
@@ -126,6 +127,7 @@ const HeaderComponent: React.FC<any> = ({
         logout={logout}
         isAuthenticated={isAuthenticated}
         profile={profile}
+        navList={navList}
       />
     </StyledHeader>
   );

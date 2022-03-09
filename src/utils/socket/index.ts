@@ -6,12 +6,16 @@ interface ClientWrapperProps {
   reconnectDelay?: number;
   heartbeatIncoming?: number;
   heartbeatOutgoing?: number;
+  onConnectFunc: () => {} | void;
+  onErrorFunc: () => {} | void;
 }
 
 const SocketClient = ({
   reconnectDelay = 1000 * 4,
   heartbeatIncoming = 1000 * 4,
   heartbeatOutgoing = 1000 * 4,
+  onConnectFunc,
+  onErrorFunc,
 }: ClientWrapperProps) => {
   let client;
   if (typeof WebSocket !== 'function') {
@@ -31,10 +35,12 @@ const SocketClient = ({
   }
 
   client.onConnect = function (frame: any) {
+    onConnectFunc();
     console.log(frame);
   };
 
   client.onStompError = function (frame: any) {
+    onErrorFunc();
     console.log('Broker reported error: ' + frame.headers['message']);
     console.log('Additional details: ' + frame.body);
   };
