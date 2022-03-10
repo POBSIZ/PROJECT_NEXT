@@ -17,7 +17,7 @@ const NextChannelPage: NextPage<any> = (props, { data }) => {
 };
 
 NextChannelPage.getInitialProps = async () => {
-  const { data } = await axios.get('http://localhost:8888/api/list/channel');
+  const { data } = await axios.get('api/list/channel');
   return {
     data,
   };

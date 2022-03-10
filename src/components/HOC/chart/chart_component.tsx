@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
@@ -47,7 +47,7 @@ const ChartComponent: React.FC<any> = ({}) => {
     });
   };
 
-  const asyncRequest = async () => {
+  const asyncRequest = useCallback(async () => {
     let tempSeries: any = Object.assign([], options.series);
 
     const dataSet = await tempSeries.map((item) => {
@@ -63,7 +63,7 @@ const ChartComponent: React.FC<any> = ({}) => {
       ...initialOptions,
       series: dataSet,
     });
-  };
+  }, []);
 
   useEffect(() => {
     // getInitData();
