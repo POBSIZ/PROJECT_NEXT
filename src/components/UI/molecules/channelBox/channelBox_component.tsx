@@ -5,6 +5,7 @@ import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import Actions from 'Actions/index';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
 import {
   faClock,
@@ -24,35 +25,46 @@ import StyledChannelBox from './channelBox_styled';
 
 import { ChannelBoxPropsType } from './channelBox_types';
 
-const ChannelBoxComponent: React.FC<ChannelBoxPropsType> = (
-  props: ChannelBoxPropsType,
+interface ChannelBoxComponent {
+  title: string;
+  time: number;
+  point: number;
+  curr_user: number;
+  max_user: number;
+  info: string;
+  link: string;
+  creator: number;
+}
+
+const ChannelBoxComponent: React.FC<ChannelBoxComponent> = (
+  props: ChannelBoxComponent,
   {},
 ) => {
   return (
-    <>
+    <Link href={`/game/investing/${props.link}`}>
       <StyledChannelBox {...props}>
         <div className="title">
-          <FontAwesomeIcon icon={faLock} className="icon" />
+          <FontAwesomeIcon icon={faLock as IconProp} className="icon" />
           <h3 className="text">{props.title}</h3>
         </div>
         <div className="options">
           <span className="time">
-            <FontAwesomeIcon icon={faClock} className="icon" />
+            <FontAwesomeIcon icon={faClock as IconProp} className="icon" />
             {props.time}
           </span>
           <span className="point">
-            <FontAwesomeIcon icon={faCoins} className="icon" />
+            <FontAwesomeIcon icon={faCoins as IconProp} className="icon" />
             {props.point}
           </span>
           <span className="users">
-            <FontAwesomeIcon icon={faUsers} className="icon" />
+            <FontAwesomeIcon icon={faUsers as IconProp} className="icon" />
             {props.curr_user}/{props.max_user}
           </span>
         </div>
         <p className="info">{props.info}</p>
         <label className="creator">{props.creator}</label>
       </StyledChannelBox>
-    </>
+    </Link>
   );
 };
 

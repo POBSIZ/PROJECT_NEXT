@@ -10,7 +10,10 @@ const Header: React.FC<any> = (props) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const auth = useSelector((store: RootStateOrAny) => store.authReducer);
-  const nav_list = [{ url: '/test/', text: 'TEST' }];
+  const nav_list = [
+    { url: '/game/investing', text: '모의 투자 게임' },
+    { url: '/game/investing/test', text: '모의 투자 게임[TEST]' },
+  ];
 
   const setLogout = () => {
     dispatch(LogoutAsync.request());

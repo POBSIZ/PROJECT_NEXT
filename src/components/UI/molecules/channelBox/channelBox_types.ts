@@ -1,13 +1,15 @@
 export interface ChannelBoxPropsType {
-  title: string;
-  time: string;
-  point: number;
-  curr_user: number;
-  max_user: number;
-  info: string;
-  creator: string;
-  is_private: boolean;
   on_click?: () => {};
   radius?: 0 | 4 | 8 | 16 | 32;
-  link: string;
+}
+
+export interface ChannelBoxPropsTypeTest {
+  id: string;
+  channelNum: number;
+  channelName: string;
+  entryFee: number;
+  users: any;
+  pointPsum: number;
+  hostId: number;
+  limitOfParticipants: number;
 }

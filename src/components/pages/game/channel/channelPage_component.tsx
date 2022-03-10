@@ -12,7 +12,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 
 import Molecules, { ChannelBox } from 'Molecules';
 import { ChannelPageProps } from '.';
-import { ChannelBoxPropsType } from 'Molecules/channelBox/channelBox_types';
+import {
+  ChannelBoxPropsType,
+  ChannelBoxPropsTypeTest,
+} from 'Molecules/channelBox/channelBox_types';
 import { nanoid } from 'nanoid';
 import Layout from 'Layouts';
 import StyledChannelPage, { StyledChannelPageItem } from './channelPage_styled';
@@ -23,28 +26,27 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
 ) => {
   return (
     <>
-      {/* <Layout.Container> */}
-      <StyledChannelPage>
-        <h1>📃 게임 목록</h1>
-        <ul>
-          {props?.channelList?.map((item: ChannelBoxPropsType) => (
-            <StyledChannelPageItem key={nanoid()}>
-              <ChannelBox
-                is_private={item.is_private}
-                title={item.title}
-                time={item.time}
-                point={item.point}
-                curr_user={item.curr_user}
-                max_user={item.max_user}
-                info={item.info}
-                creator={item.creator}
-                link={item.link}
-              />
-            </StyledChannelPageItem>
-          ))}
-        </ul>
-      </StyledChannelPage>
-      {/* </Layout.Container> */}
+      <Layout.Container>
+        <StyledChannelPage>
+          <h1>📃 게임 목록</h1>
+          <ul>
+            {props?.channelList?.map((item: ChannelBoxPropsTypeTest) => (
+              <StyledChannelPageItem key={nanoid()}>
+                <ChannelBox
+                  title={item.channelName}
+                  time={10}
+                  point={item.entryFee}
+                  curr_user={Object.keys(item.users).length}
+                  max_user={item.limitOfParticipants}
+                  info={'-'}
+                  creator={item.hostId}
+                  link={item.id}
+                />
+              </StyledChannelPageItem>
+            ))}
+          </ul>
+        </StyledChannelPage>
+      </Layout.Container>
     </>
   );
 };

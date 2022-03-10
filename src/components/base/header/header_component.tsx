@@ -8,6 +8,7 @@ import Atoms, { Logo } from 'Atoms/index';
 import Molecules from 'Molecules/index';
 import Organisms from 'Organisms/index';
 import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faBars } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
@@ -15,6 +16,7 @@ import Link from 'next/link';
 import { nanoid } from 'nanoid';
 
 import StyledHeader from './header_styled';
+import { listenerCount } from 'process';
 
 function NavTab({ logout, isAuthenticated, profile, navList }) {
   const [navTabStyle, setNavTabStyle] = useState<any>();
@@ -56,7 +58,7 @@ function NavTab({ logout, isAuthenticated, profile, navList }) {
   return (
     <nav className="nav">
       <FontAwesomeIcon
-        icon={faBars}
+        icon={faBars as IconProp}
         className="nav-menuBar"
         onClick={navOpen}
       />
