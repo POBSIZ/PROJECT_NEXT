@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { faYoutube, faInstagram } from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
@@ -19,20 +20,22 @@ const FooterComponent: React.FC<any> = ({}) => {
         <div className="footer-copyright">
           ©Copyright 2021 PROJECT All rights reserved
         </div>
-        <div className="footer-address">부산광역시 남구 전포대로 77번길 39-2</div>
+        <div className="footer-address">
+          부산광역시 남구 전포대로 77번길 39-2
+        </div>
       </div>
       <div className="footer-link">
         <a
           href="https://www.youtube.com/channel/UCZZOjlTrjJvSATrknAzYEfw"
           target="_blank"
         >
-          <FontAwesomeIcon icon={faYoutube} />
+          <FontAwesomeIcon icon={faYoutube as IconProp} />
         </a>
         <a href="https://www.instagram.com/project_busan" target="_blank">
-          <FontAwesomeIcon icon={faInstagram} />
+          <FontAwesomeIcon icon={faInstagram as IconProp} />
         </a>
         <a href="mailto:projectplan0531@gmail.com">
-          <FontAwesomeIcon icon={faEnvelope} />
+          <FontAwesomeIcon icon={faEnvelope as IconProp} />
         </a>
       </div>
     </StyledFooter>

@@ -6,24 +6,23 @@ import { useCookies } from 'react-cookie';
 
 import ChannelBoxComponent from './channelBox_component';
 
-import { ChannelBoxPropsType } from './channelBox_types';
+import {
+  ChannelBoxPropsType,
+  ChannelBoxPropsTypeTest,
+} from './channelBox_types';
 
-const ChannelBox: React.FC<ChannelBoxPropsType> = (
-  props,
-  {
-    title,
-    time,
-    point,
-    curr_user,
-    max_user,
-    info,
-    creator,
-    is_private,
-    on_click,
-    radius,
-    link,
-  }: ChannelBoxPropsType,
-) => {
+interface ChannelBox {
+  title: string;
+  time: number;
+  point: number;
+  curr_user: number;
+  max_user: number;
+  info: string;
+  link: string;
+  creator: number;
+}
+
+const ChannelBox: React.FC<ChannelBox> = (props) => {
   return (
     <>
       <ChannelBoxComponent {...props} />

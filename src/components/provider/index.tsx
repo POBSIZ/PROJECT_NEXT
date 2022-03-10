@@ -17,9 +17,10 @@ const Layout: React.FC<any> = ({ children }) => {
 
   // axios.defaults.baseURL = 'https://buscp.org/api/';
   axios.defaults.baseURL = 'http://localhost:3000/';
+  
   axios.defaults.withCredentials = true;
   axios.defaults.headers.common['Authorization'] = `JWT ${auth?.accessToken}`;
-  axios.defaults.headers.common['X-CSRFToken'] = cookies[0].csrftoken;
+  // axios.defaults.headers.common['X-CSRFToken'] = cookies[0].csrftoken;
 
   const handleRouteChange = () => {
     console.log('Page Change');

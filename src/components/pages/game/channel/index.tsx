@@ -4,11 +4,15 @@ import Actions from 'Actions/index';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';
 
-import { ChannelBoxPropsType } from 'Molecules/channelBox/channelBox_types';
+import {
+  ChannelBoxPropsType,
+  ChannelBoxPropsTypeTest,
+} from 'Molecules/channelBox/channelBox_types';
 import ChannelPageComponent from './channelPage_component';
 
 export interface ChannelPageProps {
-  channelList: ChannelBoxPropsType[];
+  channelList: ChannelBoxPropsTypeTest[];
+  // channelList: ChannelBoxPropsType[];
 }
 
 const ChannelPage: React.FC<ChannelPageProps> = (
