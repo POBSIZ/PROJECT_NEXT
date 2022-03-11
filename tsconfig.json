@@ -76,7 +76,7 @@
       ],
       "Layouts": [
         "src/components/layout/index.ts"
-      ],
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -89,7 +89,7 @@
     "moduleResolution": "node",
     "noUnusedLocals": false,
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "jsx": "preserve",
     "incremental": true,
     "noResolve": false,

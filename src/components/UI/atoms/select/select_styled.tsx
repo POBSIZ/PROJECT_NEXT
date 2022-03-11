@@ -35,7 +35,7 @@ const StyledSelect = styled.select.attrs((props) => ({
       will-change: border;
       text-indent: 6px;
       border: 1px solid ${borderColor};
-      appearance: none;
+
       border-radius: 0px;
 
       &:focus {

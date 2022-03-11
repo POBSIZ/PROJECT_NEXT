@@ -7,6 +7,8 @@ import * as StompJs from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 import { useRouter } from 'next/router';
 
+import { Chart } from 'Hoc';
+
 const GameReadyPage: NextPage<any> = (props) => {
   const router = useRouter();
   const client = useRef<any>({});
@@ -33,7 +35,7 @@ const GameReadyPage: NextPage<any> = (props) => {
         console.log(res.data);
       });
   };
-  
+
   const connect = () => {
     client.current = new StompJs.Client({
       brokerURL: 'ws://172.30.1.56:8080/ws-stomp', // 웹소켓 서버로 직접 접속
@@ -94,6 +96,7 @@ const GameReadyPage: NextPage<any> = (props) => {
       <Head>
         <title>PROJECT | 게임홈</title>
       </Head>
+      <Chart />
     </>
   );
 };

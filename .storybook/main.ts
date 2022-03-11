@@ -28,6 +28,8 @@ module.exports = {
     config.resolve.alias.StyleVars = __dirname + '/../styles/global_styles.tsx';
     config.resolve.alias.StoriesLayout =
       __dirname + '/../src/components/UI/stories/storiesLayout/index.tsx';
+    config.resolve.alias.Layouts =
+      __dirname + '/../src/components/layout/index.ts';
 
     config.resolve.extensions.push(
       '.ts',

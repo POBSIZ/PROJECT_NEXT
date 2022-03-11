@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 
 import { NextPage } from 'next';
+import Head from 'next/head';
 import Link from 'next/link';
 
 import PropTypes from 'prop-types';
@@ -30,6 +31,9 @@ const Name: NextPage<any> = ({}) => {
 
   return (
     <>
+      <Head>
+        <title>PROJECT | 모의투자 TEST</title>
+      </Head>
       <BlockChangePage exitFunc={testFunc} condFunc={() => {}}>
         <div
           style={{

@@ -28,7 +28,7 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
     <>
       <Layout.Container>
         <StyledChannelPage>
-          <h1>📃 게임 목록</h1>
+          <h1>📃 채널 목록</h1>
           <ul>
             {props?.channelList?.map((item: ChannelBoxPropsTypeTest) => (
               <StyledChannelPageItem key={nanoid()}>
@@ -38,7 +38,7 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
                   point={item.entryFee}
                   curr_user={Object.keys(item.users).length}
                   max_user={item.limitOfParticipants}
-                  info={'-'}
+                  info={'Lorem Ipsum Dolor Sit'}
                   creator={item.hostId}
                   link={item.id}
                 />
