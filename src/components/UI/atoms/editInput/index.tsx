@@ -6,8 +6,14 @@ import { useCookies } from 'react-cookie';
 
 import EditInputComponent from './editInput_component';
 
-const EditInput: React.FC<any> = (props, {}) => {
-  return(
+export interface EditInputProps {
+  placeholder: string;
+  maxText?: number;
+  isDisabled: boolean;
+}
+
+const EditInput: React.FC<EditInputProps> = (props, {}) => {
+  return (
     <>
       <EditInputComponent {...props} />
     </>
