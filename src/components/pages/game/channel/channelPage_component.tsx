@@ -19,6 +19,7 @@ import {
 import { nanoid } from 'nanoid';
 import Layout from 'Layouts';
 import StyledChannelPage, { StyledChannelPageItem } from './channelPage_styled';
+import { Button } from 'Atoms';
 
 const ChannelPageComponent: React.FC<ChannelPageProps> = (
   props,
@@ -29,6 +30,14 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
       <Layout.Container>
         <StyledChannelPage>
           <h1>📃 채널 목록</h1>
+          <div className="btn_wrapper">
+            <Button backColor="black" onClick={() => {}}>
+              전적
+            </Button>
+            <Button backColor="primary" onClick={() => {}}>
+              방 생성
+            </Button>
+          </div>
           <ul>
             {props?.channelList?.map((item: ChannelBoxPropsTypeTest) => (
               <StyledChannelPageItem key={nanoid()}>

@@ -24,6 +24,12 @@ const Template: Story<EditInputProps> = (args: EditInputProps) => (
     <div style={{ width: '250px' }}>
       <span className="info">Default</span>
       <EditInputComponent {...args} />
+
+      <span className="info">Max Text</span>
+      <EditInputComponent {...args} maxText={10} />
+
+      <span className="info">Disabled</span>
+      <EditInputComponent {...args} isDisabled={true} />
     </div>
   </StoriesLayout>
 );

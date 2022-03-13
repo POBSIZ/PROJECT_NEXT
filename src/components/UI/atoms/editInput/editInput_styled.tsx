@@ -31,15 +31,17 @@ export const StyledEditInputWrapper = styled.div.attrs((props) => ({}))`
     const font_badge_small = Theme.font.$font_badge_small;
     return css`
       width: 100%;
+      height: 60px;
 
       .input_wrapper {
         .icon {
           float: right;
           font-size: 14px;
           right: 5px;
-          bottom: calc(45px / 2 + 7px);
+          bottom: 30px;
           color: ${color_base_gray};
           cursor: pointer;
+          outline: none;
         }
 
         ${StyledEditInput}:focus {
@@ -57,7 +59,7 @@ export const StyledEditInputWrapper = styled.div.attrs((props) => ({}))`
         width: 100%;
         text-align: right;
         padding-right: 5px;
-        margin-top: 5px;
+        margin-top: 4px;
         color: ${color_base_gray};
         ${font_badge_small};
       }

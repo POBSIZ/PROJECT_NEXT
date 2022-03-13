@@ -13,6 +13,7 @@ export interface InputParamsType {
     | 'current-password'
     | 'new-password'
     | 'email'
+    | 'number'
     | string;
   name: string;
   required?: boolean;
