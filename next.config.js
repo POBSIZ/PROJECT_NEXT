@@ -22,7 +22,7 @@ module.exports = withImages({
     return [
       {
         source: '/api/:path*',
-        destination: `http://172.30.1.56:8080/api/:path*`,
+        destination: `http://172.30.1.11:8080/api/:path*`,
       },
     ];
   },
