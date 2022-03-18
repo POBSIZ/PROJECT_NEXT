@@ -1,4 +1,7 @@
-import React, { CSSProperties, ReactNode } from 'react';
+import React, { CSSProperties, ReactNode, useEffect, Fragment } from 'react';
+
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 type Animation = {
   children: ReactNode;
@@ -31,21 +34,22 @@ type Animation = {
     | `flip-down`;
   delay?: number;
   duration?: number;
-  style?: CSSProperties;
 };
 
 const AosWrapper: React.FC<Animation> = (
-  { animation, delay, duration, style }: Animation,
-  children,
+  props,
+  { animation, delay, duration, children }: Animation,
 ) => {
+  useEffect(() => {
+    AOS.init();
+  });
   return (
     <div
       data-aos={animation}
       data-aos-delay={delay}
       data-aos-duration={duration}
-      style={style}
     >
-      {children}
+      {props.children}
     </div>
   );
 };

@@ -1,4 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  ReactNode,
+  ReactFragment,
+  MouseEvent,
+} from 'react';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import Actions from 'Actions/index';
 import axios from 'axios';
@@ -6,16 +13,16 @@ import { useCookies } from 'react-cookie';
 import ModalComponent from './modal_component';
 
 export interface ModalParamsType {
-  children: string;
-  title: string;
+  children: ReactNode | ReactFragment;
+  isShow?: boolean;
   width: string;
-  height: string;
-  backColor: 'primary' | 'gradient' | 'black';
+  backColor: 'primary' | 'gradient' | 'black' | 'white';
+  handleShow: (event: MouseEvent) => {} | void;
 }
 
 const Modal: React.FC<ModalParamsType> = (
   props,
-  { width, title, height, backColor }: ModalParamsType,
+  { children, isShow, backColor, width, handleShow }: ModalParamsType,
 ) => {
   return (
     <>

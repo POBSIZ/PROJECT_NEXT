@@ -9,27 +9,19 @@ import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
 import {} from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
-import StyledModal from './modal_styled';
-import Button from 'Atoms/button';
 
-const ModalComponent: React.FC<any> = (props) => {
-  const [showModal, setShowModal] = useState(true);
-  const onCloseButton = useCallback(() => {
-    setShowModal((prev) => !prev);
-  }, [showModal]);
+import StyledModal, { StyledModalContent } from './modal_styled';
+import { ModalParamsType } from '.';
+import { AosWrapper } from 'Hoc';
+
+const ModalComponent: React.FC<ModalParamsType> = (props: ModalParamsType) => {
   return (
     <>
-      {showModal ? (
-        <StyledModal {...props}>
-          <h4>{props.title}</h4>
-          <p>{props.children}</p>
-          <div>
-            <button onClick={onCloseButton}>Close</button>
-          </div>
+      <AosWrapper animation="zoom-in">
+        <StyledModal {...props} onClick={(e) => props.handleShow(e)}>
+          <StyledModalContent {...props}>{props.children}</StyledModalContent>
         </StyledModal>
-      ) : (
-        <button onClick={onCloseButton}>Open</button>
-      )}
+      </AosWrapper>
     </>
   );
 };
