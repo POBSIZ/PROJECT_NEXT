@@ -6,9 +6,7 @@ import * as StompJs from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 import { useRouter } from 'next/router';
 
-<<<<<<< HEAD
 import { Chart } from 'Hoc';
-=======
 import HighStock from 'highcharts/highstock';
 import Highcharts, { Color, ColorString } from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
@@ -31,7 +29,6 @@ interface ChartOption {
   colors?: ColorString[];
   series: Series[];
 }
->>>>>>> 36b725122e558ce168300775b2e96b68e47fea5f
 
 const GameReadyPage: NextPage<any> = (props) => {
   const router = useRouter();
