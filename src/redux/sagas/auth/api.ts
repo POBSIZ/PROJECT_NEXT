@@ -10,7 +10,7 @@ import {
 export const apiLogin = async ({ username, password }: LoginParamType) => {
   const res = await axios({
     method: 'POST',
-    url: 'v1/auth/login/',
+    url: 'v1/auth/login',
     data: {
       username: username,
       password: password,

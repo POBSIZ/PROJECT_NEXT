@@ -5,16 +5,15 @@ import axios from 'axios';
 
 import { ChannelPage } from 'UIpages';
 
-const NextChannelPage: NextPage<any> = (props, { data }) => {
-  // const [Data, setData] = useState([]);
-  // useEffect(() => {
-  //   axios
-  //     .get('http://172.30.1.36:8000/api/v1/investment/channel')
-  //     .then((res) => {
-  //       setData(res.data[0].channels);
-  //     });
-  // }, []);
-
+const NextChannelPage: NextPage<any> = (props) => {
+  const [Data, setData] = useState([]);
+  useEffect(() => {
+    axios
+      .get('http://172.30.1.53:8000/api/v1/investment/channel')
+      .then((res) => {
+        setData(res.data[0].channels);
+      });
+  }, []);
   return (
     <>
       <Head>
