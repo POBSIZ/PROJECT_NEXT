@@ -5,16 +5,9 @@ const withImages = require('next-images');
 
 module.exports = withImages({
   images: {
-    disableStaticImages: true
+    disableStaticImages: true,
   },
-  webpack: (config, {
-    buildId,
-    dev,
-    isServer,
-    defaultLoaders,
-    webpack
-  }) => {
-
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
@@ -24,5 +17,13 @@ module.exports = withImages({
     };
 
     return config;
-  }
-})
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: `http://172.30.1.11:8080/api/:path*`,
+      },
+    ];
+  },
+});

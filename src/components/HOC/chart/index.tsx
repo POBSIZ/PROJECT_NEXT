@@ -6,8 +6,12 @@ import { useCookies } from 'react-cookie';
 
 import ChartComponent from './chart_component';
 
+interface Chart {
+  title: string;
+}
+
 const Chart: React.FC<any> = (props, {}) => {
-  return(
+  return (
     <>
       <ChartComponent {...props} />
     </>
