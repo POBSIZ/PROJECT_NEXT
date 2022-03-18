@@ -10,16 +10,15 @@ const StyledProfile = styled.div.attrs((props) => ({}))<ProfilePropsType>`
       width: 100%;
       height: 70px;
       padding: 10px;
-      box-shadow: 0 4px 10px rgb(30, 30, 30, 10%);
+      box-shadow: 0 4px 10px rgb(30, 30, 30, 14%);
       border-radius: ${borderRadius || 16}px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       flex-direction: row;
-      gap: 5px;
+      gap: 10px;
       cursor: pointer;
       transition: 0.2s;
-      will-change: box-shadow;
 
       .avatar {
         background-color: #1e1e1e33;
@@ -28,6 +27,9 @@ const StyledProfile = styled.div.attrs((props) => ({}))<ProfilePropsType>`
         border-radius: 64px;
       }
       .information {
+        display: flex;
+        flex-flow: column;
+        gap: 4px;
         .UserName {
           font-size: 16px;
           font-weight: 500;

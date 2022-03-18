@@ -9,6 +9,7 @@ import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
 import {} from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
+import { useRouter } from 'next/router';
 
 import Molecules, { ChannelBox } from 'Molecules';
 import { ChannelPageProps } from '.';
@@ -25,6 +26,7 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
   props,
   {}: ChannelPageProps,
 ) => {
+  const router = useRouter();
   return (
     <>
       <Layout.Container>
@@ -34,7 +36,12 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
             <Button backColor="black" onClick={() => {}}>
               전적
             </Button>
-            <Button backColor="primary" onClick={() => {}}>
+            <Button
+              backColor="primary"
+              onClick={() => {
+                router.push('/game/investing/create');
+              }}
+            >
               방 생성
             </Button>
           </div>

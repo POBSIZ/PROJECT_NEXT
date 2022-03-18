@@ -40,7 +40,7 @@ const Name: NextPage<any> = ({}) => {
             paddingTop: '100px',
           }}
         >
-          {/* <Chart /> */}
+          <Chart />
         </div>
       </BlockChangePage>
     </>

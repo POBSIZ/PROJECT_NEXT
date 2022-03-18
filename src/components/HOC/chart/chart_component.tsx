@@ -47,31 +47,34 @@ const ChartComponent: React.FC<any> = ({}) => {
     });
   };
 
-  const asyncRequest = useCallback(async () => {
-    let tempSeries: any = Object.assign([], options.series);
+  const asyncRequest = useCallback(() => {
+    let tempSeries: any[] = [...new Set(options.series)];
+    console.log(tempSeries);
 
-    const dataSet = await tempSeries.map((item) => {
-      const randNum = Math.floor(
-        Math.random() * Math.floor(Math.random() * 1000),
-      );
-      const itemData = Object.assign({}, item);
-      const currDate = new Date().getTime();
-      itemData.data.push([currDate, randNum]);
-      return itemData;
+    const randNum = Math.floor(
+      Math.random() * Math.floor(Math.random() * 1000),
+    );
+    const currDate = new Date().getTime();
+
+    tempSeries.forEach((item) => {
+      item.data.push([currDate, randNum]);
+      console.log(item);
     });
+
+    console.log(tempSeries[0].data);
+
     setOptions({
-      ...initialOptions,
-      series: dataSet,
+      title: { text: 'Test' },
+      series: tempSeries,
     });
-  }, []);
+  }, [options]);
 
   useEffect(() => {
-    // getInitData();
-    setInterval(function () {
-      asyncRequest();
-    }, 1000);
+    getInitData();
+    const intervalFunc = setInterval(asyncRequest, 3000);
     return () => {
       setOptions(initialOptions);
+      clearInterval(intervalFunc);
     };
   }, []);
 

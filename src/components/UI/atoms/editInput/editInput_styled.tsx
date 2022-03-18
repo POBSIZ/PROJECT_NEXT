@@ -35,10 +35,10 @@ export const StyledEditInputWrapper = styled.div.attrs((props) => ({}))`
 
       .input_wrapper {
         .icon {
+          position: absolute !important;
           float: right;
           font-size: 14px;
-          right: 5px;
-          bottom: 30px;
+          transform: translateY(16px) translateX(-24px);
           color: ${color_base_gray};
           cursor: pointer;
           outline: none;
@@ -54,7 +54,7 @@ export const StyledEditInputWrapper = styled.div.attrs((props) => ({}))`
       }
 
       .text_count {
-        position: absolute !important;
+        /* position: absolute !important; */
         display: block;
         width: 100%;
         text-align: right;

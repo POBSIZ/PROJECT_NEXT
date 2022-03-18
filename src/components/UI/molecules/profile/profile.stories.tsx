@@ -14,7 +14,7 @@ export default {
 const Template: Story<ProfilePropsType> = (args) => (
   <StoriesLayout title="Molecules/profile">
     <div style={{ width: '220px' }}>
-      <ProfileComponent {...args} radius={4} />
+      <ProfileComponent {...args} />
     </div>
   </StoriesLayout>
 );
