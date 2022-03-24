@@ -1,28 +1,39 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
-import { ChannelBoxPropsType } from 'Molecules/channelBox/channelBox_types';
+import { ChannelBoxPropsTypeTest } from 'Molecules/channelBox/channelBox_types';
 
-const dummyData = (): ChannelBoxPropsType[] => {
-  let _list: ChannelBoxPropsType[] = [];
+const dummyData = (): ChannelBoxPropsTypeTest[] => {
+  let _list: ChannelBoxPropsTypeTest[] = [];
   for (let index = 0; index < 100; index++) {
     _list.push({
-      is_private: true,
-      title: `Title ${index}`,
-      time: '12:30 ~ 13:30',
-      point: index,
-      curr_user: index,
-      max_user: index * 2,
-      info: `Nasdaq-${index} Random`,
-      creator: 'John Doe',
-      link: `${index}`,
+      id: `${index}`,
+      channelNum: index,
+      channelName: `Title ${index}`,
+      entryFee: index,
+      users: [...Array(index)],
+      pointPsum: index,
+      hostId: index,
+      limitOfParticipants: index,
     });
+    // _list.push({
+    //   is_private: true,
+    //   title: `Title ${index}`,
+    //   time: '12:30 ~ 13:30',
+    //   point: index,
+    //   curr_user: index,
+    //   max_user: index * 2,
+    //   info: `Nasdaq-${index} Random`,
+    //   creator: 'John Doe',
+    //   link: `${index}`,
+    // });
   }
   return _list;
 };
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<ChannelBoxPropsType[]>,
+  res: NextApiResponse<ChannelBoxPropsTypeTest[]>,
 ) {
-  res.status(200).json(dummyData());
+  const resData = await dummyData();
+  res.status(200).json(resData);
 }

@@ -6,6 +6,7 @@ import * as StompJs from '@stomp/stompjs';
 import SockJS from 'sockjs-client';
 import { useRouter } from 'next/router';
 
+import { Chart } from 'Hoc';
 import HighStock from 'highcharts/highstock';
 import Highcharts, { Color, ColorString } from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';

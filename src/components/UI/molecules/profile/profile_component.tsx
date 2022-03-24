@@ -14,6 +14,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
 import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 import StyledProfile from './profile_styled';
 import { ProfilePropsType } from './profile_types';
@@ -30,19 +31,19 @@ const ProfileComponent: React.FC<ProfilePropsType> = (
           <div className="UserName">{props.UserName}</div>
           <div className="task">
             <FontAwesomeIcon
-              icon={faBookReader}
+              icon={faBookReader as IconProp}
               style={{ marginRight: '2px' }}
             />
             {props.task}
           </div>
           <div className="game_information">
             <FontAwesomeIcon
-              icon={faCoins}
+              icon={faCoins as IconProp}
               style={{ marginRight: '2px', color: '#3182F6' }}
             />
             {props.coins}
             <FontAwesomeIcon
-              icon={faFlag}
+              icon={faFlag as IconProp}
               style={{
                 marginLeft: '10px',
                 marginRight: '2px',
@@ -51,7 +52,7 @@ const ProfileComponent: React.FC<ProfilePropsType> = (
             />
             {props.flags}
             <FontAwesomeIcon
-              icon={faHeart}
+              icon={faHeart as IconProp}
               style={{
                 marginLeft: '10px',
                 marginRight: '2px',

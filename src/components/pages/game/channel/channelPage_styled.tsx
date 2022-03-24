@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { GlobalStyleType } from 'StyleVars';
+import StyledButton from 'Atoms/button/button_styled';
 
 export const StyledChannelPageItem = styled.li.attrs((props) => ({}))`
   ${(props) => {
@@ -7,7 +8,9 @@ export const StyledChannelPageItem = styled.li.attrs((props) => ({}))`
     const TabletMaxWidth = Theme.media.$tablet_max_width;
     const MobileMaxWidth = Theme.media.$mobile_max_width;
     return css`
+      display: inline-block;
       width: calc(100% / 3 - 20px);
+      margin: 10px;
 
       @media screen and (max-width: ${TabletMaxWidth}) {
         width: calc(100% / 2 - 20px);
@@ -29,16 +32,22 @@ const StyledChannelPage = styled.div.attrs((props) => ({}))`
       margin: 30px 0 100px;
       h1 {
         ${font_title_medium}
-        margin: 40px 0;
+        margin-top: 40px;
+        margin-bottom: 20px;
         padding-bottom: 20px;
         border-bottom: 2px solid ${color_base_line};
       }
 
-      ul {
+      .btn_wrapper {
+        margin-bottom: 20px;
         display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: space-between;
+        ${StyledButton}:first-child {
+          margin-right: 20px;
+        }
+      }
+
+      ul {
+        width: 100%;
       }
     `;
   }};

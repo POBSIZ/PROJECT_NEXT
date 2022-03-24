@@ -12,6 +12,7 @@ const Header: React.FC<any> = (props) => {
   const auth = useSelector((store: RootStateOrAny) => store.authReducer);
   const nav_list = [
     { url: '/game/investing', text: '모의 투자 게임' },
+    { url: '/game/investing/create', text: '모의 투자 게임[채널 생성]' },
     { url: '/game/investing/test', text: '모의 투자 게임[TEST]' },
   ];
 

@@ -16,7 +16,8 @@ const Layout: React.FC<any> = ({ children }) => {
   const auth = useSelector((store: RootStateOrAny) => store.authReducer);
 
   // axios.defaults.baseURL = 'https://buscp.org/api/';
-  axios.defaults.baseURL = 'http://172.30.1.53:8000/api/';
+  axios.defaults.baseURL = 'http://localhost:3000/';
+  
   axios.defaults.withCredentials = true;
   axios.defaults.headers.common['Authorization'] = `JWT ${auth?.accessToken}`;
   // axios.defaults.headers.common['X-CSRFToken'] = cookies[0].csrftoken;
@@ -26,7 +27,7 @@ const Layout: React.FC<any> = ({ children }) => {
   };
 
   useEffect(() => {
-    router.events.on('routeChangeStart', handleRouteChange);
+    // router.events.on('routeChangeStart', handleRouteChange);
     return () => {};
   }, []);
 

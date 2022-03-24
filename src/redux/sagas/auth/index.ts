@@ -33,6 +33,12 @@ function* LoginSaga(action: ReturnType<typeof LoginAsync.request>) {
     console.log(error);
     yield put(LoginAsync.failure(error));
     yield put(InitProfile.call(INIT_PROFILE));
+    yield put(
+      pushToastAsync.request({
+        status: 'error',
+        message: `로그인에 실패했습니다.`,
+      }),
+    );
   }
 }
 
