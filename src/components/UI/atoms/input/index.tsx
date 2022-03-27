@@ -14,6 +14,8 @@ export interface InputParamsType {
     | 'new-password'
     | 'email'
     | string;
+  value: string | number;
+  onChange: (e: React.EventHandler<any>) => void;
   name: string;
   required?: boolean;
   disabled?: boolean;
@@ -22,7 +24,17 @@ export interface InputParamsType {
 
 const Input: React.FC<InputParamsType> = (
   props,
-  { className, placeholder, type, name, required, disabled, isFail }: InputParamsType,
+  {
+    className,
+    value,
+    onChange,
+    placeholder,
+    type,
+    name,
+    required,
+    disabled,
+    isFail,
+  }: InputParamsType,
 ) => {
   return (
     <>

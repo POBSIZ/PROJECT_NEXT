@@ -6,6 +6,7 @@ import { useCookies } from 'react-cookie';
 import ModalComponent from './modal_component';
 
 export interface ModalParamsType {
+  visible: boolean;
   children: string;
   title: string;
   width: string;
@@ -15,7 +16,7 @@ export interface ModalParamsType {
 
 const Modal: React.FC<ModalParamsType> = (
   props,
-  { width, title, height, backColor }: ModalParamsType,
+  { visible, width, title, height, backColor }: ModalParamsType,
 ) => {
   return (
     <>

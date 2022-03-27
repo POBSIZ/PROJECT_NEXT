@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Meta, Story } from '@storybook/react';
-import ModalComponent from './modal_component';
+import ModalComponent, {
+  ModalHeaderLayout,
+  ModalContentLayout,
+} from './modal_component';
 import StoriesLayout from 'StoriesLayout';
 
 export default {
@@ -21,27 +24,23 @@ const Template: Story<any> = (args) => (
   <StoriesLayout title="Atoms/Modal">
     <div style={{ width: args.width }}>
       <span className="info">Primary</span>
-      <ModalComponent
-        children={args.children}
-        backColor={args.color}
-        {...args}
-      />
+      <ModalComponent visible={args.isVisible} height={'50%'} width={'50%'}>
+        <ModalHeaderLayout title={'Modal Title'} onClick={() => {}} />
+        <ModalContentLayout></ModalContentLayout>
+      </ModalComponent>
 
       <span className="info">Gradient</span>
-      <ModalComponent
-        children={args.children}
-        title="Modal Title"
-        height={args.height}
-        backColor="gradient"
-      />
+
+      <ModalComponent visible={args.isVisible} height={'50%'} width={'50%'}>
+        <ModalHeaderLayout title={'Modal Title'} onClick={() => {}} />
+        <ModalContentLayout backgroundColor="gradient"></ModalContentLayout>
+      </ModalComponent>
 
       <span className="info">Black</span>
-      <ModalComponent
-        children={args.children}
-        title="Modal Title"
-        height={args.height}
-        backColor="black"
-      />
+      <ModalComponent visible={args.isVisible} height={'50%'} width={'50%'}>
+        <ModalHeaderLayout title={'Modal Title'} onClick={() => {}} />
+        <ModalContentLayout backgroundColor="black"></ModalContentLayout>
+      </ModalComponent>
     </div>
   </StoriesLayout>
 );
@@ -50,6 +49,7 @@ export const Default = Template.bind({});
 Default.parameters = {};
 Default.args = {
   children: 'test',
+  isVisible: false,
   title: 'Modal Title',
   backColor: 'primary',
   width: '400px',
