@@ -19,12 +19,12 @@ const SocketClient = ({
 }: ClientWrapperProps) => {
   let client;
   if (typeof WebSocket !== 'function') {
-    const socket = new SockJS('http://172.30.1.11:8080/ws-stomp');
+    const socket = new SockJS('http://172.30.1.32:8080/ws-stomp');
     client = Stomp.over(socket);
   } else {
     client = new Client({
-      brokerURL: 'ws://172.30.1.11:8080/ws-stomp',
-      webSocketFactory: () => new SockJS('http://172.30.1.11:8080/ws-stomp'),
+      brokerURL: 'ws://172.30.1.32:8080/ws-stomp',
+      webSocketFactory: () => new SockJS('http://172.30.1.32:8080/ws-stomp'),
       connectHeaders: {},
       debug: function (str: string) {
         console.dir(str);

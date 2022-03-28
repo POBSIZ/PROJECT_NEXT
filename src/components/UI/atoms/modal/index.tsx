@@ -13,8 +13,9 @@ import { useCookies } from 'react-cookie';
 import ModalComponent from './modal_component';
 
 export interface ModalParamsType {
-  children: ReactNode | ReactFragment;
-  isShow?: boolean;
+  visible: boolean;
+  children: string;
+  title: string;
   width: string;
   backColor: 'primary' | 'gradient' | 'black' | 'white';
   handleShow: (event: MouseEvent) => {} | void;
@@ -22,7 +23,7 @@ export interface ModalParamsType {
 
 const Modal: React.FC<ModalParamsType> = (
   props,
-  { children, isShow, backColor, width, handleShow }: ModalParamsType,
+  { visible, width, title, height, backColor }: ModalParamsType,
 ) => {
   return (
     <>

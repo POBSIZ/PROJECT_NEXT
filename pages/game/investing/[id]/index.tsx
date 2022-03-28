@@ -1,14 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
 import { NextPage } from 'next';
 import * as StompJs from '@stomp/stompjs';
-import SockJS from 'sockjs-client';
 import { useRouter } from 'next/router';
 
 import { Chart } from 'Hoc';
 import HighStock from 'highcharts/highstock';
-import Highcharts, { Color, ColorString } from 'highcharts';
+import Highcharts, { color, Color, ColorString } from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 
 import Layout from 'Layouts';
@@ -30,93 +29,150 @@ interface ChartOption {
   series: Series[];
 }
 
+const colorMap: ColorString[] = [
+  '#f2632c',
+  '#f37f36',
+  '#fbc252',
+  '#f9f44f',
+  '#8cefab',
+  '#7caee1',
+  '#9a82c0',
+];
+
 const GameReadyPage: NextPage<any> = (props) => {
   const router = useRouter();
   const client = useRef<any>({});
-  const [users, setUsers] = useState({});
-  const initialOptions: ChartOption = {
-    title: { text: 'Test' },
-    colors: ['#7bb4ec'],
-    series: [
-      {
-        type: 'line',
-        name: 'Samsung',
-        data: [],
-      },
-    ],
-  };
-  const [preLoadData, setPreLoadData] = useState<any[]>([]);
-  const [count, setCount] = useState<number>(0);
-  const [loadState, setLoadState] = useState<boolean>(false);
+  const [currentUser, setCurrentUser] = useState<any>({});
+  const [users, setUsers] = useState<any>({});
+  const [initialOptions, setInitialOptions] = useState<ChartOption>({
+    title: { text: '모의 투자 게임' },
+    colors: [],
+    series: [],
+  });
   const [chartType, setChartType] = useState<'candlestick' | 'line'>('line');
   const [options, setOptions] = useState<ChartOption>(initialOptions);
 
+  const subscribe = useCallback(
+    (user: any) => {
+      client.current.subscribe(`/sub/game/channel/${props.id}`, (res) => {
+        // 여기서 데이터 오는 것들을 받을 수 있음.
+        const result = JSON.parse(
+          Buffer.from(res._binaryBody, 'base64').toString(),
+        );
+        if (result.type === 'RENEWAL') {
+          setUsers(result.users);
+        } else if (result.type === 'INIT') {
+          const colors: ColorString[] = [];
+          const series: Series[] = [];
+          for (let i = 0; i < result.companyIds.length; i++) {
+            colors.push(colorMap[i]);
+            series.push({
+              type: chartType,
+              name: result.companyIds[i].toString(),
+              data: [],
+            });
+          }
+          setInitialOptions({
+            title: { text: '모의 투자 게임' },
+            colors,
+            series,
+          });
+          setOptions({
+            title: { text: '모의 투자 게임' },
+            colors,
+            series,
+          });
+        } else if (result.type === 'STOCK') {
+          // 데이터 업데이트
+          for (let i = 0; i < result.stockInfoMessageList.length; i++) {
+            const item = result.stockInfoMessageList[i];
+            console.log('options', options);
+            console.log('initialOptions', initialOptions);
+            if (options.series.length > 0) {
+              if (chartType === 'line') {
+                updateChart([item.close], item.companyId);
+              } else {
+                updateChart(
+                  [item.date, item.open, item.hight, item.low, item.close],
+                  item.companyId,
+                );
+              }
+            }
+          }
+        } else if (result.type === 'CLOSE') {
+        } else if (result.type === 'NOTICE') {
+        }
+      });
+      client.current.publish({
+        destination: `/pub/game/channel`,
+        body: JSON.stringify({
+          type: 'ENTER',
+          channelId: props.id,
+          senderId: user.userId,
+          senderName: user.userName,
+        }),
+      });
+    },
+    [options, initialOptions],
+  );
+
+  const connect = useCallback(
+    (user: any) => {
+      client.current = new StompJs.Client({
+        brokerURL: 'ws://172.30.1.32:8080/ws-stomp', // 웹소켓 서버로 직접 접속
+        connectHeaders: {
+          'auth-token': 'spring-chat-auth-token',
+        },
+        debug: function (str) {
+          // console.log(str);
+        },
+        reconnectDelay: 5000,
+        heartbeatIncoming: 4000,
+        heartbeatOutgoing: 4000,
+        onConnect: () => {
+          subscribe(user);
+        },
+      });
+      client.current.activate();
+    },
+    [options, initialOptions],
+  );
+
   const disconnect = () => {
+    client.current.publish({
+      destination: `/pub/game/channel`,
+      body: JSON.stringify({
+        type: 'EXIT',
+        channelId: props.id,
+        senderId: currentUser.userId,
+        senderName: currentUser.userName,
+      }),
+    });
     client.current.deactivate();
   };
 
-  const subscribe = () => {
-    client.current.subscribe(`/sub/game/channel/${props.id}`, (res) => {
-      // 여기서 데이터 오는 것들을 받을 수 있음.
-      const result = JSON.parse(
-        Buffer.from(res._binaryBody, 'base64').toString(),
-      );
-      if (result.type === 'RENEWAL') {
-        setUsers(result.users);
-      } else if (result.type === 'DATA') {
-        console.log(result);
-      }
-    });
-    client.current.publish({
-      destination: `/pub/game/message`,
-      body: JSON.stringify({
-        type: 'ENTER',
-        channelId: props.id,
-        senderId: 2,
-        senderName: 'Test',
-      }),
-    });
-  };
-
-  const connect = () => {
-    client.current = new StompJs.Client({
-      brokerURL: 'ws://172.30.1.11:8080/ws-stomp', // 웹소켓 서버로 직접 접속
-      // webSocketFactory: () => new SockJS('http://172.30.1.11:8080/ws-stomp'), // proxy를 통한 접속
-      connectHeaders: {
-        'auth-token': 'spring-chat-auth-token',
-      },
-      debug: function (str) {
-        console.log(str);
-      },
-      reconnectDelay: 5000,
-      heartbeatIncoming: 4000,
-      heartbeatOutgoing: 4000,
-      onConnect: () => {
-        subscribe();
-      },
-      onStompError: (frame) => {
-        // console.error(frame);
-      },
-    });
-
-    client.current.activate();
-  };
-
   // 차트 내용 업데이트
-  const updateChart = async (inputData) => {
-    const tempSeries: Series[] = Object.assign([], options.series);
-
-    const dataSet = await tempSeries.map((item: Series) => {
-      const itemData: any = item.data;
-      itemData.push(inputData);
-      item.data = [...new Set(itemData)];
-      return item;
-    });
-    setOptions({
-      ...initialOptions,
-      series: dataSet,
-    });
-  };
+  const updateChart = useCallback(
+    async (inputData, inputName) => {
+      const dataSet = await options.series.map((item: Series) => {
+        if (item.name === inputName.toString()) {
+          const itemData: any = item.data;
+          itemData.push(inputData);
+          item.data = [...new Set(itemData)];
+          item.type = chartType;
+          return item;
+        } else {
+          item.type = chartType;
+          return item;
+        }
+      });
+      setOptions({
+        ...initialOptions,
+        series: dataSet,
+      });
+    },
+    [options],
+  );
 
   // 차트 모양 변경
   async function changeLineType() {
@@ -144,66 +200,24 @@ const GameReadyPage: NextPage<any> = (props) => {
     }
   }
 
-  function sleep(ms: number) {
-    return new Promise((r) => setTimeout(r, ms));
-  }
-
-  // 데이터 요청(depressed)
-  function requestData() {
-    return new Promise((resolve) => {
-      const loadData: any = [];
-      for (let i = 0; i < 30; i++) {
-        const randNum = Math.floor(
-          Math.random() * Math.floor(Math.random() * 10000),
-        );
-        const currDate = new Date().getTime() - i * 1000;
-        loadData.push([
-          currDate,
-          randNum,
-          randNum + 15,
-          randNum - 15,
-          randNum + 4,
-        ]);
-      }
-      setPreLoadData(preLoadData.concat(loadData));
-      resolve(preLoadData.concat(loadData));
-    });
-  }
-
-  useEffect(() => {
-    // console.log(count);
-  }, [count]);
-
-  async function asyncUpdateChart() {
-    for (let i = 0; i < 30; i++) {
-      const randNum = Math.floor(
-        Math.random() * Math.floor(Math.random() * 10000),
-      );
-      const currDate = new Date().getTime() - i * 1000;
-      updateChart([currDate, randNum, randNum + 15, randNum - 15, randNum + 4]);
-      await sleep(1000);
-      setCount((count) => count + 1);
-    }
-  }
-
-  useEffect(() => {
-    if (loadState) {
-      asyncUpdateChart();
-      setLoadState(false);
-    }
-  }, [loadState]);
-
   useEffect(() => {
     axios
       .post(
-        `http://172.30.1.53:8000/api/v1/investment/channel/${props.id}`,
+        `http://172.30.1.32:8000/api/v1/investment/channel/${props.id}`,
         {},
         { withCredentials: true },
       )
       .then((res) => {
         if (res.status === 200) {
           if (res.data[0].type === 'SUCCESS') {
-            connect();
+            setCurrentUser({
+              userId: res.data[0].userId,
+              userName: res.data[0].userName,
+            });
+            connect({
+              userId: res.data[0].userId,
+              userName: res.data[0].userName,
+            });
           } else {
             router.back();
           }
@@ -227,12 +241,12 @@ const GameReadyPage: NextPage<any> = (props) => {
         <button
           onClick={async () => {
             client.current.publish({
-              destination: `/pub/game/start`,
+              destination: `/pub/game/channel`,
               body: JSON.stringify({
-                type: 'ENTER',
+                type: 'READY',
                 channelId: props.id,
-                senderId: 2,
-                senderName: 'Test',
+                senderId: currentUser.userId,
+                senderName: currentUser.userName,
               }),
             });
           }}
