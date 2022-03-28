@@ -23,10 +23,10 @@ const StyledSelect = styled.select.attrs((props) => ({
         ? '#2ECC71'
         : props.isWarning === true
         ? '#F1C40F'
-        : '';
+        : colorLineBlack;
 
     return css`
-      color: ${colorLineBlack};
+      color: ${colorBaseBlack};
       width: 100%;
       height: 45px;
       font-size: 16px;

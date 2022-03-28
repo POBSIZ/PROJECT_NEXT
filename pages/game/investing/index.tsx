@@ -17,11 +17,20 @@ const NextChannelPage: NextPage<any> = (props) => {
   return (
     <>
       <Head>
-        <title>PROJECT|채널 목록</title>
+        <title>PROJECT | 채널 목록</title>
       </Head>
-      <ChannelPage channelList={Data} />
+      <ChannelPage channelList={props.data} />
     </>
   );
+};
+
+NextChannelPage.getInitialProps = async () => {
+  // const { data } = await axios.get('api/list/channel');
+  // const { data } = await axios.get('http://localhost:3000/api/list/channel/');
+  const { data } = await axios.get('http://localhost:8888/api/list/channel/');
+  return {
+    data,
+  };
 };
 
 export default NextChannelPage;

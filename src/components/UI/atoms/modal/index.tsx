@@ -1,4 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  ReactNode,
+  ReactFragment,
+  MouseEvent,
+} from 'react';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import Actions from 'Actions/index';
 import axios from 'axios';
@@ -10,8 +17,8 @@ export interface ModalParamsType {
   children: string;
   title: string;
   width: string;
-  height: string;
-  backColor: 'primary' | 'gradient' | 'black';
+  backColor: 'primary' | 'gradient' | 'black' | 'white';
+  handleShow: (event: MouseEvent) => {} | void;
 }
 
 const Modal: React.FC<ModalParamsType> = (

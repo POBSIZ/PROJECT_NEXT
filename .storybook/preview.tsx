@@ -3,9 +3,9 @@ import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 
 import GlobalStyle from '../styles/global_styles';
-import '../styles/globals.css';
-
 import * as NextImage from 'next/image';
+
+import '../styles/globals.css';
 
 const OriginalNextImage = NextImage.default;
 
@@ -33,7 +33,7 @@ export const decorators = [
           type="text/css"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
         />
-        <link rel="stylesheet" href="../styles/global.css" />
+        <link rel="stylesheet" href="/global.css" />
       </Head>
       <Story />
     </ThemeProvider>

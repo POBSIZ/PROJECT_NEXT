@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
+import { useCookies } from 'react-cookie';
+import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
+import {} from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
+import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
+import { useRouter } from 'next/router';
+
 import { ChannelBox } from 'Molecules';
 import { ChannelPageProps } from '.';
 import { ChannelBoxPropsTypeTest } from 'Molecules/channelBox/channelBox_types';
@@ -23,12 +30,14 @@ const styles = {
     flex-direciton: row;
   `,
 };
+import { Button } from 'Atoms';
 
 const ChannelPageComponent: React.FC<ChannelPageProps> = (
   props,
   {}: ChannelPageProps,
 ) => {
   const router = useRouter();
+
   const [isOpenCreateChannelModal, setIsOpenCreateChannelModal] =
     useState<boolean>(false);
   const [channelName, setChannelName] = useState<string>('');
@@ -58,6 +67,7 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
     <>
       <Layout.Container>
         <StyledChannelPage>
+
           <h1>📃 게임 목록</h1>
 
           <ButtonComponent
@@ -80,7 +90,7 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
                   point={item.entryFee}
                   curr_user={Object.keys(item.users).length}
                   max_user={item.limitOfParticipants}
-                  info={'-'}
+                  info={'Lorem Ipsum Dolor Sit'}
                   creator={item.hostId}
                   link={item.id}
                 />

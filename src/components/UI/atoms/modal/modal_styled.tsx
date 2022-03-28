@@ -1,51 +1,47 @@
 import styled, { css } from 'styled-components';
 import { ModalParamsType } from '.';
+import { GlobalStyleType } from 'StyleVars';
 
-const StyledModal = styled.header.attrs((props) => ({}))<ModalParamsType>`
+export const StyledModalContent = styled.div.attrs(
+  (props) => ({}),
+)<ModalParamsType>`
   ${(props) => {
-    const propsWidth = props.width;
-    const propsHeight = props.height;
-    const colorBaseBlack = props.theme.palette.$color_base_black;
-    const colorKeyGradient = props.theme.palette.$color_key_gradient;
-    const colorKeyBlue = props.theme.palette.$color_key_blue;
-    const colorKeyRed = props.theme.palette.$color_key_red;
-
+    const Theme: GlobalStyleType = props.theme;
+    const colorBaseBlack = Theme.palette.$color_base_black;
+    const colorKeyGradient = Theme.palette.$color_key_gradient;
+    const colorKeyBlue = Theme.palette.$color_key_blue;
     const bgColor =
       props.backColor === 'primary'
-        ? `background-color: ${colorKeyBlue};`
+        ? `background-color: ${colorKeyBlue}; color: #fff;`
         : props.backColor === 'gradient'
-        ? `background-image: ${colorKeyGradient};`
+        ? `background-image: ${colorKeyGradient}; color: #fff;`
         : props.backColor === 'black'
-        ? `background-color: ${colorBaseBlack};`
-        : `background-color: ${colorBaseBlack}`;
+        ? `background-color: ${colorBaseBlack}; color: #fff;`
+        : props.backColor === 'white'
+        ? `background-color: #fff;`
+        : `background-color: #fff;`;
     return css`
-      width: ${propsWidth};
-      height: ${propsHeight};
+      width: ${props.width};
+      padding: 2%;
+      ${bgColor}
+    `;
+  }}
+`;
+
+const StyledModal = styled.div.attrs((props) => ({}))<ModalParamsType>`
+  ${(props) => {
+    const Theme: GlobalStyleType = props.theme;
+    const color_base_line = Theme.palette.$color_base_line;
+    const isShow = props.isShow ? 'display: flex;' : 'display: none;';
+    return css`
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: #fff;
-      ${bgColor};
-      overflow: hidden;
-      h4,
-      p,
-      div {
-        padding: 10px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-      }
-      p {
-        flex: 1;
-      }
-      div {
-        text-align: right;
-        button {
-          border: none;
-          padding: 3px 6px;
-          background: transparent;
-          color: inherit;
-          cursor: pointer;
-        }
-      }
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background-color: ${color_base_line};
+      ${isShow}
     `;
   }};
 `;

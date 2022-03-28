@@ -5,6 +5,7 @@ import { NextPage } from 'next';
 import * as StompJs from '@stomp/stompjs';
 import { useRouter } from 'next/router';
 
+import { Chart } from 'Hoc';
 import HighStock from 'highcharts/highstock';
 import Highcharts, { color, Color, ColorString } from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';

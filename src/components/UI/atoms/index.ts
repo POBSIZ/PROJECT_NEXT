@@ -7,6 +7,7 @@ import Select from './select';
 import Badge from './badge';
 import ProgressBar from './progressBar';
 import Like from './like';
+import EditInput from './editInput';
 
 const Atoms = {
   Test,
@@ -18,6 +19,7 @@ const Atoms = {
   Badge,
   ProgressBar,
   Like,
+  EditInput,
 };
 
 export default Atoms;
@@ -32,4 +34,5 @@ export {
   Badge,
   ProgressBar,
   Like,
+  EditInput,
 };

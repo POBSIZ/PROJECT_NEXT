@@ -13,6 +13,7 @@ export interface InputParamsType {
     | 'current-password'
     | 'new-password'
     | 'email'
+    | 'number'
     | string;
   value: string | number;
   onChange: (e: React.EventHandler<any>) => void;

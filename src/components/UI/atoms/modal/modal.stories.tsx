@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, MouseEvent } from 'react';
 import { Meta, Story } from '@storybook/react';
 import ModalComponent, {
   ModalHeaderLayout,
@@ -9,12 +9,11 @@ import StoriesLayout from 'StoriesLayout';
 export default {
   title: 'Atoms/Modal',
   component: ModalComponent,
-  parameters: {},
   argTypes: {
     backColor: {
       control: {
         type: 'select',
-        options: ['primary', 'gradient', 'black'],
+        options: ['white', 'primary', 'gradient', 'black'],
       },
     },
   },
@@ -46,7 +45,6 @@ const Template: Story<any> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.parameters = {};
 Default.args = {
   children: 'test',
   isVisible: false,
