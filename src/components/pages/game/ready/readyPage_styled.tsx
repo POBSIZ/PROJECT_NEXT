@@ -1,76 +1,28 @@
 import styled, { css } from 'styled-components';
 import { GlobalStyleType } from 'StyleVars';
+import StyledButton from 'Atoms/button/button_styled';
 
-export const Ranking = styled.article.attrs((props) => ({}))`
+export const UserList = styled.ul.attrs((props) => ({}))`
   ${(props) => {
     const Theme: GlobalStyleType = props.theme;
-    const $color_base_line = Theme.palette.$color_base_line;
+    const $color_base_gray = Theme.palette.$color_base_gray;
+    const $font_title_regular = Theme.font.$font_title_regular;
     const $mobile_max_width = Theme.media.$mobile_max_width;
-    const $tablet_max_width = Theme.media.$tablet_max_width;
-    const $font_title_medium = Theme.font.$font_title_medium;
 
     return css`
-      h1 {
-        ${$font_title_medium};
-        margin-bottom: 20px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid ${$color_base_line};
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+
+      li {
+        width: 30%;
       }
 
-      ul {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-
+      @media screen and (max-width: ${$mobile_max_width}) {
+        gap: 10px;
         li {
-          width: fit-content;
-        }
-      }
-
-      @media screen and (max-width: ${$tablet_max_width}) {
-        ul {
-          gap: 10px;
-
-          li {
-            width: fit-content;
-          }
-        }
-      }
-
-      @media screen and (max-width: ${$mobile_max_width}) {
-        ul {
-          gap: 10px;
-
-          li {
-            width: 100%;
-          }
-        }
-      }
-    `;
-  }};
-`;
-
-export const PurchaseForm = styled.form.attrs((props) => ({}))`
-  ${(props) => {
-    const Theme: GlobalStyleType = props.theme;
-    const $mobile_max_width = Theme.media.$mobile_max_width;
-
-    return css`
-      margin-top: 20px;
-      margin-bottom: 40px;
-
-      section {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 20px;
-      }
-
-      @media screen and (max-width: ${$mobile_max_width}) {
-        section {
-          gap: 10px;
-          flex-wrap: wrap;
-          flex-flow: column;
+          width: 100%;
         }
       }
     `;
@@ -124,7 +76,7 @@ export const GameInfo = styled.div.attrs((props) => ({}))`
   }};
 `;
 
-const StyledPlayPage = styled.div.attrs((props) => ({}))`
+const StyledReadyPage = styled.div.attrs((props) => ({}))`
   ${(props) => {
     const Theme: GlobalStyleType = props.theme;
     const color_base_line = Theme.palette.$color_base_line;
@@ -133,6 +85,7 @@ const StyledPlayPage = styled.div.attrs((props) => ({}))`
 
     return css`
       margin: 30px 0 100px;
+
       .page-title {
         ${font_title_medium}
         margin-bottom: 20px;
@@ -140,14 +93,38 @@ const StyledPlayPage = styled.div.attrs((props) => ({}))`
         border-bottom: 2px solid ${color_base_line};
       }
 
+      .page-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        ${StyledButton} {
+          width: 250px;
+        }
+      }
+
       @media screen and (max-width: ${$mobile_max_width}) {
         margin: 20px 0 100px;
+
         .page-title {
           margin-bottom: 0px;
+        }
+
+        .page-head {
+          display: flex;
+          flex-flow: column;
+          flex-wrap: wrap;
+          justify-content: flex-start;
+          align-items: flex-start;
+
+          ${StyledButton} {
+            width: 100%;
+          }
         }
       }
     `;
   }};
 `;
 
-export default StyledPlayPage;
+export default StyledReadyPage;

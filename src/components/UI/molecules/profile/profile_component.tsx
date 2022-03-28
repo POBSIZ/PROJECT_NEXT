@@ -31,42 +31,44 @@ const ProfileComponent: React.FC<ProfilePropsType> = (
   return (
     <>
       <StyledProfile {...props}>
-        <div className="avatar"></div>
-        <div className="information">
-          <div className="UserName">{props.UserName}</div>
-          <div className="task">
-            <FontAwesomeIcon
-              icon={faBookReader as IconProp}
-              style={{ marginRight: '2px' }}
-            />
-            {props.task}
+        <section>
+          <div className="avatar"></div>
+          <div className="information">
+            <div className="UserName">{props.UserName}</div>
+            <div className="task">
+              <FontAwesomeIcon
+                icon={faBookReader as IconProp}
+                style={{ marginRight: '2px' }}
+              />
+              {props.task}
+            </div>
+            <div className="game_information">
+              <FontAwesomeIcon
+                icon={faCoins as IconProp}
+                style={{ marginRight: '2px', color: '#3182F6' }}
+              />
+              {props.coins}
+              <FontAwesomeIcon
+                icon={faFlag as IconProp}
+                style={{
+                  marginLeft: '10px',
+                  marginRight: '2px',
+                  color: '#2ECC71',
+                }}
+              />
+              {props.flags}
+              <FontAwesomeIcon
+                icon={faHeart as IconProp}
+                style={{
+                  marginLeft: '10px',
+                  marginRight: '2px',
+                  color: '#E74C3C',
+                }}
+              />
+              {props.hearts}
+            </div>
           </div>
-          <div className="game_information">
-            <FontAwesomeIcon
-              icon={faCoins as IconProp}
-              style={{ marginRight: '2px', color: '#3182F6' }}
-            />
-            {props.coins}
-            <FontAwesomeIcon
-              icon={faFlag as IconProp}
-              style={{
-                marginLeft: '10px',
-                marginRight: '2px',
-                color: '#2ECC71',
-              }}
-            />
-            {props.flags}
-            <FontAwesomeIcon
-              icon={faHeart as IconProp}
-              style={{
-                marginLeft: '10px',
-                marginRight: '2px',
-                color: '#E74C3C',
-              }}
-            />
-            {props.hearts}
-          </div>
-        </div>
+        </section>
         {props.rank ? (
           <StyledProfileRank>{props.rank}</StyledProfileRank>
         ) : null}

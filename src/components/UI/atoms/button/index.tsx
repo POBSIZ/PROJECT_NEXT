@@ -5,6 +5,7 @@ import styled, { css } from 'styled-components';
 export interface ButtonParamsType {
   children: string;
   backColor: 'primary' | 'gradient' | 'black' | 'red';
+  isDisabled?: boolean;
   onClick?: () => {} | void;
 }
 

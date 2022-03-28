@@ -71,35 +71,43 @@ const StyledProfile = styled.div.attrs((props) => ({}))<ProfilePropsType>`
       border: 1px solid ${borderColor};
       border-radius: ${borderRadius || 16}px;
       display: flex;
-      justify-content: flex-start;
+      justify-content: space-between;
       align-items: center;
       flex-direction: row;
       gap: 10px;
       cursor: pointer;
       transition: 0.2s;
 
-      .avatar {
-        background-color: #1e1e1e33;
-        width: 50px;
-        height: 50px;
-        border-radius: 64px;
-      }
-      .information {
+      section {
         display: flex;
-        flex-flow: column;
-        gap: 4px;
-        .UserName {
-          font-size: 16px;
-          font-weight: 500;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        gap: 10px;
+
+        .avatar {
+          background-color: #1e1e1e33;
+          width: 50px;
+          height: 50px;
+          border-radius: 64px;
         }
-        .task {
-          font-size: 10px;
-          font-weight: 400;
-          color: #1e1e1e80;
-        }
-        .game_information {
-          font-size: 12px;
-          font-weight: 400;
+        .information {
+          display: flex;
+          flex-flow: column;
+          gap: 4px;
+          .UserName {
+            font-size: 16px;
+            font-weight: 500;
+          }
+          .task {
+            font-size: 10px;
+            font-weight: 400;
+            color: #1e1e1e80;
+          }
+          .game_information {
+            font-size: 12px;
+            font-weight: 400;
+          }
         }
       }
     `;

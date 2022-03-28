@@ -4,12 +4,12 @@ export interface UsersType {
   coins: number;
   flags: number;
   hearts: number;
-  rank: number;
-  isReady?: boolean;
+  rank?: number;
+  isReady: boolean;
   isMe: boolean;
 }
 
-export interface PlayPagePropsType {
+export interface ReadyPagePropsType {
   title: string;
   info: string;
   creator: string;

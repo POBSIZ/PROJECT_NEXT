@@ -2,35 +2,35 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Meta, Story } from '@storybook/react';
 import StoriesLayout from 'StoriesLayout';
 
-import PlayPageComponent from './playPage_component';
-import { PlayPagePropsType, UsersType } from './playPage_types';
+import ReadyPageComponent from './readyPage_component';
+import { ReadyPagePropsType, UsersType } from './readyPage_types';
 
 export default {
-  title: 'Pages/PlayPage',
-  component: PlayPageComponent,
+  title: 'Pages/ReadyPage',
+  component: ReadyPageComponent,
   parameters: {},
 } as Meta;
 
-const Template: Story<PlayPagePropsType> = (args) => (
+const Template: Story<ReadyPagePropsType> = (args) => (
   <StoriesLayout title="Pages/PlayPage">
     <div style={{ width: '100%' }}>
-      <PlayPageComponent {...args} />
+      <ReadyPageComponent {...args} />
     </div>
   </StoriesLayout>
 );
 
 const userListFn = () => {
   let users: UsersType[] = [];
-  for (let i: number = 0; i < 5; i++) {
+  for (let i: number = 0; i < 10; i++) {
     const _isMe = i === 0 ? true : false;
     users.push({
       userName: `John Doe ${i}`,
       task: `Job ${i}`,
-      coins: 1000 * i,
+      coins: i,
       flags: i,
       hearts: i,
-      rank: i + 1,
       isMe: _isMe,
+      isReady: _isMe,
     });
   }
   return users;

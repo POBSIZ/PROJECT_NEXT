@@ -1,28 +1,23 @@
-import React, { useEffect, useState, useRef } from 'react';
-import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
-import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
-import Actions from 'Actions/index';
-import axios from 'axios';
-import { useCookies } from 'react-cookie';
-import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
+import React, { useState } from 'react';
 import { faUser, faCoins, faUsers } from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
-import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { nanoid } from 'nanoid';
 
 import Layout from 'Layouts';
-import { PlayPagePropsType } from './playPage_types';
-import StyledPlayPage, { GameInfo, PurchaseForm } from './playPage_styled';
+import { PlayPagePropsType, UsersType } from './playPage_types';
+import StyledPlayPage, {
+  GameInfo,
+  PurchaseForm,
+  Ranking,
+} from './playPage_styled';
 import { Chart } from 'Hoc';
 import { Select, Input, Button } from 'Atoms';
+import { Profile } from 'Molecules';
 
 const PlayPageComponent: React.FC<PlayPagePropsType> = (props, {}) => {
   const [count, setCount] = useState(null);
   const handleCount = (e) => {
-    // e.target.value <= 0 || e.target.value == undefined || e.target.value == null
-    //   ? setCount((_count) => _count)
-    //   :
     setCount(e.target.value);
   };
 
@@ -52,7 +47,7 @@ const PlayPageComponent: React.FC<PlayPagePropsType> = (props, {}) => {
               <li>
                 <FontAwesomeIcon className="icon" icon={faUsers as IconProp} />
                 <span>
-                  {props.curr_user}/{props.max_user}
+                  {props.currUser}/{props.maxUser}
                 </span>
               </li>
             </ul>
@@ -60,7 +55,7 @@ const PlayPageComponent: React.FC<PlayPagePropsType> = (props, {}) => {
           <Chart />
           <PurchaseForm onSubmit={handleSubmit}>
             <section>
-              <Select placeholder="종목" item={['Samsung', 'Apple', 'Tesla']} />
+              <Select placeholder="종목" item={props.stocksList} />
               <Select
                 placeholder="차트 종류"
                 item={['캔들 차트', '종가 차트']}
@@ -79,6 +74,26 @@ const PlayPageComponent: React.FC<PlayPagePropsType> = (props, {}) => {
               <Button backColor="red">매도</Button>
             </section>
           </PurchaseForm>
+          <Ranking>
+            <h1>순위</h1>
+            <ul>
+              {props.users?.map((item: UsersType) => {
+                return (
+                  <li key={nanoid()}>
+                    <Profile
+                      UserName={item.userName}
+                      task={item.task}
+                      coins={item.coins}
+                      flags={item.flags}
+                      hearts={item.hearts}
+                      rank={item.rank}
+                      isMe={item.isMe}
+                    />
+                  </li>
+                );
+              })}
+            </ul>
+          </Ranking>
         </StyledPlayPage>
       </Layout.Container>
     </>
