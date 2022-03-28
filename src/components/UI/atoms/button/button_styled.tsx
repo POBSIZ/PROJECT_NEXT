@@ -16,7 +16,9 @@ const StyledButton = styled.button.attrs((props) => ({}))<ButtonParamsType>`
         ? `background-image: ${colorKeyGradient};`
         : props.backColor === 'black'
         ? `background-color: ${colorBaseBlack};`
-        : `background-color: ${colorBaseBlack}`;
+        : props.backColor === 'red'
+        ? `background-color: ${colorKeyRed};`
+        : `background-color: ${colorBaseBlack};`;
 
     return css`
       background: ${colorBaseBlack};

@@ -10,14 +10,19 @@ import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이�
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 
 import StyledStoriesLayout from './layout_styled';
+import { StoriesLayoutParamsType } from 'StoriesLayout';
 
-const StoiesLayoutComponent: React.FC<any> = (props) => {
+const StoiesLayoutComponent: React.FC<StoriesLayoutParamsType> = (
+  props: StoriesLayoutParamsType,
+) => {
   return (
     <>
       <StyledStoriesLayout>
         <h1>{props.title}</h1>
         <hr />
-        <div className="component">{props.children}</div>
+        <div className="component" style={props.style}> 
+          {props.children}
+        </div>
       </StyledStoriesLayout>
     </>
   );

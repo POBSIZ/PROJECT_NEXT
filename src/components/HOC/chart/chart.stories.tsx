@@ -5,7 +5,7 @@ import StoriesLayout from 'StoriesLayout';
 import ChartComponent from './chart_component';
 
 export default {
-  title: 'ChartComponent',
+  title: 'HOC/ChartComponent',
   component: ChartComponent,
   parameters: {},
 } as Meta;

@@ -9,6 +9,20 @@ export default {
   title: 'Molecules/Profile',
   component: ProfileComponent,
   parameters: {},
+  argTypes: {
+    isReady: {
+      control: {
+        type: 'select',
+        options: [undefined, false, true],
+      },
+    },
+    rank: {
+      control: {
+        type: 'select',
+        options: [undefined, 1, 2, 3, 4],
+      },
+    },
+  },
 } as Meta;
 
 const Template: Story<ProfilePropsType> = (args) => (
@@ -27,4 +41,5 @@ Default.args = {
   coins: 20,
   flags: 10,
   hearts: 5,
+  isMe: true,
 };

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components';
 
 export interface ButtonParamsType {
   children: string;
-  backColor: 'primary' | 'gradient' | 'black';
+  backColor: 'primary' | 'gradient' | 'black' | 'red';
   onClick?: () => {} | void;
 }
 

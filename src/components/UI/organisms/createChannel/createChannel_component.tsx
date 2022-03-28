@@ -18,6 +18,16 @@ import StyledCreateChannel, {
 import Atoms, { EditInput, Select, Input, Button } from 'Atoms';
 
 const CreateChannelComponent: React.FC<any> = ({}) => {
+  const [entryFee, setEntryFee] = useState(0);
+  const handleEntryFee = (e) => {
+    setEntryFee(e.target.value);
+  };
+
+  const [maxUser, setMaxUser] = useState(0);
+  const handleMaxUser = (e) => {
+    setMaxUser(e.target.value);
+  };
+
   return (
     <>
       <StyledCreateChannel
@@ -37,19 +47,13 @@ const CreateChannelComponent: React.FC<any> = ({}) => {
         </StyledCreateChannelInput>
 
         <StyledCreateChannelInput>
-          <h3>플레이 시간</h3>
-          <Select
-            placeholder="플레이 시간을 선택해 주세요."
-            item={['10분', '20분', '30분']}
-          />
-        </StyledCreateChannelInput>
-
-        <StyledCreateChannelInput>
           <h3>참가 포인트</h3>
           <Input
             type="number"
             placeholder="참가 포인트를 입력해주세요."
             name="entryFee"
+            value={entryFee}
+            onChange={handleEntryFee}
           />
         </StyledCreateChannelInput>
 
@@ -59,6 +63,8 @@ const CreateChannelComponent: React.FC<any> = ({}) => {
             type="number"
             placeholder="최대 참가 인원을 입력해주세요."
             name="maxUser"
+            value={maxUser}
+            onChange={handleMaxUser}
           />
         </StyledCreateChannelInput>
 

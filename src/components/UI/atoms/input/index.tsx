@@ -13,14 +13,14 @@ export interface InputParamsType {
     | 'current-password'
     | 'new-password'
     | 'email'
-    | 'number'
-    | string;
+    | 'number';
   value: string | number;
-  onChange: (e: React.EventHandler<any>) => void;
-  name: string;
+  onChange: (e: any) => void;
+  name?: string;
   required?: boolean;
   disabled?: boolean;
   isFail?: boolean;
+  step?: number;
 }
 
 const Input: React.FC<InputParamsType> = (

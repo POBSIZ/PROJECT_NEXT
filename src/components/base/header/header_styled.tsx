@@ -12,7 +12,8 @@ const StyledHeader = styled.header.attrs((props) => {})`
     const headerMobileHeight = props.theme.size.$header_mobile_line_height;
     return css`
       position: fixed;
-      z-index: 100;
+      z-index: 5;
+      top: 0;
       width: 100%;
       height: ${headerDesktopHeight};
       padding: 0 5%;

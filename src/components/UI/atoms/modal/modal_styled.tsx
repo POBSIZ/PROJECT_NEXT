@@ -1,49 +1,111 @@
-import styled, { css } from 'styled-components';
-import { ModalParamsType } from '.';
+import styled, { css, StyleSheetManager } from 'styled-components';
 import { GlobalStyleType } from 'StyleVars';
 
-export const StyledModalContent = styled.div.attrs(
-  (props) => ({}),
-)<ModalParamsType>`
-  ${(props) => {
-    const Theme: GlobalStyleType = props.theme;
-    const colorBaseBlack = Theme.palette.$color_base_black;
-    const colorKeyGradient = Theme.palette.$color_key_gradient;
-    const colorKeyBlue = Theme.palette.$color_key_blue;
-    const bgColor =
-      props.backColor === 'primary'
-        ? `background-color: ${colorKeyBlue}; color: #fff;`
-        : props.backColor === 'gradient'
-        ? `background-image: ${colorKeyGradient}; color: #fff;`
-        : props.backColor === 'black'
-        ? `background-color: ${colorBaseBlack}; color: #fff;`
-        : props.backColor === 'white'
-        ? `background-color: #fff;`
-        : `background-color: #fff;`;
-    return css`
-      width: ${props.width};
-      padding: 2%;
-      ${bgColor}
-    `;
-  }}
-`;
+import { animated } from 'react-spring';
 
-const StyledModal = styled.div.attrs((props) => ({}))<ModalParamsType>`
-  ${(props) => {
-    const Theme: GlobalStyleType = props.theme;
-    const color_base_line = Theme.palette.$color_base_line;
-    const isShow = props.isShow ? 'display: flex;' : 'display: none;';
-    return css`
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: fixed;
-      width: 100%;
-      height: 100vh;
-      background-color: ${color_base_line};
-      ${isShow}
-    `;
-  }};
-`;
+import { ModalContentLayoutType, ModalWrapperType } from './modal_types';
 
-export default StyledModal;
+const StyledModals = {
+  ModalDarkLayout: styled(animated.div)`
+    z-index: 9;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.56);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `,
+  ModalLayout: styled(animated.div)`
+    z-index: 10;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  `,
+  ModalHeaderLayout: styled.div`
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    padding: 18px;
+    background-color: white;
+    border-bottom: solid 1px #ebebf6;
+  `,
+  ModalHeader: styled.div`
+    flex: 9;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    font-size: 20px;
+    font-weight: 500;
+    text-align: left;
+    color: #040433;
+  `,
+  ModalCloseLayout: styled.div`
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  `,
+  ModalCloseButton: styled.button`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    background-color: white;
+    font-size: 20px;
+    color: #757295;
+  `,
+  ModalContentLayout: styled.div.attrs((props) => ({}))<ModalContentLayoutType>`
+    ${(props) => {
+      const $height = props.paddingLess
+        ? 'calc(100% - 72px)'
+        : 'calc(100% - 108px)';
+      const $flex_direction = props.row ? 'row' : 'column';
+      const $background_color =
+        props.backgroundColor === undefined ? '#f6f6fa' : props.backgroundColor;
+      const $padding = props.paddingLess ? '0px' : '18px';
+
+      return css`
+        height: ${$height};
+        max-height: 540px;
+        display: flex;
+        flex-direction: ${$flex_direction};
+        background-color: ${$background_color};
+        padding: ${$padding};
+        overflow-y: auto;
+        overflow-x: hidden;
+      `;
+    }}
+  `,
+  ModalWrapper: styled.div.attrs((props) => ({}))<ModalWrapperType>`
+    ${(props) => {
+      return css`
+        width: ${props.width};
+        height: ${props.height};
+        background-color: white;
+        z-index: 11;
+        border: solid 1px #ebebf6;
+        box-sizing: border-box;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px 8px rgba(0, 0, 0, 0.056);
+        border-radius: 8px;
+        overflow: hidden;
+      `;
+    }}
+  `,
+};
+
+export default StyledModals;

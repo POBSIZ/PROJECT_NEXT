@@ -6,11 +6,12 @@ import axios from 'axios';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import { useCookies } from 'react-cookie';
 
-import StyledMain from './main_styled';
 import Bases, { Header, Footer } from 'Bases';
 import Molecules, { Toast } from 'Molecules';
 
-const Layout: React.FC<any> = ({ children }) => {
+import StyledMain from './styledMain';
+
+const ProviderLayout: React.FC<any> = ({ children }) => {
   const router = useRouter();
   const cookies = useCookies();
   const auth = useSelector((store: RootStateOrAny) => store.authReducer);
@@ -18,7 +19,7 @@ const Layout: React.FC<any> = ({ children }) => {
   // axios.defaults.baseURL = 'https://buscp.org/api/';
   // axios.defaults.baseURL = 'http://172.30.1.32:8000/api/';
   axios.defaults.baseURL = 'http://localhost:3000/';
-  
+
   axios.defaults.withCredentials = true;
   axios.defaults.headers.common['Authorization'] = `JWT ${auth?.accessToken}`;
   // axios.defaults.headers.common['X-CSRFToken'] = cookies[0].csrftoken;
@@ -42,4 +43,4 @@ const Layout: React.FC<any> = ({ children }) => {
   );
 };
 
-export default Layout;
+export default ProviderLayout;
