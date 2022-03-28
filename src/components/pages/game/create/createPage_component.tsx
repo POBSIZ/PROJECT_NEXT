@@ -11,7 +11,7 @@ import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이�
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
-import CreateChannel from 'Organisms/createChannel';
+import { CreateChannel } from 'Organisms';
 import Layout from 'Layouts';
 
 const CreatePageComponent: React.FC<any> = ({}) => {

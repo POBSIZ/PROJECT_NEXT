@@ -2,7 +2,9 @@ import styled, { css } from 'styled-components';
 
 import { ButtonParamsType } from '.';
 
-const StyledButton = styled.button.attrs((props) => ({}))<ButtonParamsType>`
+const StyledButton = styled.button.attrs((props: ButtonParamsType) => ({
+  disabled: props.isDisabled,
+}))<ButtonParamsType>`
   ${(props) => {
     const colorBaseBlack = props.theme.palette.$color_base_black;
     const colorKeyGradient = props.theme.palette.$color_key_gradient;
@@ -16,7 +18,9 @@ const StyledButton = styled.button.attrs((props) => ({}))<ButtonParamsType>`
         ? `background-image: ${colorKeyGradient};`
         : props.backColor === 'black'
         ? `background-color: ${colorBaseBlack};`
-        : `background-color: ${colorBaseBlack}`;
+        : props.backColor === 'red'
+        ? `background-color: ${colorKeyRed};`
+        : `background-color: ${colorBaseBlack};`;
 
     return css`
       background: ${colorBaseBlack};

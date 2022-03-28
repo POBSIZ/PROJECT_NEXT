@@ -2,6 +2,17 @@ import styled, { css } from 'styled-components';
 import { GlobalStyleType } from 'StyleVars';
 import StyledButton from 'Atoms/button/button_styled';
 
+export const BottomNav = styled.div.attrs((props) => ({}))`
+  ${(props) => {
+    const Theme: GlobalStyleType = props.theme;
+    return css`
+      flex-basis: 42px;
+      display: flex;
+      flex-direciton: row;
+    `;
+  }};
+`;
+
 export const StyledChannelPageItem = styled.li.attrs((props) => ({}))`
   ${(props) => {
     const Theme: GlobalStyleType = props.theme;

@@ -70,7 +70,7 @@ const GlobalStyle = {
   },
   media: {
     $tablet_max_width: '1000px',
-    $mobile_max_width: '800px',
+    $mobile_max_width: '750px',
     $min_max_width: '400px',
   },
 };

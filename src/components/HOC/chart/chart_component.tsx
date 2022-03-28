@@ -145,22 +145,20 @@ const ChartComponent: React.FC<any> = ({}) => {
 
   return (
     <>
-      <Layout.Container>
-        <HighchartsReact
-          highcharts={HighStock}
-          constructorType="stockChart"
-          options={options}
-        />
-        <button onClick={changeLineType}>차트 모양 변경</button>
-        <button
-          onClick={async () => {
-            await requestData();
-            setLoadState(true);
-          }}
-        >
-          시작
-        </button>
-      </Layout.Container>
+      <HighchartsReact
+        highcharts={HighStock}
+        constructorType="stockChart"
+        options={options}
+      />
+      {/* <button onClick={changeLineType}>차트 모양 변경</button>
+      <button
+        onClick={async () => {
+          await requestData();
+          setLoadState(true);
+        }}
+      >
+        시작
+      </button> */}
     </>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import Layout from 'src/components/provider';
 import '../styles/globals.css';
 
+import ProviderLayout from 'src/components/provider';
 import GlobalProvider from 'src/components/provider/globalProvider';
 
 const App = ({ Component, pageProps }: AppProps) => {
@@ -21,9 +21,9 @@ const App = ({ Component, pageProps }: AppProps) => {
             href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css"
           />
         </Head>
-        <Layout>
+        <ProviderLayout>
           <Component {...pageProps} />
-        </Layout>
+        </ProviderLayout>
       </GlobalProvider>
     </>
   );

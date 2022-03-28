@@ -1,36 +1,21 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState, SyntheticEvent } from 'react';
 import axios from 'axios';
-
-import { useCookies } from 'react-cookie';
-import {} from '@fortawesome/free-brands-svg-icons'; // 브랜드 아이콘
-import {} from '@fortawesome/free-solid-svg-icons'; // fill 타입 아이콘
-import {} from '@fortawesome/free-regular-svg-icons'; // outline 타입 아이콘
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // HOC
 import { useRouter } from 'next/router';
 
-import { ChannelBox } from 'Molecules';
+import { nanoid } from 'nanoid';
 import { ChannelPageProps } from '.';
 import { ChannelBoxPropsTypeTest } from 'Molecules/channelBox/channelBox_types';
-import { nanoid } from 'nanoid';
 import Layout from 'Layouts';
-import StyledChannelPage, { StyledChannelPageItem } from './channelPage_styled';
+import StyledChannelPage, {
+  StyledChannelPageItem,
+  BottomNav,
+} from './channelPage_styled';
 import Modal, {
   ModalContentLayout,
   ModalHeaderLayout,
-} from 'Atoms/modal/modal_component';
-import InputComponent from 'Atoms/input/input_component';
-import ButtonComponent from 'Atoms/button/button_component';
-import { useRouter } from 'next/router';
-
-const styles = {
-  BottomNav: styled.div`
-    flex-basis: 42px;
-    display: flex;
-    flex-direciton: row;
-  `,
-};
-import { Button } from 'Atoms';
+} from 'Organisms/modal/modal_component';
+import { Input, Button } from 'Atoms';
+import { ChannelBox } from 'Molecules';
 
 const ChannelPageComponent: React.FC<ChannelPageProps> = (
   props,
@@ -67,10 +52,9 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
     <>
       <Layout.Container>
         <StyledChannelPage>
-
           <h1>📃 게임 목록</h1>
 
-          <ButtonComponent
+          <Button
             onClick={() => {
               setChannelName('');
               setChannelLimit(2);
@@ -80,7 +64,7 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
             backColor="gradient"
           >
             채널 생성
-          </ButtonComponent>
+          </Button>
           <ul>
             {props?.channelList?.map((item: ChannelBoxPropsTypeTest) => (
               <StyledChannelPageItem key={nanoid()}>
@@ -90,7 +74,7 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
                   point={item.entryFee}
                   curr_user={Object.keys(item.users).length}
                   max_user={item.limitOfParticipants}
-                  info={'Lorem Ipsum Dolor Sit'}
+                  info="Lorem Ipsum Dolor Sit"
                   creator={item.hostId}
                   link={item.id}
                 />
@@ -107,15 +91,17 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
             }}
           />
           <ModalContentLayout>
-            <InputComponent
+            <Input
+              type="text"
+              name="channelName"
               value={channelName}
               onChange={(e) => {
                 setChannelName(e.target.value);
               }}
-              placeholder={'방제목 입력'}
+              placeholder="방제목 입력"
             />
-            <InputComponent
-              type={'number'}
+            <Input
+              type="number"
               value={channelLimit}
               onChange={(e) => {
                 if (
@@ -127,10 +113,10 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
                 }
               }}
               step={1}
-              placeholder={'입장 인원 제한수'}
+              placeholder="입장 인원 제한수"
             />
-            <InputComponent
-              type={'number'}
+            <Input
+              type="number"
               value={enterFee}
               onChange={(e) => {
                 if (
@@ -141,10 +127,10 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
                 }
               }}
               step={100}
-              placeholder={'게임 입장 포인트'}
+              placeholder="게임 입장 포인트"
             />
-            <styles.BottomNav>
-              <ButtonComponent
+            <BottomNav>
+              <Button
                 onClick={() => {
                   if (channelName !== '') {
                     createChannel();
@@ -152,19 +138,19 @@ const ChannelPageComponent: React.FC<ChannelPageProps> = (
                     console.log('채널 생성 안됨.');
                   }
                 }}
-                backColor={'primary'}
+                backColor="primary"
               >
                 생성
-              </ButtonComponent>
-              <ButtonComponent
+              </Button>
+              <Button
                 onClick={() => {
                   setIsOpenCreateChannelModal(false);
                 }}
                 backColor="black"
               >
                 취소
-              </ButtonComponent>
-            </styles.BottomNav>
+              </Button>
+            </BottomNav>
           </ModalContentLayout>
         </Modal>
       </Layout.Container>

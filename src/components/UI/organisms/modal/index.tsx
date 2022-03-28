@@ -12,19 +12,7 @@ import axios from 'axios';
 import { useCookies } from 'react-cookie';
 import ModalComponent from './modal_component';
 
-export interface ModalParamsType {
-  visible: boolean;
-  children: string;
-  title: string;
-  width: string;
-  backColor: 'primary' | 'gradient' | 'black' | 'white';
-  handleShow: (event: MouseEvent) => {} | void;
-}
-
-const Modal: React.FC<ModalParamsType> = (
-  props,
-  { visible, width, title, height, backColor }: ModalParamsType,
-) => {
+const Modal: React.FC<any> = (props) => {
   return (
     <>
       <ModalComponent {...props}></ModalComponent>
