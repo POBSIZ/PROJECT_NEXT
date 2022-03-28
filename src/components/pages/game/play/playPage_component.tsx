@@ -18,8 +18,11 @@ import { Chart } from 'Hoc';
 import { Select, Input, Button } from 'Atoms';
 
 const PlayPageComponent: React.FC<PlayPagePropsType> = (props, {}) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(null);
   const handleCount = (e) => {
+    // e.target.value <= 0 || e.target.value == undefined || e.target.value == null
+    //   ? setCount((_count) => _count)
+    //   :
     setCount(e.target.value);
   };
 
@@ -70,6 +73,7 @@ const PlayPageComponent: React.FC<PlayPagePropsType> = (props, {}) => {
                 name="count"
                 value={count}
                 onChange={handleCount}
+                min={0}
               />
               <Button backColor="primary">매수</Button>
               <Button backColor="red">매도</Button>

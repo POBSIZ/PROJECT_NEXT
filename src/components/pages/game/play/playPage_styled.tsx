@@ -4,10 +4,7 @@ import { GlobalStyleType } from 'StyleVars';
 export const PurchaseForm = styled.form.attrs((props) => ({}))`
   ${(props) => {
     const Theme: GlobalStyleType = props.theme;
-    const color_base_gray = Theme.palette.$color_base_gray;
-    const color_base_line = Theme.palette.$color_base_line;
-    const font_title_medium = Theme.font.$font_title_medium;
-    const font_title_regular = Theme.font.$font_title_regular;
+    const $mobile_max_width = Theme.media.$mobile_max_width;
 
     return css`
       margin: 20px 0px;
@@ -17,6 +14,12 @@ export const PurchaseForm = styled.form.attrs((props) => ({}))`
         gap: 20px;
         margin-bottom: 20px;
       }
+
+      @media screen and (max-width: ${$mobile_max_width}) {
+        section {
+          gap: 10px;
+        }
+      }
     `;
   }};
 `;
@@ -24,10 +27,9 @@ export const PurchaseForm = styled.form.attrs((props) => ({}))`
 export const GameInfo = styled.div.attrs((props) => ({}))`
   ${(props) => {
     const Theme: GlobalStyleType = props.theme;
-    const color_base_gray = Theme.palette.$color_base_gray;
-    const color_base_line = Theme.palette.$color_base_line;
-    const font_title_medium = Theme.font.$font_title_medium;
-    const font_title_regular = Theme.font.$font_title_regular;
+    const $color_base_gray = Theme.palette.$color_base_gray;
+    const $font_title_regular = Theme.font.$font_title_regular;
+    const $mobile_max_width = Theme.media.$mobile_max_width;
 
     return css`
       display: flex;
@@ -36,7 +38,7 @@ export const GameInfo = styled.div.attrs((props) => ({}))`
       margin-bottom: 20px;
 
       h1 {
-        ${font_title_regular};
+        ${$font_title_regular};
       }
 
       ul {
@@ -49,9 +51,19 @@ export const GameInfo = styled.div.attrs((props) => ({}))`
           justify-content: center;
           align-items: center;
           gap: 5px;
-          color: ${color_base_gray};
+          color: ${$color_base_gray};
           .icon {
             font-size: 14px;
+          }
+        }
+      }
+
+      @media screen and (max-width: ${$mobile_max_width}) {
+        gap: 5px;
+        ul {
+          gap: 10px;
+          li {
+            gap: 5px;
           }
         }
       }

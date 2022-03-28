@@ -4,6 +4,7 @@ import RegisterForm from './registerForm';
 import ListView from './listView';
 import ChannelList from './channelList';
 import CreateChannel from './createChannel';
+import Modal from './modal';
 
 const Organisms = {
   AuthForm,
@@ -12,6 +13,7 @@ const Organisms = {
   ListView,
   ChannelList,
   CreateChannel,
+  Modal,
 };
 
 export default Organisms;
@@ -23,4 +25,5 @@ export {
   ListView,
   ChannelList,
   CreateChannel,
+  Modal,
 };

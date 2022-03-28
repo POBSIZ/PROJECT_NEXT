@@ -13,7 +13,7 @@ import StyledChannelPage, {
 import Modal, {
   ModalContentLayout,
   ModalHeaderLayout,
-} from 'Atoms/modal/modal_component';
+} from 'Organisms/modal/modal_component';
 import { Input, Button } from 'Atoms';
 import { ChannelBox } from 'Molecules';
 

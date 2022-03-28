@@ -24,9 +24,11 @@ const StyledSelect = styled.select.attrs((props) => ({
         : props.isWarning === true
         ? '#F1C40F'
         : colorLineBlack;
+    const bgColor = props.disabled === true ? colorLineBlack : 'transparent';
 
     return css`
       color: ${colorBaseBlack};
+      background-color: ${bgColor};
       width: 100%;
       height: 45px;
       font-size: 16px;
